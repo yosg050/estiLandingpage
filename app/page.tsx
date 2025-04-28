@@ -15,13 +15,6 @@ export default function LandingPage() {
   const [isNearContact, setIsNearContact] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   service: "",
-  //   message: "",
-  // })
 
   // Handle scroll events for back-to-top button, floating WhatsApp, and header background
   useEffect(() => {
@@ -47,6 +40,9 @@ export default function LandingPage() {
         }
       }
     }
+
+    // Call handleScroll immediately when the component mounts
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -78,7 +74,7 @@ export default function LandingPage() {
 
     <main className="min-h-screen bg-white" >
       {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}` } >
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`} >
         <div className="container mx-auto px-6 py-2 flex justify-between items-center relative" style={{ paddingLeft: "5%", paddingRight: "5%" }}>
           {isScrolled && (
             <div className="h-12 md:h-16 w-12 md:w-16 relative">
@@ -98,7 +94,7 @@ export default function LandingPage() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="flex items-center space-x-6"  dir="rtl">
+          <nav className="flex items-center space-x-6" dir="rtl">
             <button
               onClick={scrollToTop}
               className="text-black hover:text-[#FF8800] transition-colors hidden md:block mt-2 ml-6"
@@ -134,7 +130,7 @@ export default function LandingPage() {
                   scrollToTop();
                   setIsMenuOpen(false);
                 }}
-                className="text-black hover:text-[#FF8800] transition-colors py-2"  dir="rtl"
+                className="text-black hover:text-[#FF8800] transition-colors py-2" dir="rtl"
               >
                 בית
               </button>
@@ -162,7 +158,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gray-800/50 relative" style={{ height: "100vh", maxHeight: "-webkit-fill-available" }}  dir="rtl">
+      <section className="bg-gray-800/50 relative" style={{ height: "100vh", maxHeight: "-webkit-fill-available" }} dir="rtl">
         {/* תמונה ברקע */}
         <div className="absolute inset-0 z-0 opacity-30">
           <Image
@@ -191,15 +187,14 @@ export default function LandingPage() {
 
       <Services />
       {/* Contact Section */}
-      <section id="contact" className="py-10 px-4 bg-white" dir="rtl">
+      <section id="contact" className="min-h-screen py-10 px-4 bg-white flex items-center" dir="rtl">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">יצירת קשר</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mr-8 ml-8">
             {/* Contact Information */}
             <div className="flex flex-col justify-center mr-8">
-              {/* <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3> */}
-              <p className="text-gray-600 mb-8 mr-8  ">
+              <p className="text-gray-600 mb-8 mr-8">
                 הגיע הזמן לקחת את העסק שלכם לשלב הבא! <br />צרו קשר עוד היום וגלו איך שירותי המשרד שלנו יקפיצו אתכם קדימה.
               </p>
 
@@ -240,7 +235,6 @@ export default function LandingPage() {
                 </a>
               </div>
             </div>
-
 
             <ContactForm trackEvent={trackEvent} />
           </div>
