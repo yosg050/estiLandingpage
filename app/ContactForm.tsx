@@ -64,7 +64,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
 
   return (
     <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold mb-2">תשאירו פרטים ונחזור אליכם בהקדם</h3>
+      <h3 className="text-xl font-semibold mb-2">תשאירו פרטים ואחזור אליכם בהקדם</h3>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-2">

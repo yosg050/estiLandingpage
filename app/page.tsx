@@ -141,7 +141,7 @@ export default function LandingPage() {
                 }}
                 className="text-black hover:text-[#FF8800] transition-colors py-2"
               >
-                מה אנחנו מציעים
+                מה אני מציעה
               </button>
               <button
                 onClick={() => {
@@ -191,52 +191,55 @@ export default function LandingPage() {
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">יצירת קשר</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mr-8 ml-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8">
             {/* Contact Information */}
-            <div className="flex flex-col justify-center mr-8">
-              <p className="text-gray-600 mb-8 mr-8">
+            <div className="flex flex-col justify-center text-center md:text-right md:mr-8">
+              <p className="text-gray-600 mb-8 mx-auto md:mr-8 max-w-md md:max-w-none">
                 הגיע הזמן לקחת את העסק שלכם לשלב הבא! <br />צרו קשר עוד היום וגלו איך שירותי המשרד שלנו יקפיצו אתכם קדימה.
               </p>
 
               <div className="space-y-6">
                 <a
-                  href="tel:+972532733184"
-                  className="flex items-center text-lg hover:text-[#FF8800] transition-colors"
+                  href="tel:97253309144"
+                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-[#FF8800] transition-colors"
                   onClick={() => trackEvent("phone_click")}
                 >
-                  <div className="w-12 h-12 bg-[#FF8800] rounded-full flex items-center justify-center mr-8 ml-4">
-                    <Phone className="h-6 w-6 text-white " />
+                  <div className="w-12 h-12 bg-[#FF8800] rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
+                    <Phone className="h-6 w-6 text-white" />
                   </div>
-                  <span>053-2733184</span>
+                  <span className="block md:inline">053-3309144</span>
                 </a>
 
                 <a
                   href="https://wa.me/97253309144"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-lg hover:text-[#FF8800] transition-colors"
+                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-[#FF8800] transition-colors"
                   onClick={() => trackEvent("whatsapp_click")}
                 >
-                  <div className="w-12 h-12 bg-[#FF8800] rounded-full flex items-center justify-center mr-8 ml-4">
+                  <div className="w-12 h-12 bg-[#FF8800] rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
                     <FaWhatsapp className="h-6 w-6 text-white" />
                   </div>
-                  <span>WhatsApp</span>
+                  <span className="block md:inline">WhatsApp</span>
                 </a>
 
                 <a
-                  href="mailto:yeg9163@gmail.com"
-                  className="flex items-center text-lg hover:text-[#FF8800] transition-colors"
+                  href="mailto:estigeller1@gmail.com"
+                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-[#FF8800] transition-colors"
                   onClick={() => trackEvent("email_click")}
                 >
-                  <div className="w-12 h-12 bg-[#FF8800] rounded-full flex items-center justify-center mr-8 ml-4">
+                  <div className="w-12 h-12 bg-[#FF8800] rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
-                  <span>yeg9163@gmail.com</span>
+                  <span className="block md:inline">estigeller1@gmail.com</span>
                 </a>
               </div>
             </div>
 
-            <ContactForm trackEvent={trackEvent} />
+            {/* Form component will need similar responsive adjustments */}
+            <div className="mx-auto w-full max-w-md md:max-w-none">
+              <ContactForm trackEvent={trackEvent} />
+            </div>
           </div>
         </div>
       </section>
@@ -250,7 +253,7 @@ export default function LandingPage() {
       {/* Floating WhatsApp Button */}
       {!isNearContact && (
         <a
-          href="https://wa.me/972532733184"
+          href="https://wa.me/97253309144"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-24 left-4 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"

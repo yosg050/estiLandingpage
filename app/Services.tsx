@@ -1,7 +1,7 @@
 export default function Services() {
   return (
       // Services Section - Added min-h-screen to fill viewport height
-      <section id="services" className="min-h-screen py-20 px-4 bg-gray-50 mr-8 ml-8 flex items-center" dir="rtl">
+      <section id="services" className="min-h-screen py-20 px-4 bg-gray-50 md:mr-8 md:ml-8 flex items-center" dir="rtl">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">מה אני מציעה</h2>
 
