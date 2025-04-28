@@ -211,7 +211,7 @@ export default function LandingPage() {
                 </a>
 
                 <a
-                  href="https://wa.me/97253309144"
+                  href="https://wa.me/972533309144"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-[#FF8800] transition-colors"
@@ -253,7 +253,7 @@ export default function LandingPage() {
       {/* Floating WhatsApp Button */}
       {!isNearContact && (
         <a
-          href="https://wa.me/97253309144"
+          href="https://wa.me/972533309144"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-24 left-4 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
