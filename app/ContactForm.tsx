@@ -41,34 +41,34 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    showAlert("תודה שפניתם אלי! אצור איתכם קשר בהקדם."); //test alert
-    // try {
-    //   const response = await fetch("https://formspree.io/f/manonkjq", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
+    // showAlert("תודה שפניתם אלי! אצור איתכם קשר בהקדם."); //test alert
+    try {
+      const response = await fetch("https://formspree.io/f/manonkjq", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    //   if (response.ok) {
-    //     console.log("Form submitted successfully:", formData);
-    //     setFormData({
-    //       name: "",
-    //       email: "",
-    //       phone: "",
-    //       service: "",
-    //       message: "",
-    //     });
-    //     showAlert("תודה רבה! אני כבר על זה – ניצור קשר בקרוב");
-    //   } else {
-    //     console.error("Form submission error");
-    //     showAlert("אירעה שגיאה בשליחת הטופס. נסו שוב.");
-    //   }
-    // } catch (error) {
-    //   console.error("Network error:", error);
-    //   showAlert("שגיאת רשת. נסו שוב מאוחר יותר.");
-    // }
+      if (response.ok) {
+        console.log("Form submitted successfully:", formData);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+        showAlert("תודה רבה! אני כבר על זה – ניצור קשר בקרוב");
+      } else {
+        console.error("Form submission error");
+        showAlert("אירעה שגיאה בשליחת הטופס. נסו שוב.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      showAlert("שגיאת רשת. נסו שוב מאוחר יותר.");
+    }
   };
 
   return (
