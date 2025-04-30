@@ -57,7 +57,7 @@ export default function Services() {
               {/* פס עליון צבעוני */}
               <div className="flex h-2">
                 <div className="w-1/3 bg-black"></div>
-                <div className="w-1/3 bg-[#CF0A0A]"></div>
+                <div className="w-1/3  bg-orange-700"></div>
                 <div className="w-1/3 bg-[#DC5F00]"></div>
               </div>
 

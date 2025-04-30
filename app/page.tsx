@@ -15,7 +15,7 @@ export default function LandingPage() {
   // const [selectedService, setSelectedService] = useState("")
   const [isNearContact, setIsNearContact] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Handle scroll events for back-to-top button, floating WhatsApp, and header background
   useEffect(() => {
@@ -123,8 +123,8 @@ export default function LandingPage() {
               onClick={() => scrollToSection("services")}
               className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
             >
-              מה אני מציעה
-            </button>
+              מה אני מציעה   
+                        </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
@@ -141,35 +141,36 @@ export default function LandingPage() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div ref={menuRef} className="md:hidden bg-white py-4 px-4 shadow-lg">            <div className="flex flex-col space-y-4">
-            <button
-              onClick={() => {
-                scrollToTop();
-                setIsMenuOpen(false);
-              }}
-              className="text-black hover:text-[#DC5F00] transition-colors py-2" dir="rtl"
-            >
-              בית
-            </button>
-            <button
-              onClick={() => {
-                scrollToSection("services");
-                setIsMenuOpen(false);
-              }}
-              className="text-black hover:text-[#DC5F00] transition-colors py-2"
-            >
-              מה אני מציעה
-            </button>
-            <button
-              onClick={() => {
-                scrollToSection("contact");
-                setIsMenuOpen(false);
-              }}
-              className="text-black hover:text-[#DC5F00] transition-colors py-2"
-            >
-              יצירת קשר
-            </button>
-          </div>
+          <div ref={menuRef} className="md:hidden bg-white py-4 px-4 shadow-lg">
+            <div className="flex flex-col space-y-4">
+              <button
+                onClick={() => {
+                  scrollToTop();
+                  setIsMenuOpen(false);
+                }}
+                className="text-black hover:text-[#DC5F00] transition-colors py-2" dir="rtl"
+              >
+                בית
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("services");
+                  setIsMenuOpen(false);
+                }}
+                className="text-black hover:text-[#DC5F00] transition-colors py-2"
+              >
+              מה אני מציעה   
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("contact");
+                  setIsMenuOpen(false);
+                }}
+                className="text-black hover:text-[#DC5F00] transition-colors py-2"
+              >
+                יצירת קשר
+              </button>
+            </div>
           </div>
         )}
       </header>
