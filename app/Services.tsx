@@ -42,11 +42,11 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="min-h-screen py-20 px-4 bg-gray-50 md:mr-8 md:ml-8 flex items-center"
+      className=" scroll-mt-4 min-h-screen py-20 px-4 bg-gray-50 md:mr-8 md:ml-8 flex items-center"
       dir="rtl"
     >
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">מה אני מציעה</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">מה תקבלו?</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (

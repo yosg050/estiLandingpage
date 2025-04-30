@@ -9,6 +9,7 @@ import { FaWhatsapp } from "react-icons/fa6";
 import ContactForm from "./ContactForm"
 import Services from "./Services"
 import HeroSection from "./HeroContent"
+import Solution from "./Solution"
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -120,11 +121,18 @@ export default function LandingPage() {
               בית
             </button>
             <button
+              onClick={() => scrollToSection("solution")}
+              className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
+            >
+              הפתרון
+            </button>
+
+            <button
               onClick={() => scrollToSection("services")}
               className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
             >
-              מה אני מציעה   
-                        </button>
+              מה תקבלו?
+            </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
@@ -154,12 +162,22 @@ export default function LandingPage() {
               </button>
               <button
                 onClick={() => {
-                  scrollToSection("services");
+                  scrollToSection("solution");
                   setIsMenuOpen(false);
                 }}
                 className="text-black hover:text-[#DC5F00] transition-colors py-2"
               >
-              מה אני מציעה   
+                הפתרון
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollToSection("services");
+                  setIsMenuOpen(false);
+                }}
+                className="text-black hover:text-[#DC5F00] transition-colors py-2" dir="rtl"
+              >
+                מה תקבלו?
               </button>
               <button
                 onClick={() => {
@@ -178,10 +196,15 @@ export default function LandingPage() {
       {/* Hero Section */}
       <HeroSection />
 
+      <section id="solution" className=" scroll-mt-8 min-h-screen py-10 px-4 bg-white flex items-center" dir="rtl">
+        <div className="container mx-auto">
+          <Solution />
+        </div>
+      </section>
 
       <Services />
       {/* Contact Section */}
-      <section id="contact" className="min-h-screen py-10 px-4 bg-white flex items-center" dir="rtl">
+      <section id="contact" className=" scroll-mt-10 min-h-screen py-10 px-4 bg-white flex items-center " dir="rtl">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">יצירת קשר</h2>
 

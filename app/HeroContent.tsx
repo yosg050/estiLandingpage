@@ -3,43 +3,25 @@ import Image from "next/image";
 
 const HeroContent = () => (
     <div className="max-w-md md:max-w-2xl text-right text-white space-y-4">
-        <h2 className="text-[clamp(1rem,3vh,2.2rem)] md:text-[clamp(1rem,3vh,3rem)] font-bold mb-4">
-            נמאס לכם להתעסק בבירוקרטיה במקום בעסק או בעשייה?
+        <h2 className="text-[clamp(1rem,4vh,2.2rem)] md:text-[clamp(1rem,4vh,3rem)] font-bold mb-4">
+            נמאס לכם להתעסק בבירוקרטיה במקום בעסק שלך או בעשייה שלך?
         </h2>
-        <p className="text-sm md:text-base leading-relaxed">
+        <p className="text-base md:text-xl leading-loose space-y-4">
+
             <span className="block">
                 חלמתם להקים עסק מצליח או לנהל עמותה עם שליחות – אבל בפועל שוקעים בטלפונים, תיאומים, ניירת ושירות לקוחות?
             </span>
             <span className="block">
-                אתם לא לבד. בעלי עסקים קטנים ומנהלי עמותות רבים מוצאים את עצמם שוקעים בניהול היומיומי,
-                במקום להתמקד במה שהם באמת טובים בו – לקדם את העסק, לשרת את הקהילה ולצמוח.
+                חשבונית לא שודרה, לקוח לא קיבל מענה – ואת בכלל היית בפגישה חשובה?
             </span>
             <span className="block">
-                לפעמים, גם כשכבר רוצים עזרה – העסקת מזכירה במשרה מלאה פשוט לא מתאימה:
-            </span>
-            <span className="block mr-4">
-                <span className="text-red-300">❌</span> העלויות קבועות<br />
-                <span className="text-red-300">❌</span> יש מחויבות לטווח ארוך<br />
-                <span className="text-red-300">❌</span> אין גמישות אמיתית בצרכים
-            </span>
-            <span className="block font-semibold mt-2">
-                בדיוק בשביל זה אני כאן.
-            </span>
-            <span className="block mt-1">
-                היי, אני אסתי גלר, ואחרי ניסיון של למעלה מעשור של ניהול משרדים בעסקים ובעמותות,
-                אני מציעה שירות ניהול משרד מרחוק – שמותאם אישית לצרכים שלכם.
-            </span>
-            <span className="block mr-4">
-                <span className="text-green-300">✔</span> שירות מקצועי, אישי וגמיש<br />
-                <span className="text-green-300">✔</span> תשלום רק לפי צורך – בלי התחייבות למשרה מלאה<br />
-                <span className="text-green-300">✔</span> חיסכון בזמן, כסף והתעסקות
-            </span>
-            <span className="block mt-1">
-                מענה למיילים, תיאום פגישות, גבייה, שירות לקוחות,<br />
-                חידוש הוראות קבע, מילוי טפסים והגשת דוחות
+                היומן מבולגן, הדו"חות נערמים, והטלפון לא מפסיק לצלצל?
             </span>
             <span className="block">
-                אני כאן כדי לשחרר אתכם מכל ההתעסקות הזו – כדי שתוכלו להתמקד בעסק או בשליחות שלכם, ולהעלות אותו שלב.
+                שוב פעם הסתיימה הוראת הקבע של תורם ואתם לא מצליחים לחדש?
+            </span>
+            <span className="block font-semibold text-lg mt-2">
+                כל כך הרבה אדמיניסטרציה ותפעול – וכל כך מעט זמן לנהל את העסק באמת.
             </span>
         </p>
     </div>
