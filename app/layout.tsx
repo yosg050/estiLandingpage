@@ -8,9 +8,10 @@ import { Fredoka } from "next/font/google"
 const fredoka = Fredoka({ subsets: ["latin"], weight: ["400", "700"] })
 
 export const metadata: Metadata = {
-  title: "Office Services - Professional Support for Small Businesses",
+  title: "E.G שירותי משרד ",
   description:
-    "שירותי משרד מקצועיים בשביל העסק שלך",
+    "תן לעסק שלך לעבוד בשבילך"
+  ,
 }
 
 export default function RootLayout({
@@ -33,6 +34,8 @@ export default function RootLayout({
             `,
           }}
         />
+        <link rel="icon" href="/logo2.ico" />
+
       </head>
       {/* <body className={inter.className}> */}
       <body className={fredoka.className}>
