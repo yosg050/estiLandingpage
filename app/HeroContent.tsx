@@ -36,7 +36,7 @@ const HeroSection = () => {
             <div className="flex flex-col md:hidden bg-orange-700 relative min-h-screen">
                 <div className="absolute inset-0 z-0 opacity-30">
                     <Image
-                        src="/logo2.png"
+                        src="/logo.png"
                         alt="Office Services Logo"
                         fill
                         className="object-contain"

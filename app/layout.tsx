@@ -1,10 +1,10 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-// import { Inter } from "next/font/google"
+import { Inter } from "next/font/google"
 import { Fredoka } from "next/font/google"
 
-// const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] })
 const fredoka = Fredoka({ subsets: ["latin"], weight: ["400", "700"] })
 
 export const metadata: Metadata = {
