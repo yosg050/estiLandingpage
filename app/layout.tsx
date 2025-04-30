@@ -10,8 +10,7 @@ const fredoka = Fredoka({ subsets: ["latin"], weight: ["400", "700"] })
 export const metadata: Metadata = {
   title: "E.G שירותי משרד ",
   description:
-    "תן לעסק שלך לעבוד בשבילך"
-  ,
+    "ניהול חכם - הצלחה מובטחת",
 }
 
 export default function RootLayout({
