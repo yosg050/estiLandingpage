@@ -34,15 +34,17 @@ const HeroSection = () => {
 
             {/* מובייל: תצוגה עם לוגו ברקע */}
             <div className="flex flex-col md:hidden bg-orange-700 relative min-h-screen">
-                <div className="absolute inset-0 z-0 opacity-30">
+                <div className="absolute inset-0 z-0 opacity-30 flex items-center justify-center">
                     <Image
                         src="/logo.png"
                         alt="Office Services Logo"
-                        fill
+                        width={200}
+                        height={200}
                         className="object-contain"
                         priority
                     />
                 </div>
+
                 <div className="z-10 flex flex-col items-center justify-center h-full px-4 pt-16 pb-8">
                     <HeroContent />
                 </div>
