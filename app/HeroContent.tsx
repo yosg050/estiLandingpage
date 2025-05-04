@@ -4,21 +4,22 @@ import Image from "next/image";
 const HeroContent = () => (
     <div className="max-w-md md:max-w-2xl text-right text-white space-y-4">
         <h2 className="text-[clamp(1rem,4vh,2.2rem)] md:text-[clamp(1rem,4vh,3rem)] font-bold mb-4">
-            נמאס לכם להתעסק בבירוקרטיה במקום בעסק שלך או בעשייה שלך?
+            נמאס לך להתעסק בבירוקרטיה במקום בעסק שלך?
         </h2>
         <p className="text-base md:text-xl leading-loose space-y-4">
 
-            <span className="block">
-                חלמתם להקים עסק מצליח או לנהל עמותה עם שליחות – אבל בפועל שוקעים בטלפונים, תיאומים, ניירת ושירות לקוחות?
+            <span className="block mr-2">
+                חלמת להקים עסק מצליח או לנהל עמותה עם שליחות אבל בפועל עסוק בטלפונים, תיאומים, ניירת ושירות לקוחות?
             </span>
-            <span className="block">
+            <span className="block mr-2">
                 חשבונית לא שודרה, לקוח לא קיבל מענה – ואת בכלל היית בפגישה חשובה?
             </span>
-            <span className="block">
-                היומן מבולגן, הדו"חות נערמים, והטלפון לא מפסיק לצלצל?
-            </span>
-            <span className="block">
+        
+            <span className="block mr-2">
                 שוב פעם הסתיימה הוראת הקבע של תורם ואתם לא מצליחים לחדש?
+            </span>
+            <span className="block mr-2">
+                היומן מבולגן? הדו"חות נערמים, והטלפון לא מפסיק לצלצל?
             </span>
             <span className="block font-semibold text-lg mt-2">
                 כל כך הרבה אדמיניסטרציה ותפעול – וכל כך מעט זמן לנהל את העסק באמת.
