@@ -116,26 +116,26 @@ export default function LandingPage() {
           <nav className="flex items-center space-x-6" dir="rtl">
             <button
               onClick={scrollToTop}
-              className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2 ml-6"
+              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2 ml-6"
             >
               בית
             </button>
             <button
               onClick={() => scrollToSection("solution")}
-              className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
+              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
             >
               הפתרון
             </button>
 
             <button
               onClick={() => scrollToSection("services")}
-              className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
+              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
             >
               מה תקבלו?
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-black hover:text-[#DC5F00] transition-colors hidden md:block mt-2"
+              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
             >
               יצירת קשר
             </button>
@@ -156,7 +156,7 @@ export default function LandingPage() {
                   scrollToTop();
                   setIsMenuOpen(false);
                 }}
-                className="text-black hover:text-[#DC5F00] transition-colors py-2" dir="rtl"
+                className="text-black hover:text-brand-primary transition-colors py-2" dir="rtl"
               >
                 בית
               </button>
@@ -165,7 +165,7 @@ export default function LandingPage() {
                   scrollToSection("solution");
                   setIsMenuOpen(false);
                 }}
-                className="text-black hover:text-[#DC5F00] transition-colors py-2"
+                className="text-black hover:text-brand-primary  transition-colors py-2"
               >
                 הפתרון
               </button>
@@ -175,7 +175,7 @@ export default function LandingPage() {
                   scrollToSection("services");
                   setIsMenuOpen(false);
                 }}
-                className="text-black hover:text-[#DC5F00] transition-colors py-2" dir="rtl"
+                className="text-black hover:text-brand-primary  transition-colors py-2" dir="rtl"
               >
                 מה תקבלו?
               </button>
@@ -184,7 +184,7 @@ export default function LandingPage() {
                   scrollToSection("contact");
                   setIsMenuOpen(false);
                 }}
-                className="text-black hover:text-[#DC5F00] transition-colors py-2"
+                className="text-black hover:text-brand-primary  transition-colors py-2"
               >
                 יצירת קשר
               </button>
@@ -211,17 +211,18 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8">
             {/* Contact Information */}
             <div className="flex flex-col justify-center text-center md:text-right md:mr-8">
-              <p className=" text-xl font-semibold mb-8 mx-auto md:mr-8 max-w-md md:max-w-none ">
-                הגיע הזמן לקחת את העסק שלכם לשלב הבא! <br />צרו קשר עוד היום וגלו איך שירותי המשרד שלנו יקפיצו אתכם קדימה.
+              <p className="text-xl font-semibold mb-8 mx-auto md:mr-8 max-w-md md:max-w-none">
+                תנו לי לטפל בבירוקרטיה – כדי שאתם תוכלו לטפל באנשים. <br />
+                שירותי ניהול משרד למרפאות – מקצועי, אנושי ומדויק.
               </p>
 
               <div className="space-y-6">
                 <a
                   href="tel:97253309144"
-                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-[#DC5F00] transition-colors"
+                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-brand-primary  transition-colors"
                   onClick={() => trackEvent("phone_click")}
                 >
-                  <div className="w-12 h-12 bg-[#DC5F00] rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
+                  <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
                   <span className="block md:inline">053-3309144</span>
@@ -231,10 +232,10 @@ export default function LandingPage() {
                   href="https://wa.me/972533309144"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-[#DC5F00] transition-colors"
+                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-brand-primary  transition-colors"
                   onClick={() => trackEvent("whatsapp_click")}
                 >
-                  <div className="w-12 h-12 bg-[#DC5F00] rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
+                  <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
                     <FaWhatsapp className="h-6 w-6 text-white" />
                   </div>
                   <span className="block md:inline">WhatsApp</span>
@@ -242,10 +243,10 @@ export default function LandingPage() {
 
                 <a
                   href="mailto:estigeller1@gmail.com"
-                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-[#DC5F00] transition-colors"
+                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-brand-primary  transition-colors"
                   onClick={() => trackEvent("email_click")}
                 >
-                  <div className="w-12 h-12 bg-[#DC5F00] rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
+                  <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <span className="block md:inline">estigeller1@gmail.com</span>
@@ -284,7 +285,7 @@ export default function LandingPage() {
       {isScrolled && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 z-40 bg-[#DC5F00] text-white p-3 rounded-full shadow-lg hover:bg-[#e67a00] transition-colors"
+          className="fixed bottom-4 right-4 z-40 bg-brand-primary text-white p-3 rounded-full shadow-lg hover:bg-brand-darkBlue transition-colors"
         >
           <ArrowUp className="h-6 w-6" />
         </button>

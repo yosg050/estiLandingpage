@@ -12,7 +12,7 @@ export default function Popup({ message, visible, onClose }: PopupProps) {
         if (visible) {
             const timeout = setTimeout(() => {
                 onClose();
-            }, 3000); // נעלם אחרי 2 שניות
+            }, 3000); 
 
             return () => clearTimeout(timeout);
         }
@@ -26,14 +26,14 @@ export default function Popup({ message, visible, onClose }: PopupProps) {
 
                 {/* פס עליון צבעוני */}
                 <div className="flex h-2">
-                    <div className="w-1/3 bg-black"></div>
-                    <div className="w-1/3 bg-[#CF0A0A]"></div>
-                    <div className="w-1/3 bg-[#DC5F00]"></div>
+                    <div className="w-1/3 bg-brand-primary"></div>
+                    <div className="w-1/3 bg-brand-softGreen"></div>
+                    <div className="w-1/3 bg-brand-lightTeal"></div>
                 </div>
 
                 {/* גוף ההודעה */}
                 <div className="p-6">
-                    <div className="w-16 h-16 bg-[#DC5F00] rounded-full flex items-center justify-center mb-4 mx-auto animate-bounce">
+                    <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mb-4 mx-auto animate-bounce">
                         <span className="text-white text-3xl font-bold">✔</span>
                     </div>
                     <p className="text-gray-700 text-lg">{message}</p>

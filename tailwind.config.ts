@@ -10,15 +10,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // צבעים כלליים (מהמערכת המקורית)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "#DC5F00",
-          foreground: "hsl(var(--primary-foreground))",
+
+        // צבע עיקרי - כתום
+        // primary: {
+        //   DEFAULT: "#DC5F00",
+        //   foreground: "hsl(var(--primary-foreground))",
+        // },
+
+        // צבעים מותאמים אישית לפי המיתוג שלך
+        brand: {
+          primary: "# ",       // כחול כהה
+          lightTeal: "#A7D7C5",     // טורקיז בהיר
+          lightGray: "#E6E6E6",     // אפור בהיר
+          softGreen: "#A8C686",     // ירוק רך
+          background: "#F9FBFA",    // רקע כללי
+          textMain: "#1F2D3D",      // טקסט ראשי
+          textMuted: "#7B8B99",     // טקסט משני
         },
+
+        // צבעים נוספים (שיש במקור)
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",

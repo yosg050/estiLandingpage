@@ -3,9 +3,11 @@ import "./globals.css"
 import type { Metadata } from "next"
 // import { Inter } from "next/font/google"
 import { Fredoka } from "next/font/google"
+import { Rubik } from "next/font/google"
 
 // const inter = Inter({ subsets: ["latin"] })
-const fredoka = Fredoka({ subsets: ["latin"], weight: ["400", "700"] })
+// const fredoka = Fredoka({ subsets: ["latin"], weight: ["400", "700"] })
+const rubik = Rubik({ subsets: ["hebrew"], weight: ["400", "700"] })
 
 export const metadata: Metadata = {
   title: "E.G שירותי משרד ",
@@ -32,9 +34,9 @@ export default function RootLayout({
             `,
           }}
         />
-        <link rel="icon" href="/logo2.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={fredoka.className}>
+      <body className={rubik.className}>
         {children}
       </body>
     </html>

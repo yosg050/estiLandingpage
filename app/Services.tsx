@@ -8,36 +8,43 @@ import { SlSpeech } from "react-icons/sl";
 export default function Services() {
   const services = [
     {
-      title: "ניהול יומן ותיאום פגישות",
-      description: "ניהול ותיאום פגישות מול לקוחות וספקים, ניהול יומן אישי ועסקי.",
+      title: "ניהול יומן ותיאום תורים",
+      description:
+        "פתיחת יומנים, תיאום תורים עם מטופלים, שליחת תזכורות וביטולים, סנכרון עם מערכות קיימות כדי שתוכלו להתמקד בטיפול.",
       icon: <IoCalendarOutline className="h-8 w-8 text-white" />,
     },
     {
-      title: "הזנת נתונים ודוחות חודשיים",
-      description: "הזנת מידע מדויק ועדכני במערכות העסקיות, הפקת דוחות חודשיים מפורטים לניתוח ביצועים ומעקב אחר מדדי הצלחה, תוך שמירה על ארגון וסדר",
+      title: "עדכון תיקים והפקת דוחות",
+      description:
+        "הזנת מידע רפואי ותפעולי במערכות, תיעוד מפגשים, מעקב טיפולי והפקת דוחות שוטפים לניהול הקליניקה והכנסותיה.",
       icon: <HiOutlinePresentationChartLine className="h-8 w-8 text-white" />,
     },
     {
-      title: "הפקת מסמכים עסקיים",
-      description: "כתיבה והפקת מכתבים רשמיים, הצעות מחיר, חשבוניות, סיכומי פגישות ומסמכים נוספים ברמה מקצועית, מותאמים לצרכים העסקיים ולמיתוג הארגוני",
+      title: "הפקת מסמכים רפואיים וניהול טפסים",
+      description:
+        "כתיבה וסידור של סיכומי מפגשים, טפסי התחייבות, מכתבי הפניה ותיעוד מותאם אישית באחריות, דיסקרטיות ודיוק.",
       icon: <IoDocumentTextOutline className="h-8 w-8 text-white" />,
     },
     {
-      title: "ניהול מערכות CRM ואוטומציות",
-      description: "תפעול, תחזוקה ושדרוג של מערכות CRM, ניהול קשרי לקוחות בצורה חכמה, יצירת תהליכים אוטומטיים לשיפור חוויית הלקוח ולהגברת היעילות התפעולית",
+      title: "ניהול מערכות קליניקה ו-CRM",
+      description:
+        "עבודה שוטפת עם תוכנות ייעודיות לקליניקות: CRM, מערכת תורים, גבייה אוטומטית ודפי קשר כולל הקמה, תחזוקה ואופטימיזציה.",
       icon: <BsPeople className="h-8 w-8 text-white" />,
     },
     {
-      title: "גבייה מלקוחות והנהלת חשבונות",
-      description: "ניהול תהליכי גבייה בצורה אדיבה ואסרטיבית, טיפול בהפקת חשבוניות וקבלות, מעקב אחר תשלומים, והתנהלות שוטפת מול הנהלת חשבונות וגורמים פיננסיים.",
+      title: "גבייה, מעקב תשלומים והוראות קבע",
+      description:
+        "מעקב גבייה מול מטופלים, שליחת תזכורות נעימות, טיפול בהוראות קבע שהסתיימו ותקשורת שוטפת עם רואי חשבון והנהלת חשבונות.",
       icon: <MdOutlineAttachMoney className="h-8 w-8 text-white" />,
     },
     {
-      title: "התנהלות מול ספקים ולקוחות",
-      description: "יצירת קשר רציף עם ספקים ולקוחות, טיפול שוטף בדרישות ובבעיות, קידום פתרונות מותאמים לצורכי העסק ולשמירה על יחסי עבודה תקינים ומוצלחים.",
+      title: "קשר שוטף עם מטופלים וספקים",
+      description:
+        "מענה לפניות, שמירה על קשר עם מטופלים קיימים וחדשים, ניהול שיח שוטף עם ספקי שירות, מענה אישי שמייצג אותך בצורה מקצועית ואכפתית.",
       icon: <SlSpeech className="h-8 w-8 text-white" />,
     },
   ];
+
 
   return (
     <section
@@ -56,14 +63,14 @@ export default function Services() {
             >
               {/* פס עליון צבעוני */}
               <div className="flex h-2">
-                <div className="w-1/3 bg-black"></div>
-                <div className="w-1/3  bg-orange-700"></div>
-                <div className="w-1/3 bg-[#DC5F00]"></div>
+                <div className="w-1/3 bg-brand-primary"></div>
+                <div className="w-1/3  bg-brand-softGreen"></div>
+                <div className="w-1/3 bg-brand-lightTeal"></div>
               </div>
 
               {/* גוף הכרטיס */}
               <div className="p-6">
-                <div className="w-16 h-16 bg-[#DC5F00] rounded-full flex items-center justify-center mb-4 mx-auto">
+                <div className="w-16 h-16  bg-brand-primary rounded-full flex items-center justify-center mb-4 mx-auto">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-2">{service.title}</h3>

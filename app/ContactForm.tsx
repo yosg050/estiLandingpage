@@ -74,9 +74,9 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
   return (
     <div className="bg-gray-50 shadow-md relative">
       <div className="flex h-2">
-        <div className="w-1/3 bg-black"></div>
-        <div className="w-1/3 bg-[#CF0A0A]"></div>
-        <div className="w-1/3 bg-[#DC5F00]"></div>
+        <div className="w-1/3 bg-brand-primary"></div>
+        <div className="w-1/3 bg-brand-softGreen"></div>
+        <div className="w-1/3 bg-brand-lightTeal"></div>
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2">
@@ -94,7 +94,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#DC5F00]"
+              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bg-brand-primary"
               required
             />
           </div>
@@ -109,7 +109,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#DC5F00]"
+              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bg-brand-primary"
               required
             />
           </div>
@@ -124,7 +124,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#DC5F00]"
+              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bg-brand-primary"
               required
             />
           </div>
@@ -139,14 +139,14 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
               value={formData.message}
               onChange={handleInputChange}
               rows={4}
-              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#DC5F00]"
+              className="w-full px-4 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bg-brand-primary"
               required
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-[#DC5F00] text-white px-6 py-3 rounded-md font-medium hover:bg-[#e67a00] transition-colors"
+            className="w-full bg-brand-primary text-white px-6 py-3 rounded-md font-medium hover:bg-brand-lightTeal transition-colors"
             onClick={() => trackEvent("form_submit")}
           >
             שלח
