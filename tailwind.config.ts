@@ -25,7 +25,7 @@ const config: Config = {
 
         // צבעים מותאמים אישית לפי המיתוג שלך
         brand: {
-          primary: "# ",       // כחול כהה
+          primary: "#1E5F74",       // כחול כהה
           lightTeal: "#A7D7C5",     // טורקיז בהיר
           lightGray: "#E6E6E6",     // אפור בהיר
           softGreen: "#A8C686",     // ירוק רך

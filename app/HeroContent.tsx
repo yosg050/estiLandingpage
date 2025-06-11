@@ -2,28 +2,27 @@
 import Image from "next/image";
 
 const HeroContent = () => (
-  <div className="max-w-md md:max-w-2xl text-right text-brand-textMain space-y-4 z-10">
-    <h2 className="text-[clamp(1rem,4vh,2.2rem)] md:text-[clamp(1rem,4vh,3rem)] font-bold mb-4">
-      נמאס לך להתעסק באדמיניסטרציה במקום במטופלים?
-    </h2>
-    <p className="text-base md:text-xl leading-loose space-y-4">
-      <span className="block mr-2">
-        פתחת קליניקה בשביל לטפל – לא בשביל לרדוף אחרי גבייה, תורים וניירת.
-      </span>
-      <span className="block mr-2">
-        מטופלת חיכתה למענה – אבל היית באמצע טיפול?
-      </span>
-      <span className="block mr-2">
-        היומן מתבלגן, ההודעות נערמות – ואת/ה רק רוצה שקט בעבודה?
-      </span>
-      <span className="block mr-2">
-        גבייה שהתפספסה, תור שהתפספס – ואת/ה לבד מול כל זה?
-      </span>
-      <span className="block font-semibold text-lg mt-2">
-        הגיע הזמן לשים סוף לעומס הניהולי – ולהחזיר לעצמך את השקט המקצועי.
-      </span>
-    </p>
-  </div>
+<div className="max-w-md md:max-w-2xl text-right text-brand-textMain space-y-4 z-10">
+  <h2 className="text-[clamp(1rem,4vh,2.2rem)] md:text-[clamp(1rem,4vh,3rem)] font-bold mb-4">
+    רוצה להוריד מעצמך את עומס הניהול ולהתמקד במטופלים?
+  </h2>
+  <p className="text-base md:text-xl leading-loose space-y-4">
+    <span className="block mr-2">
+      רופאים רבים מנהלים קליניקה מצליחה, אך מוצאים את עצמם מתמרנים בין טיפול לבין אינספור משימות ניהוליות.
+    </span>
+    <span className="block mr-2">
+      היומן משתנה, המטופלים ממתינים למענה, מסמכים נערמים והצורך לשלב בין הכל מורגש בכל יום מחדש.
+    </span>
+    <span className="block mr-2">
+      בין תור לתור, בין בדיקה לשיחה לא פשוט למצוא זמן להתארגנות, תכנון וסדר תפעולי שוטף.
+    </span>
+    <span className="block font-semibold text-lg mt-2">
+      הניהול הוא חלק בלתי נפרד מהקליניקה אבל לא אמור לבוא על חשבון הריכוז, השקט והנוכחות בטיפול.
+    </span>
+  </p>
+</div>
+
+
 );
 
 const HeroSection = () => {
