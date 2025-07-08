@@ -7,7 +7,7 @@ import Script from "next/script";
 const rubik = Rubik({ subsets: ["hebrew"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  title: "E.G שירותי משרד ",
+  title: "E.G שירותי משרד",
   description: "ניהול חכם - הצלחה מובטחת",
 };
 
@@ -19,6 +19,11 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl">
       <head>
+        <meta
+          name="google-site-verification"
+          content="RQALfrohxvOxirfJI6NE3O3mUf2ZfaWRAVVmCLc57oY"
+        />
+
         <link rel="icon" href="/favicon.svg" />
         <link
           rel="preconnect"
