@@ -14,7 +14,7 @@ import {
 
 /* ---------- helper: close-on-outside-click ---------- */
 function useOutsideClick(
-  ref: React.RefObject<HTMLElement>,
+  ref: React.RefObject<HTMLElement | null>,
   handler: () => void,
   active = true
 ) {
