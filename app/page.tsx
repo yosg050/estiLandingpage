@@ -87,6 +87,8 @@ export default function LandingPage() {
     };
   }, [isMenuOpen]);
 
+
+  
   return (
     <main className="min-h-screen bg-white">
       {/* Header */}
@@ -293,20 +295,20 @@ export default function LandingPage() {
         href="https://wa.me/972533309144"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-24 left-2 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
+        className="fixed bottom-3 right-3 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
         onClick={() => trackEvent("whatsapp_float_click")}
       >
         <FaWhatsapp className="h-8 w-8 text-white" />
       </a>
 
-      {isScrolled && (
+      {/* {isScrolled && (
         <button
           onClick={scrollToTop}
           className="fixed bottom-4 right-2 z-40 bg-brand-primary text-white p-3 rounded-full shadow-lg hover:bg-brand-darkBlue transition-colors"
         >
           <ArrowUp className="h-6 w-6" />
         </button>
-      )}
+      )} */}
     </main>
   );
 }

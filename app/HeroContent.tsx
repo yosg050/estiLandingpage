@@ -36,7 +36,7 @@ const HeroSection = () => {
             alt="Office Services Symbol"
             width={300}
             height={300}
-            className="object-contain"
+            className="auto-height"
             priority
           />
         </div>

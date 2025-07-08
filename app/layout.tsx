@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import Script from "next/script";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 
 const rubik = Rubik({ subsets: ["hebrew"], weight: ["400", "700"] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="he" dir="rtl">
+    <html lang="he" >
       <head>
         <meta
           name="google-site-verification"
@@ -30,16 +31,9 @@ export default function RootLayout({
           href="https://estioffice.co.il"
           crossOrigin="anonymous"
         />
-        <link rel="stylesheet" href="/_next/static/css/1be41ebdaec24233.css" />
+        {/* <link rel="stylesheet" href="/_next/static/css/1be41ebdaec24233.css" /> */}
       </head>
       <body className={rubik.className}>
-        {/* תוסף נגיש לי דרך CDN */}
-        <Script
-          src="https://cdn.nagich.ai/widget.js"
-          strategy="afterInteractive"
-          defer
-        />
-
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CL4R4PB25H"
@@ -59,6 +53,7 @@ export default function RootLayout({
         />
 
         {children}
+        <AccessibilityWidget />
       </body>
     </html>
   );
