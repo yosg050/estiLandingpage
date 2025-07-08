@@ -32,13 +32,12 @@ const HeroSection = () => {
       <div className="flex flex-col md:hidden bg-brand-lightGray relative min-h-screen">
         <div className="absolute inset-0 z-0 opacity-30 flex items-center justify-center">
           <Image
-            src="/eg-logo.png"
+            src="/eg-logo.webp"
             alt="Office Services Symbol"
             width={300}
             height={300}
             className="object-contain"
             priority
-        
           />
         </div>
 
@@ -53,7 +52,7 @@ const HeroSection = () => {
         <div className="w-1/3 bg-brand-lightGray flex items-center justify-center p-4">
           <div className="relative w-full max-w-[720px] aspect-square">
             <Image
-              src="/eg-logo.png"
+              src="/eg-logo.webp"
               alt="Office Services Symbol"
               fill
               className="object-contain opacity-30"

@@ -80,7 +80,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2">
-          תשאירו פרטים ואחזור אליכם בהקדם
+          השאירו פרטים ואחזור אליכם בהקדם
         </h3>
 
         <form onSubmit={handleSubmit}>
@@ -154,9 +154,11 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
         </form>
       </div>
 
-      <Popup message={popupText} visible={showPopup} onClose={() => setShowPopup(false)} />
+      <Popup
+        message={popupText}
+        visible={showPopup}
+        onClose={() => setShowPopup(false)}
+      />
     </div>
   );
 }
-
-

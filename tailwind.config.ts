@@ -16,13 +16,7 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-
-        // צבע עיקרי - כתום
-        // primary: {
-        //   DEFAULT: "#DC5F00",
-        //   foreground: "hsl(var(--primary-foreground))",
-        // },
-
+        
         // צבעים מותאמים אישית לפי המיתוג שלך
         brand: {
           primary: "#1E5F74",       // כחול כהה

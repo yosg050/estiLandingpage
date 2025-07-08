@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { DayPicker } from "react-day-picker"
+import * as React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { DayPicker, DayPickerProps } from "react-day-picker";
 
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>
+export type CalendarProps = DayPickerProps;
 
 function Calendar({
   className,
@@ -53,14 +53,40 @@ function Calendar({
         day_hidden: "invisible",
         ...classNames,
       }}
-      components={{
-        IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4" />,
-        IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4" />,
-      }}
+      components={
+        {
+          Navigation: ({
+            nextMonth,
+            previousMonth,
+            goToMonth,
+          }: {
+            nextMonth: Date | undefined;
+            previousMonth: Date | undefined;
+            goToMonth: (date: Date) => void;
+          }) => (
+            <div className="flex justify-between px-2">
+              <button
+                type="button"
+                onClick={() => previousMonth && goToMonth(previousMonth)}
+                className="rounded p-1 hover:bg-accent"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => nextMonth && goToMonth(nextMonth)}
+                className="rounded p-1 hover:bg-accent"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          ),
+        } as any
+      }
       {...props}
     />
-  )
+  );
 }
-Calendar.displayName = "Calendar"
+Calendar.displayName = "Calendar";
 
-export { Calendar }
+export { Calendar };

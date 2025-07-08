@@ -1,75 +1,74 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect, useRef } from "react"
-import { ArrowUp, Phone, Mail, Menu, X } from "lucide-react"
-import Image from "next/image"
+import { useState, useEffect, useRef } from "react";
+import { ArrowUp, Phone, Mail, Menu, X } from "lucide-react";
+import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa6";
-import ContactForm from "./ContactForm"
-import Services from "./Services"
-import HeroSection from "./HeroContent"
-import Solution from "./Solution"
+import ContactForm from "./ContactForm";
+import Services from "./Services";
+import HeroSection from "./HeroContent";
+import Solution from "./Solution";
 
 export default function LandingPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const [selectedService, setSelectedService] = useState("")
-  const [isNearContact, setIsNearContact] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isNearContact, setIsNearContact] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   // Handle scroll events for back-to-top button, floating WhatsApp, and header background
   useEffect(() => {
     const handleScroll = () => {
-      const contactSection = document.getElementById("contact")
+      const contactSection = document.getElementById("contact");
       if (contactSection) {
-        const rect = contactSection.getBoundingClientRect()
-        setIsNearContact(rect.top < window.innerHeight && rect.bottom > 0)
+        const rect = contactSection.getBoundingClientRect();
+        setIsNearContact(rect.top < window.innerHeight && rect.bottom > 0);
       }
 
       // Update isScrolled state based on scroll position
       const shouldBeScrolled = window.scrollY > 100;
       setIsScrolled(shouldBeScrolled);
 
-      const header = document.querySelector("header")
+      const header = document.querySelector("header");
       if (header) {
         if (shouldBeScrolled) {
-          header.classList.add("bg-white", "shadow-md")
-          header.classList.remove("bg-transparent")
+          header.classList.add("bg-white", "shadow-md");
+          header.classList.remove("bg-transparent");
         } else {
-          header.classList.remove("bg-white", "shadow-md")
-          header.classList.add("bg-transparent")
+          header.classList.remove("bg-white", "shadow-md");
+          header.classList.add("bg-transparent");
         }
       }
-    }
+    };
 
     // Call handleScroll immediately when the component mounts
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Smooth scroll to section
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   const trackEvent = (eventName: string) => {
     // Here you would implement your analytics tracking
-    console.log(`Event tracked: ${eventName}`)
+    console.log(`Event tracked: ${eventName}`);
     // Example: if using Google Analytics
     // if (window.gtag) window.gtag('event', eventName);
-  }
+  };
   // Scroll to top
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
 
@@ -88,18 +87,22 @@ export default function LandingPage() {
     };
   }, [isMenuOpen]);
 
-
   return (
-    <main className="min-h-screen bg-white" >
+    <main className="min-h-screen bg-white">
       {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`} >
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
         <div className="container mx-auto px-6 py-2 flex justify-between items-center relative">
-
           {isScrolled && (
-            <div className="h-20 w-44 relative m-0 p-0">  {/* 80px גובה, 176px רוחב */}
+            <div className="h-20 w-44 relative m-0 p-0">
+              {" "}
+              {/* 80px גובה, 176px רוחב */}
               <a href="/" className="block m-0 p-0">
                 <Image
-                  src="/logoText.png"
+                  src="/logoText.webp"
                   alt="Small Logo"
                   fill
                   className="object-contain m-0 p-0"
@@ -107,10 +110,12 @@ export default function LandingPage() {
                 />
               </a>
             </div>
-
           )}
-          <div className={`flex items-center ${isScrolled ? "opacity-100" : "opacity-0"} transition-opacity duration-300`}>
-          </div>
+          <div
+            className={`flex items-center ${
+              isScrolled ? "opacity-100" : "opacity-0"
+            } transition-opacity duration-300`}
+          ></div>
 
           {/* Desktop Navigation */}
           <nav className="flex items-center space-x-6" dir="rtl">
@@ -131,7 +136,7 @@ export default function LandingPage() {
               onClick={() => scrollToSection("services")}
               className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
             >
-              מה כולל השירות?
+               מה כולל השירות?
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -142,7 +147,10 @@ export default function LandingPage() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-black" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="md:hidden text-black"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -156,7 +164,8 @@ export default function LandingPage() {
                   scrollToTop();
                   setIsMenuOpen(false);
                 }}
-                className="text-black hover:text-brand-primary transition-colors py-2" dir="rtl"
+                className="text-black hover:text-brand-primary transition-colors py-2"
+                dir="rtl"
               >
                 בית
               </button>
@@ -175,9 +184,10 @@ export default function LandingPage() {
                   scrollToSection("services");
                   setIsMenuOpen(false);
                 }}
-                className="text-black hover:text-brand-primary  transition-colors py-2" dir="rtl"
+                className="text-black hover:text-brand-primary  transition-colors py-2"
+                dir="rtl"
               >
-                מה כולל השירות?
+                 מה כולל השירות?
               </button>
               <button
                 onClick={() => {
@@ -196,7 +206,11 @@ export default function LandingPage() {
       {/* Hero Section */}
       <HeroSection />
 
-      <section id="solution" className=" scroll-mt-8 min-h-screen py-10 px-4 bg-white flex items-center" dir="rtl">
+      <section
+        id="solution"
+        className=" scroll-mt-8 min-h-screen py-10 px-4 bg-white flex items-center"
+        dir="rtl"
+      >
         <div className="container mx-auto">
           <Solution />
         </div>
@@ -204,9 +218,15 @@ export default function LandingPage() {
 
       <Services />
       {/* Contact Section */}
-      <section id="contact" className=" scroll-mt-10 min-h-screen py-10 px-4 bg-white flex items-center " dir="rtl">
+      <section
+        id="contact"
+        className=" scroll-mt-10 min-h-screen py-10 px-4 bg-white flex items-center "
+        dir="rtl"
+      >
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">יצירת קשר</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+            יצירת קשר
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8">
             {/* Contact Information */}
@@ -269,27 +289,24 @@ export default function LandingPage() {
       </footer> */}
 
       {/* Floating WhatsApp Button */}
-      {!isNearContact && (
-        <a
-          href="https://wa.me/972533309144"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-4 left-4 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
-          onClick={() => trackEvent("whatsapp_float_click")}
-        >
-          <FaWhatsapp className="h-10 w-10" />
-        </a>
-      )}
-
+      <a
+        href="https://wa.me/972533309144"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-24 left-2 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
+        onClick={() => trackEvent("whatsapp_float_click")}
+      >
+        <FaWhatsapp className="h-8 w-8 text-white" />
+      </a>
 
       {isScrolled && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 z-40 bg-brand-primary text-white p-3 rounded-full shadow-lg hover:bg-brand-darkBlue transition-colors"
+          className="fixed bottom-4 right-2 z-40 bg-brand-primary text-white p-3 rounded-full shadow-lg hover:bg-brand-darkBlue transition-colors"
         >
           <ArrowUp className="h-6 w-6" />
         </button>
       )}
     </main>
-  )
+  );
 }
