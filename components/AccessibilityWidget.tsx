@@ -41,7 +41,7 @@ interface AccessibilitySettings {
   dyslexicFont: boolean;
 //   keyboardFocus: boolean;
 //   stopAnimations: boolean;
-//   darkMode: boolean;
+  darkMode: boolean;
 }
 
 const AccessibilityWidget = () => {
