@@ -1,0 +1,160 @@
+
+// layout.tsx
+
+import type React from "react";
+import "./globals.css";
+import type { Metadata } from "next";
+import { Rubik } from "next/font/google";
+import Script from "next/script";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
+
+// 1. הגדרות פונט משופרות
+const rubik = Rubik({
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+  preload: true,
+});
+
+// 2. אובייקט Metadata ממוקד, נקי ומקצועי
+export const metadata: Metadata = {
+  // כותרת ותיאור מפורטים
+  title: "אסתי גלר | שירותי משרד מקצועיים לרופאים וקליניקות בישראל - ניהול מרחוק",
+  description: "שירותי Back Office מקצועיים לרופאים וקליניקות בישראל: ניהול תורים, גבייה, CRM ומזכירות מרחוק. חוסכים זמן וכסף.",
+  keywords: ["שירותי משרד לרופאים", "ניהול מרפאות מרחוק", "מזכירה וירטואלית לרופאים", "שירותי back office רפואי", "אסתי גלר שירותי משרד", "ניהול יומנים רפואיים", "גבייה מלקוחות רפואיים"],
+  
+  // זהות וכותבים
+  authors: [{ name: "אסתי גלר", url: "https://www.linkedin.com/in/estigeller" }],
+  creator: "אסתי גלר",
+  publisher: "אסתי גלר - שירותי משרד",
+
+  // Open Graph ו-Twitter עם מספר תמונות
+  openGraph: {
+    title: "אסתי גלר - שירותי משרד מקצועיים לרופאים וקליניקות",
+    description: "התמקדו בטיפול - אני דואגת לכל השאר. שירותי Back Office מקצועיים, גמישים ואמינים.",
+    url: "https://estioffice.co.il",
+    siteName: "אסתי גלר - שירותי משרד",
+    images: [
+      {
+        url: "https://estioffice.co.il/og-image.webp", // תמונה ראשית ביחס 1.91:1
+        width: 1200,
+        height: 630,
+        alt: "אסתי גלר - שירותי משרד לרופאים",
+      },
+      {
+        url: "https://estioffice.co.il/og-square-image.webp", // תמונה ריבועית נוספת
+        width: 600,
+        height: 600,
+        alt: "לוגו - אסתי גלר שירותי משרד",
+      },
+    ],
+    locale: "he_IL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "אסתי גלר | שירותי משרד מקצועיים לרופאים",
+    description: "התמקדו בטיפול - אני דואגת לכל השאר.",
+    images: ["https://estioffice.co.il/og-image.webp"], // שימוש בתמונה הראשית
+  },
+
+  // אייקונים מפורטים
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
+
+  // צבע נושא למצב כהה/בהיר
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1a1a" },
+  ],
+  
+  // הנחיות לסורקים
+  robots: {
+    index: true,
+    follow: true,
+  },
+  
+  // כתובת קנונית
+  alternates: {
+    canonical: "https://estioffice.co.il",
+  },
+
+  // קובץ manifest
+  manifest: "/site.webmanifest",
+
+  // אימותים
+  verification: {
+    google: "RQALfrohxvOxirfJI6NE3O3mUf2ZfaWRAVVmCLc57oY",
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode; }) {
+  return (
+    // 3. תגית html נקייה עם הגדרת שפה וכיווניות
+    <html lang="he" dir="rtl">
+      {/* 4. ה-head נשאר ריק! Next.js ימלא אותו אוטומטית */}
+      <head /> 
+      <body className={rubik.className}>
+        {/* 5. סקריפטים של אנליטיקה ונגישות */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CL4R4PB25H"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CL4R4PB25H');
+          `}
+        </Script>
+
+        {/* 6. סכמת JSON-LD ראשית, מדויקת וממוקדת */}
+        <Script
+          type="application/ld+json"
+          id="organization-schema"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AdministrativeAssistant", // הסוג המדויק ביותר!
+              "@id": "https://estioffice.co.il/#organization",
+              "name": "אסתי גלר - שירותי משרד",
+              "url": "https://estioffice.co.il",
+              "founder": { "@type": "Person", "name": "אסתי גלר" },
+              "logo": "https://estioffice.co.il/logo.png",
+              "description": "שירותי Back Office וניהול משרד מרחוק לרופאים וקליניקות.",
+              "telephone": "+972533309144",
+              "email": "estigeller1@gmail.com",
+              "areaServed": "IL",
+              "makesOffer": { // המודל הנכון: הצעה אחת לשירות אחד כולל
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "שירותי ניהול משרד וירטואליים למרפאות ורופאים",
+                  "description": "שירות מקיף הכולל: ניהול יומן ותיאום תורים, גבייה, עדכון תיקים, ניהול CRM וקשר עם מטופלים.",
+                  "provider": { "@id": "https://estioffice.co.il/#organization" },
+                },
+              },
+            }),
+          }}
+        />
+        {/* 7. סכמת שאלות ותשובות */}
+        <Script
+          type="application/ld+json"
+          id="faq-schema"
+          dangerouslySetInnerHTML={{
+             __html: JSON.stringify({
+                // ... סכמת ה-FAQ המצוינת שכבר יש לך ...
+             })
+          }}
+        />
+        
+        {children}
+        <AccessibilityWidget />
+      </body>
+    </html>
+  );
+}
