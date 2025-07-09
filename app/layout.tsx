@@ -103,7 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="he" dir="rtl">
+    <html lang="he">
       <head></head>
       <body className={rubik.className}>
         {/* Google Analytics */}
