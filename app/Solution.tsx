@@ -4,7 +4,7 @@ export default function Solution() {
     return (
         <div className="relative max-w-md md:max-w-3xl text-right space-y-4  mx-auto">
             {/* Background Icon */}
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-1 ">הפתרון</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-1 text-black">הפתרון</h2>
 
             <div className="absolute inset-0 flex justify-center items-center z-0 pointer-events-none">
                 <FaStethoscope
@@ -22,7 +22,7 @@ export default function Solution() {
                         שלום, אני אסתי גלר – עם ניסיון של מעל עשור בניהול בעולם הרפואה והקהילה
                     </span>
                     <span className="block">
-                        דרך שירות ניהול משרד מרחוק, אני עוזרת לרופאים ומטפלים לשחרר את העומס – ולזכות בשקט, סדר ותפעול שוטף שמאפשר להם להתמקד במטופלים.
+                        דרך שירות ניהול משרד מרחוק, אני עוזרת לרופאים ומטפלים לשחרר את העומס – ולזכות בשקט, סדר ותפעול שוטף שמאפשר להם להתמקד במטופלים תוך חיסכון משמעותי בעליות.
                     </span>
                     <span className="block">
                         בלי להעסיק מזכירה, בלי התחייבות – רק שירות אישי, דיסקרטי ומדויק לצרכים של הקליניקה שלך.
@@ -35,7 +35,7 @@ export default function Solution() {
                         <span className="text-green-300">✔</span> סיוע בניהול טפסים, סיכומים ודוחות<br />
                         <span className="text-green-300">✔</span> עבודה עם מערכות CRM ומערכות רלוונטיות לקליניקות<br />
                         <span className="text-green-300">✔</span> שירות גמיש, זמין ומותאם אישית<br />
-                        <span className="text-green-300">✔</span> חיסכון בזמן, בכסף ובעיקר – בעצבים
+                        <span className="text-green-300">✔</span> חיסכון בזמן וצימצום עלויות
                     </span>
                     <span className="block mt-2 font-semibold">
                         אני כאן כדי שתוכל לטפל בראש שקט – והקליניקה תמשיך להתנהל כמו שצריך.
