@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="he" >
+    <html lang="he">
       <head>
         <meta
           name="google-site-verification"
@@ -31,7 +31,7 @@ export default function RootLayout({
           href="https://estioffice.co.il"
           crossOrigin="anonymous"
         />
-        {/* <link rel="stylesheet" href="/_next/static/css/1be41ebdaec24233.css" /> */}
+        <link rel="canonical" href="https://estioffice.co.il" />
       </head>
       <body className={rubik.className}>
         {/* Google Analytics */}
