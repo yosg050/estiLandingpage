@@ -129,14 +129,14 @@ export default function LandingPage() {
               onClick={() => scrollToSection("solution")}
               className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
             >
-              הפתרון
+              מה אני מציעה
             </button>
 
             <button
               onClick={() => scrollToSection("services")}
               className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
             >
-               מה כולל השירות?
+               מה כולל השירות
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -176,7 +176,7 @@ export default function LandingPage() {
                 }}
                 className="text-black hover:text-brand-primary  transition-colors py-2"
               >
-                הפתרון
+                מה אני מציעה
               </button>
 
               <button
@@ -187,7 +187,7 @@ export default function LandingPage() {
                 className="text-black hover:text-brand-primary  transition-colors py-2"
                 dir="rtl"
               >
-                 מה כולל השירות?
+                 מה כולל השירות
               </button>
               <button
                 onClick={() => {

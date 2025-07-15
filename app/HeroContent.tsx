@@ -2,27 +2,34 @@
 import Image from "next/image";
 
 const HeroContent = () => (
-<div className="max-w-md md:max-w-2xl text-right text-brand-textMain space-y-4 z-10">
-  <h2 className="text-[clamp(1rem,4vh,2.2rem)] md:text-[clamp(1rem,4vh,3rem)] font-bold mb-4">
-    רוצה להוריד מעצמך את עומס הניהול ולהתמקד במטופלים?
-  </h2>
-  <p className="text-base md:text-xl leading-loose space-y-4">
-    <span className="block mr-2">
-      רופאים רבים מנהלים קליניקה מצליחה, אך מוצאים את עצמם מתמרנים בין טיפול לבין אינספור משימות ניהוליות.
-    </span>
-    <span className="block mr-2">
-      היומן משתנה, המטופלים ממתינים למענה, מסמכים נערמים והצורך לשלב בין הכל מורגש בכל יום מחדש.
-    </span>
-    <span className="block mr-2">
-      בין תור לתור, בין בדיקה לשיחה לא פשוט למצוא זמן להתארגנות, תכנון וסדר תפעולי שוטף.
-    </span>
-    <span className="block font-semibold text-lg mt-2">
-      הניהול הוא חלק בלתי נפרד מהקליניקה אבל לא אמור לבוא על חשבון הריכוז, השקט והנוכחות בטיפול.
-    </span>
-  </p>
-</div>
-
-
+  <div className="w-full px-8 md:px-16 text-right text-brand-textMain space-y-4 z-10">
+    <h1 className="text-[clamp(1.4rem,5vw,4rem)] md:text-[clamp(2rem,6vh,5rem)] font-bold mb-4">
+      שירותי מזכירות רפואית וניהול משרד מרחוק
+    </h1>
+    <p className="text-base md:text-xl leading-loose space-y-4">
+      <span className="block mr-2">
+        ניהול קליניקה מצליחה דורש הרבה מעבר למקצועיות טיפולית – הוא מצריך גם
+        מענה לפניות, תיאום תורים, גבייה, ומעקב מסמכים. כל אלו גוזלים זמן ומשאבים
+        מהדבר החשוב באמת – טיפול איכותי.
+      </span>
+      <span className="block mr-2">
+        היומן עמוס, הפניות נערמות, והזמן מתפצל בין מטופלים לבין משימות תפעול
+        שוטפות. התוצאה: עומס, חוסר ריכוז, ואיבוד לקוחות.
+      </span>
+      <span className="block mr-2 font-bold">
+        אתם לא לבד. אני אסתי גלר – עם ניסיון של מעל עשור בליווי קליניקות ורופאים
+        – עוזרת לך לנהל את הצד התפעולי של הקליניקה ביעילות, בשקט, ובאמינות מלאה.
+      </span>
+      <span className="block mr-2">
+        ניהול יומן, מענה לפניות, גבייה, סידור מסמכים, ותפעול מערכות CRM – הכול
+        מתבצע מרחוק, באופן גמיש, דיסקרטי וללא התחייבות.
+      </span>
+      <span className="block font-semibold text-lg mt-2">
+        כדי שתהיה שליטה מלאה – ותשומת הלב תחזור למקום שבו היא באמת צריכה להיות:
+        למטופלים.
+      </span>
+    </p>
+  </div>
 );
 
 const HeroSection = () => {
