@@ -113,7 +113,7 @@ export default function RootLayout({
       </head>
       <body className={rubik.className}>
         {/* Google Analytics */}
-        <Script
+        {/* <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CL4R4PB25H"
           strategy="afterInteractive"
         />
@@ -127,6 +127,20 @@ export default function RootLayout({
               gtag('js', new Date());
               gtag('config', 'G-CL4R4PB25H');
             `,
+          }}
+        /> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-6EBV9FJT3N"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6EBV9FJT3N');
+        `,
           }}
         />
         <Script
