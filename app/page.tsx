@@ -121,26 +121,42 @@ export default function LandingPage() {
           <nav className="flex items-center space-x-6" dir="rtl">
             <button
               onClick={scrollToTop}
-              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2 ml-6"
+              className={`transition-colors hidden md:block mt-2 ml-6 ${
+                isScrolled
+                  ? "text-black hover:text-brand-primary"
+                  : "text-white hover:text-brand-lightTeal"
+              }`}
             >
               בית
             </button>
             <button
               onClick={() => scrollToSection("solution")}
-              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
+              className={`transition-colors hidden md:block mt-2 ml-6 ${
+                isScrolled
+                  ? "text-black hover:text-brand-primary"
+                  : "text-white hover:text-brand-lightTeal"
+              }`}
             >
               מה אני מציעה
             </button>
 
             <button
               onClick={() => scrollToSection("services")}
-              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
+              className={`transition-colors hidden md:block mt-2 ml-6 ${
+                isScrolled
+                  ? "text-black hover:text-brand-primary"
+                  : "text-white hover:text-brand-lightTeal"
+              }`}
             >
                מה כולל השירות
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-black hover:text-brand-primary  transition-colors hidden md:block mt-2"
+              className={`transition-colors hidden md:block mt-2 ml-6 ${
+                isScrolled
+                  ? "text-black hover:text-brand-primary"
+                  : "text-white hover:text-brand-lightTeal"
+              }`}
             >
               יצירת קשר
             </button>
@@ -148,7 +164,9 @@ export default function LandingPage() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-black"
+            className={`md:hidden transition-colors ${
+              isScrolled ? "text-black" : "text-white"
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

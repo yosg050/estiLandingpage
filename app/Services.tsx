@@ -10,41 +10,39 @@ export default function Services() {
     {
       title: "ניהול יומן ותיאום תורים",
       description:
-        "פתיחת יומנים, תיאום תורים עם מטופלים, שליחת תזכורות וביטולים, סנכרון עם מערכות קיימות כדי שתוכלו להתמקד בטיפול.",
+        "פתיחת יומנים, תיאום תורים עם מטופלים, שליחת תזכורות וביטולים.",
       icon: <IoCalendarOutline className="h-8 w-8 text-white" />,
     },
     {
       title: "עדכון תיקים והפקת דוחות",
       description:
-        "הזנת מידע רפואי ותפעולי במערכות, תיעוד מפגשים, מעקב טיפולי והפקת דוחות שוטפים לניהול הקליניקה",
+        "הזנת מידע רפואי, תיעוד מפגשים, מעקב טיפולי והפקת דוחות שוטפים לניהול המרפאה",
       icon: <HiOutlinePresentationChartLine className="h-8 w-8 text-white" />,
     },
     {
-      title: "הפקת מסמכים רפואיים וניהול טפסים",
-      description:
-        "כתיבה וסידור של סיכומי מפגשים, טפסי התחייבות, מכתבי הפניה ותיעוד מותאם אישית באחריות, דיסקרטיות ודיוק.",
+      title: "שמירה על חיסיון רפואי",
+      description: "טיפול בלקוחות בצורה דיסקרטית ושמירה על הפרטיות שלהם.",
       icon: <IoDocumentTextOutline className="h-8 w-8 text-white" />,
     },
     {
-      title: "ניהול מערכות קליניקה ו-CRM",
+      title: "ניהול מערכות של המרפאה",
       description:
-        "עבודה שוטפת עם תוכנות ייעודיות לקליניקות: CRM, מערכת תורים, גבייה אוטומטית ודפי קשר כולל הקמה, תחזוקה ואופטימיזציה.",
+        "עבודה שוטפת עם תוכנות ייעודיות לקליניקות כולל הקמה, תחזוקה ואופטימיזציה.",
       icon: <BsPeople className="h-8 w-8 text-white" />,
     },
     {
-      title: "גבייה, מעקב תשלומים והוראות קבע",
+      title: "שירותי גביה",
       description:
-        "מעקב גבייה מול מטופלים, שליחת תזכורות נעימות, טיפול בהוראות קבע שהסתיימו ותקשורת שוטפת עם רואי חשבון והנהלת חשבונות.",
+        "גבייה ממטופלים, שליחת תזכורות, טיפול בהוראות קבע שהסתיימו וטיפול בכל הנדרש מול הנהלת חשבונות.",
       icon: <MdOutlineAttachMoney className="h-8 w-8 text-white" />,
     },
     {
-      title: "קשר שוטף עם מטופלים וספקים",
+      title: "קשר שוטף עם ספקים",
       description:
-        "מענה לפניות, שמירה על קשר עם מטופלים קיימים וחדשים, ניהול שיח שוטף עם ספקי שירות, מענה אישי שמייצג אותך בצורה מקצועית ואכפתית.",
+        "ניהול שיח שוטף עם ספקי שירות, מענה אישי שמייצג אותך בצורה מקצועית ואכפתית.",
       icon: <SlSpeech className="h-8 w-8 text-white" />,
     },
   ];
-
 
   return (
     <section
@@ -53,7 +51,9 @@ export default function Services() {
       dir="rtl"
     >
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6"> מה כולל השירות?</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+           מה כולל השירות?
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
@@ -69,12 +69,16 @@ export default function Services() {
               </div>
 
               {/* גוף הכרטיס */}
-              <div className="p-6">
+              <div className="p-4">
                 <div className="w-16 h-16  bg-brand-primary rounded-full flex items-center justify-center mb-4 mx-auto">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-center mb-2">{service.title}</h3>
-                <p className="text-gray-700 text-center">{service.description}</p>
+                <h3 className="text-xl font-semibold text-center mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-700 text-center">
+                  {service.description}
+                </p>
               </div>
             </div>
           ))}
