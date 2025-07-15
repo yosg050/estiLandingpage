@@ -108,7 +108,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he">
-      <head></head>
+      <head>
+        <meta name="author" content="אסתי גלר" />
+      </head>
       <body className={rubik.className}>
         {/* Google Analytics */}
         <Script

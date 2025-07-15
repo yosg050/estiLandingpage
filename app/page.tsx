@@ -87,8 +87,6 @@ export default function LandingPage() {
     };
   }, [isMenuOpen]);
 
-
-  
   return (
     <main className="min-h-screen bg-white">
       {/* Header */}
@@ -297,6 +295,7 @@ export default function LandingPage() {
         rel="noopener noreferrer"
         className="fixed bottom-3 right-3 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
         onClick={() => trackEvent("whatsapp_float_click")}
+        aria-label="לחצו כאן ליצירת קשר"
       >
         <FaWhatsapp className="h-8 w-8 text-white" />
       </a>
