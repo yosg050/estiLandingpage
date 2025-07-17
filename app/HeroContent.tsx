@@ -2,40 +2,39 @@ import Image from "next/image";
 
 const HeroContent = () => (
   <div
-    className="bg-gradient-to-b from-transparent via-black/90 to-transparent 
-             px-4 md:px-8 
-             py-15 md:py-16 
-             rounded-none 
-             w-full max-w-screen-lg mx-auto"
+    className="bg-gradient-to-b from-black/10 via-black/80 to-black/10 
+               px-4 md:px-8 
+               py-12 md:py-20 
+               w-full max-w-screen-lg mx-auto text-white"
   >
     <h1
-      className="text-brand-lightTeal font-bold text-center leading-tight 
-             text-[clamp(1.3rem,5vw,1.8rem)] 
-             md:text-[2.2rem] 
-             max-w-screen-lg mx-auto 
-             mb-4"
+      className="text-brand-lightTeal font-bold text-center leading-snug
+                 text-[clamp(1.4rem,5vw,2rem)] 
+                 md:text-[2.4rem] 
+                 mb-6"
     >
-      אסתי גלר - שירותי מזכירות רפואית וניהול משרד מרחוק
+      אסתי גלר – שירותי מזכירות רפואית וניהול משרד מרחוק
     </h1>
-    <div className="text-base md:text-xl leading-tight md:leading-snug space-y-5 text-brand-lightGray">
-      <span className="block">
-        ניהול קליניקה מצליחה דורש הרבה מעבר למקצועיות טיפולית, הוא מצריך גם מענה
-        לפניות, תיאום תורים, גבייה, ומעקב מסמכים. כל אלו גוזלים זמן ומשאבים
-        מהדבר החשוב באמת, טיפול איכותי.
-      </span>
-      <span className="block">
+
+    <div className="text-base md:text-xl leading-relaxed space-y-5 text-brand-lightGray">
+      <p>
+        ניהול קליניקה מצליחה דורש הרבה מעבר למקצועיות טיפולית – הוא מצריך גם
+        מענה לפניות, תיאום תורים, גבייה, ומעקב מסמכים. כל אלו גוזלים זמן ומשאבים
+        מהדבר החשוב באמת: טיפול איכותי.
+      </p>
+      <p>
         היומן עמוס, הפניות נערמות, והזמן מתפצל בין מטופלים לבין משימות תפעול
-        שוטפות והתוצאה איבוד לקוחות.
-      </span>
-      <span className="block font-bold">אתם לא לבד.</span>
-      <span className="block font-bold">
-        אני כאן בשבילך – עם ניסיון של מעל עשור בניהול ותיאום תפעולי עבור רופאים
+        שוטפות. התוצאה? איבוד לקוחות.
+      </p>
+      <p className="font-bold">אתם לא לבד.</p>
+      <p className="font-bold">
+        אני כאן בשבילך – עם ניסיון של מעל עשור בניהול ותיאום תפעולי לרופאים
         ואנשי מקצוע בתחום הבריאות. בעזרת ניהול מדויק, שקט נפשי ואמינות מלאה –
-        המרפאה שלך מתנהלת בצורה חלקה ויעילה
-      </span>
+        המרפאה שלך מתנהלת בצורה חלקה ויעילה.
+      </p>
     </div>
 
-    <h2 className="text-lg md:text-2xl font-semibold text-brand-lightGray mt-4">
+    <h2 className="text-lg md:text-2xl font-semibold text-brand-lightGray mt-6">
       כדי שתשומת הלב תחזור להיות רק למטופלים.
     </h2>
   </div>
@@ -43,19 +42,23 @@ const HeroContent = () => (
 
 const HeroSection = () => {
   return (
-    <section dir="rtl" className="relative min-h-screen w-full overflow-hidden">
+    <section dir="rtl" className="relative w-full overflow-hidden">
+      {/* תמונת רקע */}
       <Image
         src="/office.webp"
-        alt="Office background"
+        alt="רקע משרד"
         fill
         className="object-cover brightness-50"
         priority
       />
+      {/* שכבת כהות כללית (אם צריך) */}
       <div className="absolute inset-0 bg-black opacity-20 z-0" />
 
-      {/* תוכן בחזית */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6">
-        {" "}
+      {/* תוכן עליון */}
+      <div
+        className="relative z-10 flex items-center justify-center 
+                   min-h-screen px-4 md:px-6"
+      >
         <HeroContent />
       </div>
     </section>
