@@ -2,24 +2,26 @@ import Image from "next/image";
 
 const HeroContent = () => (
   <div
-    className="bg-gradient-to-b from-transparent via-black/70 to-transparent 
-                  p-4 px-4 md:px-8 
-                  rounded-none 
-                  w-full max-w-screen-lg mx-auto"
+    className="bg-gradient-to-b from-transparent via-black/90 to-transparent 
+             px-4 md:px-8 
+             py-15 md:py-16 
+             rounded-none 
+             w-full max-w-screen-lg mx-auto"
   >
     <h1
       className="text-brand-lightTeal font-bold text-center leading-tight 
-             text-[clamp(1.2rem,5vw,2rem)] 
-             md:text-[3rem] 
-             max-w-screen-lg mx-auto whitespace-nowrap overflow-hidden text-ellipsis mb-4"
+             text-[clamp(1.3rem,5vw,1.8rem)] 
+             md:text-[2.2rem] 
+             max-w-screen-lg mx-auto 
+             mb-4"
     >
-      שירותי מזכירות רפואית וניהול משרד מרחוק
+      אסתי גלר - שירותי מזכירות רפואית וניהול משרד מרחוק
     </h1>
     <div className="text-base md:text-xl leading-tight md:leading-snug space-y-5 text-brand-lightGray">
       <span className="block">
-        ניהול קליניקה מצליחה דורש הרבה מעבר למקצועיות טיפולית – הוא מצריך גם
-        מענה לפניות, תיאום תורים, גבייה, ומעקב מסמכים. כל אלו גוזלים זמן ומשאבים
-        מהדבר החשוב באמת – טיפול איכותי.
+        ניהול קליניקה מצליחה דורש הרבה מעבר למקצועיות טיפולית, הוא מצריך גם מענה
+        לפניות, תיאום תורים, גבייה, ומעקב מסמכים. כל אלו גוזלים זמן ומשאבים
+        מהדבר החשוב באמת, טיפול איכותי.
       </span>
       <span className="block">
         היומן עמוס, הפניות נערמות, והזמן מתפצל בין מטופלים לבין משימות תפעול
@@ -30,10 +32,6 @@ const HeroContent = () => (
         אני כאן בשבילך – עם ניסיון של מעל עשור בניהול ותיאום תפעולי עבור רופאים
         ואנשי מקצוע בתחום הבריאות. בעזרת ניהול מדויק, שקט נפשי ואמינות מלאה –
         המרפאה שלך מתנהלת בצורה חלקה ויעילה
-      </span>
-      <span className="block">
-        ניהול יומן, מענה לפניות, גבייה, סידור מסמכים, ותפעול מערכות CRM – הכול
-        מתבצע מרחוק, באופן גמיש, דיסקרטי וללא התחייבות.
       </span>
     </div>
 
