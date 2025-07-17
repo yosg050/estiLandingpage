@@ -2,7 +2,7 @@ import { FaStethoscope } from "react-icons/fa";
 
 export default function Solution() {
   return (
-    <div className="relative max-w-md md:max-w-3xl text-right space-y-4  mx-auto">
+    <div className="relative z-10 max-w-3xl mx-auto px-4 text-[1.05rem] md:text-[1.125rem] leading-relaxed">
       {/* Background Icon */}
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-1 text-black">
         מה אני מציעה
@@ -22,8 +22,8 @@ export default function Solution() {
           אני מציעה שירות ניהול משרד מרחוק
         </span>
         <span className="block mt-2">
-          השירות שלי מעניק פתרון כולל לניהול מרפאה – מרחוק, בלי להעסיק
-          מזכירה. כך משתחררים מהעומס וחוזרים להתמקד במה שחשוב באמת: המטופלים.
+          השירות שלי מעניק פתרון כולל לניהול מרפאה – מרחוק, בלי להעסיק מזכירה.
+          כך משתחררים מהעומס וחוזרים להתמקד במה שחשוב באמת: המטופלים.
         </span>
 
         <ul className="list-none  mr-6 space-y-1 text-brand-textMain mt-2">
