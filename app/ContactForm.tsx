@@ -39,34 +39,34 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    // חשוב! עצור את השליחה הרגילה של הטופס
+    // עצור את השליחה הרגילה של הטופס
     e.preventDefault();
     e.stopPropagation();
 
-    console.log("Form submission started"); // Debug log
+    if (isSubmitting) return;
 
-    if (isSubmitting) {
-      console.log("Already submitting, returning");
-      return;
-    }
-
-    // בדיקה שכל השדות מלאים
+    // בדיקת validation בסיסית
     if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.message
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.message.trim()
     ) {
       showAlert("אנא מלא את כל השדות הנדרשים");
       return;
     }
 
+    // בדיקת אימייל פשוטה
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      showAlert("אנא הכנס כתובת אימייל תקינה");
+      return;
+    }
+
     setIsSubmitting(true);
+    trackEvent("form_submit");
 
     try {
-      trackEvent("form_submit");
-      console.log("Sending to Formspree..."); // Debug log
-
       const response = await fetch("https://formspree.io/f/manonkjq", {
         method: "POST",
         headers: {
@@ -74,29 +74,22 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          _subject: `הודעה חדשה מהאתר מ-${formData.name}`,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          message: formData.message.trim(),
+          _subject: `הודעה חדשה מהאתר מ-${formData.name.trim()}`,
         }),
       });
 
-      console.log("Response status:", response.status); // Debug log
-
       if (response.ok) {
-        const result = await response.json();
-        console.log("Success:", result); // Debug log
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
       } else {
-        const errorText = await response.text();
-        console.error("Error response:", errorText); // Debug log
-        showAlert("שגיאה בשליחת הטופס. נסה שוב.");
+        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
       }
     } catch (error) {
-      console.error("Network error:", error); // Debug log
-      showAlert("שגיאת רשת. נסה שוב מאוחר יותר.");
+      showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
     } finally {
       setIsSubmitting(false);
     }
@@ -109,9 +102,6 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
         noValidate
         data-netlify="false"
         className="p-6"
-        // הוסף את זה כדי למנוע שליחה כפולה
-        action="#"
-        method="post"
       >
         <h3 className="text-xl font-semibold mb-4">
           השאירו פרטים ואחזור אליכם בהקדם
