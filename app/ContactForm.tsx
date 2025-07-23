@@ -41,7 +41,8 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // showAlert("תודה שפניתם אלי! אצור איתכם קשר בהקדם."); //test alert
+    trackEvent("form_submit");
+
     try {
       const response = await fetch("https://formspree.io/f/manonkjq", {
         method: "POST",
@@ -52,7 +53,6 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
       });
 
       if (response.ok) {
-        console.log("Form submitted successfully:", formData);
         setFormData({
           name: "",
           email: "",
@@ -62,11 +62,9 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
         });
         showAlert("תודה רבה! אני כבר על זה – ניצור קשר בקרוב");
       } else {
-        console.error("Form submission error");
         showAlert("אירעה שגיאה בשליחת הטופס. נסו שוב.");
       }
     } catch (error) {
-      console.error("Network error:", error);
       showAlert("שגיאת רשת. נסו שוב מאוחר יותר.");
     }
   };
@@ -83,9 +81,9 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
           השאירו פרטים ואחזור אליכם בהקדם
         </h3>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate action="#">
           <div className="mb-2">
-            <label htmlFor="name" className="block text-gray-700 ">
+            <label htmlFor="name" className="block text-gray-700">
               שם *
             </label>
             <input
@@ -115,7 +113,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
           </div>
 
           <div className="mb-2">
-            <label htmlFor="phone" className="block text-gray-700 ">
+            <label htmlFor="phone" className="block text-gray-700">
               טלפון *
             </label>
             <input
@@ -147,7 +145,6 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
           <button
             type="submit"
             className="w-full bg-brand-primary text-white px-6 py-3 rounded-md font-medium hover:bg-brand-lightTeal transition-colors"
-            onClick={() => trackEvent("form_submit")}
           >
             שלח
           </button>
