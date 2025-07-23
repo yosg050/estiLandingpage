@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[functions]
+  included_files = ["next.config.js"]
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[plugin["@netlify/plugin-nextjs"]]
+  skipMiddlewareWarnings = true
+  skipLogging = true
+  generateStaticRoutes = true
+  enableHandler = true
+  included_routes = ["/*"] # Netlify לא יטפל בטפסים
