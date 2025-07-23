@@ -39,13 +39,11 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    // עצור את השליחה הרגילה של הטופס
     e.preventDefault();
-    e.stopPropagation();
 
     if (isSubmitting) return;
 
-    // בדיקת validation בסיסית
+    // בדיקת validation
     if (
       !formData.name.trim() ||
       !formData.email.trim() ||
@@ -56,7 +54,6 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
       return;
     }
 
-    // בדיקת אימייל פשוטה
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       showAlert("אנא הכנס כתובת אימייל תקינה");
@@ -97,26 +94,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
 
   return (
     <div className="bg-gray-50 shadow-md relative">
-      {/* טופס נסתר עבור Netlify Forms detection */}
-      <form
-        name="contact"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        style={{ display: "none" }}
-      >
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="tel" name="phone" />
-        <textarea name="message"></textarea>
-        <input name="bot-field" />
-      </form>
-
-      <form
-        onSubmit={handleSubmit}
-        noValidate
-        data-netlify="false"
-        className="p-6"
-      >
+      <div className="p-6">
         <h3 className="text-xl font-semibold mb-4">
           השאירו פרטים ואחזור אליכם בהקדם
         </h3>
@@ -186,13 +164,13 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
         </div>
 
         <button
-          type="submit"
+          onClick={handleSubmit}
           disabled={isSubmitting}
           className="w-full bg-brand-primary text-white px-6 py-3 rounded-md font-medium hover:bg-brand-lightTeal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "שולח..." : "שלח"}
         </button>
-      </form>
+      </div>
 
       <Popup
         message={popupText}
