@@ -97,6 +97,20 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
 
   return (
     <div className="bg-gray-50 shadow-md relative">
+      {/* טופס נסתר עבור Netlify Forms detection */}
+      <form
+        name="contact"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        style={{ display: "none" }}
+      >
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <textarea name="message"></textarea>
+        <input name="bot-field" />
+      </form>
+
       <form
         onSubmit={handleSubmit}
         noValidate
