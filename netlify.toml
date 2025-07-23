@@ -2,5 +2,16 @@
   command = "npm run build"
   publish = ".next"
 
+[functions]
+  included_files = ["next.config.js"]
+
+# בטל Netlify Forms לחלוטין
+[forms]
+  endpoint = false
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+  [plugins.inputs]
+    skipMiddlewareWarnings = true
+    disableNetlifyForms = true
