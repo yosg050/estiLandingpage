@@ -178,6 +178,7 @@
 //     </div>
 //   );
 // }
+
 "use client";
 
 import { useState, FormEvent, ChangeEvent } from "react";
@@ -204,7 +205,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
     setShowPopup(true);
   };
 
-  const handleInputChange = (
+  const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
@@ -212,28 +213,30 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (isSubmitting) return;
+    // אין e.preventDefault – נותנים ל-Netlify להשתלט על השליחה
+    if (isSubmitting) {
+      e.preventDefault();
+      return;
+    }
 
     const { name, email, phone, message } = formData;
 
     if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+      e.preventDefault();
       showAlert("אנא מלא את כל השדות הנדרשים");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      e.preventDefault();
       showAlert("אנא הכנס כתובת אימייל תקינה");
       return;
     }
 
     setIsSubmitting(true);
     trackEvent("form_submit");
-
-    // נותנים לטופס להישלח כרגיל
-    e.currentTarget.submit();
+    // לא צריך .submit() – הטופס יישלח אוטומטית כי אין preventDefault
   };
 
   return (
@@ -241,79 +244,69 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
       <form
         name="contact"
         method="POST"
+        action="/thank-you"
         data-netlify="true"
         onSubmit={handleSubmit}
         className="p-6"
       >
+        {/* חובה לשים את השם כאן לפי Netlify */}
         <input type="hidden" name="form-name" value="contact" />
 
         <h3 className="text-xl font-semibold mb-4">
           השאירו פרטים ואחזור אליכם בהקדם
         </h3>
 
-        <div className="mb-2">
-          <label htmlFor="name" className="block text-gray-700">
-            שם *
-          </label>
+        <label className="block mb-2">
+          שם *
           <input
             type="text"
-            id="name"
             name="name"
             required
             value={formData.name}
-            onChange={handleInputChange}
-            className="w-full px-4 py-1 border rounded-md"
+            onChange={handleChange}
             disabled={isSubmitting}
+            className="w-full px-4 py-1 border rounded-md"
           />
-        </div>
+        </label>
 
-        <div className="mb-2">
-          <label htmlFor="email" className="block text-gray-700">
-            מייל *
-          </label>
+        <label className="block mb-2">
+          מייל *
           <input
             type="email"
-            id="email"
             name="email"
             required
             value={formData.email}
-            onChange={handleInputChange}
-            className="w-full px-4 py-1 border rounded-md"
+            onChange={handleChange}
             disabled={isSubmitting}
+            className="w-full px-4 py-1 border rounded-md"
           />
-        </div>
+        </label>
 
-        <div className="mb-2">
-          <label htmlFor="phone" className="block text-gray-700">
-            טלפון *
-          </label>
+        <label className="block mb-2">
+          טלפון *
           <input
             type="tel"
-            id="phone"
             name="phone"
             required
             value={formData.phone}
-            onChange={handleInputChange}
-            className="w-full px-4 py-1 border rounded-md"
+            onChange={handleChange}
             disabled={isSubmitting}
+            className="w-full px-4 py-1 border rounded-md"
           />
-        </div>
+        </label>
 
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-gray-700">
-            הודעה *
-          </label>
+        <label className="block mb-4">
+          הודעה *
           <textarea
-            id="message"
             name="message"
             required
             rows={4}
             value={formData.message}
-            onChange={handleInputChange}
-            className="w-full px-4 py-1 border rounded-md"
+            onChange={handleChange}
             disabled={isSubmitting}
+            className="w-full px-4 py-1 border rounded-md"
           />
-        </div>
+        </label>
 
         <button
           type="submit"
