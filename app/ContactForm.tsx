@@ -219,63 +219,6 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // פונקציה עם retry logic
-  const submitWithRetry = async (maxRetries = 3): Promise<boolean> => {
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        console.log(`שליחה - ניסיון ${attempt}/${maxRetries}`);
-
-        const response = await fetch("https://formspree.io/f/manonkjq", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name.trim(),
-            email: formData.email.trim(),
-            phone: formData.phone.trim(),
-            message: formData.message.trim(),
-            _subject: `הודעה חדשה מהאתר מ-${formData.name.trim()}`,
-            _replyto: formData.email.trim(),
-          }),
-        });
-
-        if (response.ok) {
-          console.log(`הצלחה בניסיון ${attempt}`);
-          return true;
-        }
-
-        if (response.status === 429) {
-          // Rate limit - חכה קצת יותר
-          console.log("Rate limit, מחכה...");
-          await new Promise((resolve) => setTimeout(resolve, 2000 * attempt));
-          continue;
-        }
-
-        if (response.status >= 500) {
-          // Server error - נסה שוב
-          console.log(`Server error ${response.status}, מנסה שוב...`);
-          await new Promise((resolve) => setTimeout(resolve, 1000 * attempt));
-          continue;
-        }
-
-        // Client error (4xx) - אל תנסה שוב
-        console.error(`Client error: ${response.status}`);
-        return false;
-      } catch (error) {
-        console.error(`ניסיון ${attempt} נכשל:`, error);
-
-        if (attempt < maxRetries) {
-          // חכה לפני ניסיון הבא
-          await new Promise((resolve) => setTimeout(resolve, 1000 * attempt));
-        }
-      }
-    }
-
-    return false;
-  };
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -302,18 +245,32 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
     trackEvent("form_submit");
 
     try {
-      const success = await submitWithRetry(3);
+      // יצירת FormData עבור Netlify Forms
+      const netlifyFormData = new FormData();
+      netlifyFormData.append("form-name", "contact");
+      netlifyFormData.append("name", formData.name.trim());
+      netlifyFormData.append("email", formData.email.trim());
+      netlifyFormData.append("phone", formData.phone.trim());
+      netlifyFormData.append("message", formData.message.trim());
 
-      if (success) {
+      console.log("Submitting to Netlify Forms...");
+
+      const response = await fetch("/", {
+        method: "POST",
+        body: netlifyFormData,
+      });
+
+      console.log("Response status:", response.status);
+
+      if (response.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
       } else {
-        showAlert(
-          "שגיאה בשליחת הטופס. אנא נסה שוב מאוחר יותר או צור קשר בטלפון."
-        );
+        console.error("Netlify form submission failed");
+        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
       }
     } catch (error) {
-      console.error("Form submission failed completely:", error);
+      console.error("Form submission error:", error);
       showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
     } finally {
       setIsSubmitting(false);
@@ -322,6 +279,14 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
 
   return (
     <div className="bg-gray-50 shadow-md relative">
+      {/* טופס נסתר לזיהוי Netlify - חשוב מאוד! */}
+      <form name="contact" data-netlify="true" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <textarea name="message"></textarea>
+      </form>
+
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-4">
           השאירו פרטים ואחזור אליכם בהקדם
