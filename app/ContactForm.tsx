@@ -178,6 +178,7 @@
 //     </div>
 //   );
 // }
+
 "use client";
 
 import { useState, FormEvent, ChangeEvent } from "react";
@@ -252,20 +253,25 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
       netlifyFormData.append("phone", formData.phone.trim());
       netlifyFormData.append("message", formData.message.trim());
 
+      console.log("Submitting to Netlify Forms...");
+
       const response = await fetch("/", {
         method: "POST",
         body: netlifyFormData,
       });
 
+      console.log("Response status:", response.status);
+
       if (response.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
       } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        console.error("Netlify form submission failed");
+        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
+      showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
     } finally {
       setIsSubmitting(false);
     }
@@ -273,7 +279,7 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
 
   return (
     <div className="bg-gray-50 shadow-md relative">
-      {/* טופס נסתר לזיהוי Netlify */}
+      {/* טופס נסתר לזיהוי Netlify - חשוב מאוד! */}
       <form name="contact" data-netlify="true" hidden>
         <input type="text" name="name" />
         <input type="email" name="email" />
