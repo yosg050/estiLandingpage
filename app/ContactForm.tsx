@@ -184,11 +184,11 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import Popup from "./Popup";
 
-interface ContactFormProps {
+export default function ContactForm({
+  trackEvent,
+}: {
   trackEvent: (eventName: string) => void;
-}
-
-export default function ContactForm({ trackEvent }: ContactFormProps) {
+}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -205,6 +205,13 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
     setShowPopup(true);
   };
 
+  const encode = (data: Record<string, string>) =>
+    Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -212,31 +219,51 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    // אין e.preventDefault – נותנים ל-Netlify להשתלט על השליחה
-    if (isSubmitting) {
-      e.preventDefault();
-      return;
-    }
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (isSubmitting) return;
 
     const { name, email, phone, message } = formData;
 
     if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
-      e.preventDefault();
       showAlert("אנא מלא את כל השדות הנדרשים");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      e.preventDefault();
       showAlert("אנא הכנס כתובת אימייל תקינה");
       return;
     }
 
     setIsSubmitting(true);
     trackEvent("form_submit");
-    // לא צריך .submit() – הטופס יישלח אוטומטית כי אין preventDefault
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          name,
+          email,
+          phone,
+          message,
+        }),
+      });
+
+      if (response.ok) {
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
+      } else {
+        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
+      }
+    } catch (error) {
+      showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -244,12 +271,10 @@ export default function ContactForm({ trackEvent }: ContactFormProps) {
       <form
         name="contact"
         method="POST"
-        action="/thank-you"
         data-netlify="true"
         onSubmit={handleSubmit}
         className="p-6"
       >
-        {/* חובה לשים את השם כאן לפי Netlify */}
         <input type="hidden" name="form-name" value="contact" />
 
         <h3 className="text-xl font-semibold mb-4">
