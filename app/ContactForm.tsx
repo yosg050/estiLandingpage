@@ -178,18 +178,24 @@
 //     </div>
 //   );
 // }
-
 "use client";
 
 import { useState, FormEvent, ChangeEvent } from "react";
 import Popup from "./Popup";
 
-export default function ContactForm({
-  trackEvent,
-}: {
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+interface ContactFormProps {
   trackEvent: (eventName: string) => void;
-}) {
-  const [formData, setFormData] = useState({
+}
+
+export default function ContactForm({ trackEvent }: ContactFormProps) {
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
@@ -205,34 +211,31 @@ export default function ContactForm({
     setShowPopup(true);
   };
 
-  const encode = (data: Record<string, string>) =>
-    Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-
-  const handleChange = (
+  const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (isSubmitting) return;
 
-    const { name, email, phone, message } = formData;
-
-    if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+    // בדיקת validation
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.message.trim()
+    ) {
       showAlert("אנא מלא את כל השדות הנדרשים");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(formData.email)) {
       showAlert("אנא הכנס כתובת אימייל תקינה");
       return;
     }
@@ -241,26 +244,28 @@ export default function ContactForm({
     trackEvent("form_submit");
 
     try {
+      // יצירת FormData עבור Netlify Forms
+      const netlifyFormData = new FormData();
+      netlifyFormData.append("form-name", "contact");
+      netlifyFormData.append("name", formData.name.trim());
+      netlifyFormData.append("email", formData.email.trim());
+      netlifyFormData.append("phone", formData.phone.trim());
+      netlifyFormData.append("message", formData.message.trim());
+
       const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          name,
-          email,
-          phone,
-          message,
-        }),
+        body: netlifyFormData,
       });
 
       if (response.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
       } else {
-        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
-      showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
+      console.error("Form submission error:", error);
+      showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
     } finally {
       setIsSubmitting(false);
     }
@@ -268,79 +273,93 @@ export default function ContactForm({
 
   return (
     <div className="bg-gray-50 shadow-md relative">
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        onSubmit={handleSubmit}
-        className="p-6"
-      >
-        <input type="hidden" name="form-name" value="contact" />
+      {/* טופס נסתר לזיהוי Netlify */}
+      <form name="contact" data-netlify="true" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <textarea name="message"></textarea>
+      </form>
 
+      <div className="p-6">
         <h3 className="text-xl font-semibold mb-4">
           השאירו פרטים ואחזור אליכם בהקדם
         </h3>
 
-        <label className="block mb-2">
-          שם *
-          <input
-            type="text"
-            name="name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-            disabled={isSubmitting}
-            className="w-full px-4 py-1 border rounded-md"
-          />
-        </label>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-2">
+            <label htmlFor="name" className="block text-gray-700">
+              שם *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleInputChange}
+              className="w-full px-4 py-1 border rounded-md"
+              disabled={isSubmitting}
+            />
+          </div>
 
-        <label className="block mb-2">
-          מייל *
-          <input
-            type="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-            disabled={isSubmitting}
-            className="w-full px-4 py-1 border rounded-md"
-          />
-        </label>
+          <div className="mb-2">
+            <label htmlFor="email" className="block text-gray-700">
+              מייל *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleInputChange}
+              className="w-full px-4 py-1 border rounded-md"
+              disabled={isSubmitting}
+            />
+          </div>
 
-        <label className="block mb-2">
-          טלפון *
-          <input
-            type="tel"
-            name="phone"
-            required
-            value={formData.phone}
-            onChange={handleChange}
-            disabled={isSubmitting}
-            className="w-full px-4 py-1 border rounded-md"
-          />
-        </label>
+          <div className="mb-2">
+            <label htmlFor="phone" className="block text-gray-700">
+              טלפון *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              value={formData.phone}
+              onChange={handleInputChange}
+              className="w-full px-4 py-1 border rounded-md"
+              disabled={isSubmitting}
+            />
+          </div>
 
-        <label className="block mb-4">
-          הודעה *
-          <textarea
-            name="message"
-            required
-            rows={4}
-            value={formData.message}
-            onChange={handleChange}
-            disabled={isSubmitting}
-            className="w-full px-4 py-1 border rounded-md"
-          />
-        </label>
+          <div className="mb-4">
+            <label htmlFor="message" className="block text-gray-700">
+              הודעה *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={4}
+              value={formData.message}
+              onChange={handleInputChange}
+              className="w-full px-4 py-1 border rounded-md"
+              disabled={isSubmitting}
+            />
+          </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-brand-primary text-white px-6 py-3 rounded-md font-medium hover:bg-brand-lightTeal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isSubmitting ? "שולח..." : "שלח"}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-brand-primary text-white px-6 py-3 rounded-md font-medium hover:bg-brand-lightTeal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? "שולח..." : "שלח"}
+          </button>
+        </form>
+      </div>
 
       <Popup
         message={popupText}
