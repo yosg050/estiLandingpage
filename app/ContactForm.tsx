@@ -195,7 +195,7 @@ interface ContactFormProps {
   trackEvent: (eventName: string) => void;
 }
 
-export default function ContactForm({ trackEvent }: ContactFormProps) {
+export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
