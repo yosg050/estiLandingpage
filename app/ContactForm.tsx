@@ -178,8 +178,8 @@
 //     </div>
 //   );
 // }
-"use client";
 
+"use client";
 
 import { useState, useMemo, FormEvent, ChangeEvent } from "react";
 import Popup from "./Popup";
@@ -189,10 +189,6 @@ interface FormData {
   email: string;
   phone: string;
   message: string;
-}
-
-interface ContactFormProps {
-  trackEvent: (eventName: string) => void;
 }
 
 export default function ContactForm() {
@@ -228,7 +224,6 @@ export default function ContactForm() {
     e.preventDefault();
     if (isSubmitting) return;
 
-    // ולידציות בסיס
     if (
       !formData.name.trim() ||
       !formData.email.trim() ||
@@ -266,20 +261,11 @@ export default function ContactForm() {
       if (response.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
-      //   try {
-      //     trackEvent("form_submit_success");
-      //   } catch {}
-      // } else {
-      //   showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
-      //   try {
-      //     trackEvent("form_submit_failed");
-      //   } catch {}
+      } else {
+        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
       }
     } catch {
       showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
-      // try {
-      //   trackEvent("form_submit_error");
-      // } catch {}
     } finally {
       setIsSubmitting(false);
     }
@@ -292,17 +278,15 @@ export default function ContactForm() {
           השאירו פרטים ואחזור אליכם בהקדם
         </h3>
 
-        {/* עטיפה בתוך <form> כדי לאפשר fallback ללא JS */}
+        {/* מאפשר fallback אם JS לא רץ */}
         <form
           onSubmit={handleSubmit}
-          action="https://formspree.io/f/manonkjq" // fallback אם JS נופל
+          action="https://formspree.io/f/manonkjq"
           method="POST"
           noValidate
           className="space-y-3"
         >
-          {/* שדות חבויים ל-fallback */}
           <input type="hidden" name="_subject" value={subject} />
-          {/* אפשר להפנות לעמוד תודה משלך (וודא שעמוד כזה קיים) */}
           <input
             type="hidden"
             name="_next"
@@ -317,6 +301,7 @@ export default function ContactForm() {
               type="text"
               id="name"
               name="name"
+              autoComplete="name"
               required
               value={formData.name}
               onChange={handleInputChange}
@@ -333,6 +318,7 @@ export default function ContactForm() {
               type="email"
               id="email"
               name="email"
+              autoComplete="email"
               required
               value={formData.email}
               onChange={handleInputChange}
@@ -349,6 +335,7 @@ export default function ContactForm() {
               type="tel"
               id="phone"
               name="phone"
+              autoComplete="tel"
               required
               value={formData.phone}
               onChange={handleInputChange}

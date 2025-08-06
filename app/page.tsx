@@ -294,8 +294,7 @@ export default function LandingPage() {
 
             {/* Form component will need similar responsive adjustments */}
             <div className="mx-auto w-full max-w-md md:max-w-none">
-              <ContactForm  />
-              {/* <ContactForm trackEvent={trackEvent} /> */}
+              <ContactForm trackEvent={trackEvent} />
             </div>
           </div>
         </div>
