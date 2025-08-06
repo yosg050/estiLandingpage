@@ -266,20 +266,20 @@ export default function ContactForm() {
       if (response.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
-        try {
-          trackEvent("form_submit_success");
-        } catch {}
-      } else {
-        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
-        try {
-          trackEvent("form_submit_failed");
-        } catch {}
+      //   try {
+      //     trackEvent("form_submit_success");
+      //   } catch {}
+      // } else {
+      //   showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
+      //   try {
+      //     trackEvent("form_submit_failed");
+      //   } catch {}
       }
     } catch {
       showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
-      try {
-        trackEvent("form_submit_error");
-      } catch {}
+      // try {
+      //   trackEvent("form_submit_error");
+      // } catch {}
     } finally {
       setIsSubmitting(false);
     }
