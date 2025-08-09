@@ -28,3 +28,5 @@ next-env.d.ts
 lighthouserc.json
 .lighthouseci/
 lhci-reports/
+
+netlify/functions/node_modules/

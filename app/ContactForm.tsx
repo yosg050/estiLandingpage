@@ -178,6 +178,11 @@
 //     </div>
 //   );
 // }
+
+
+
+
+
 "use client";
 
 import { useState, useMemo, FormEvent, ChangeEvent } from "react";
@@ -242,39 +247,26 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
     try {
-      // FormData כדי להימנע מ־CORS preflight (לא מגדירים Content-Type ידנית)
-      const fd = new FormData();
-      fd.append("name", formData.name.trim());
-      fd.append("email", formData.email.trim());
-      fd.append("phone", formData.phone.trim());
-      fd.append("message", formData.message.trim());
-      fd.append("_subject", subject);
-
-      // שדה honeypot להפחתת ספאם (אופציונלי; קיים גם בטופס עצמו)
-      fd.append("_gotcha", "");
-
-      const response = await fetch("https://formspree.io/f/manonkjq", {
+      // שליחה לפונקציה בצד שרת (Netlify Function) — JSON, אותו דומיין
+      const res = await fetch("/.netlify/functions/contact", {
         method: "POST",
-        body: fd,
-        // לבקש JSON מ־Formspree כדי לדעת אם ok=true/false
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          message: formData.message.trim(),
+          subject, // אם תרצה להשתמש בזה בתוך הפונקציה בעתיד
+        }),
       });
 
-      let data: any = null;
-      try {
-        data = await response.json();
-      } catch {
-        // אם חזר HTML/ריק – נתפוס כאן
-      }
+      const data = await res.json().catch(() => null);
 
-      if (response.ok && data?.ok) {
+      if (res.ok && data?.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
       } else {
-        const msg =
-          data?.errors?.map((e: any) => e.message).join(" • ") ||
-          data?.message ||
-          `שגיאה בשליחת הטופס (${response.status})`;
+        const msg = data?.error || `שגיאה בשליחת הטופס (${res.status})`;
         showAlert(msg);
       }
     } catch {
@@ -291,30 +283,7 @@ export default function ContactForm() {
           השאירו פרטים ואחזור אליכם בהקדם
         </h3>
 
-        {/* מאפשר fallback אם JS לא רץ (למשל NoScript/חסימות) */}
-        <form
-          onSubmit={handleSubmit}
-          action="https://formspree.io/f/manonkjq"
-          method="POST"
-          noValidate
-          className="space-y-3"
-        >
-          {/* שדות עזר ל־Formspree */}
-          <input type="hidden" name="_subject" value={subject} />
-          <input
-            type="hidden"
-            name="_next"
-            value="https://estioffice.co.il/success"
-          />
-          {/* honeypot נגד ספאם (Formspree מזהה את _gotcha) */}
-          <input
-            type="text"
-            name="_gotcha"
-            className="hidden"
-            tabIndex={-1}
-            autoComplete="off"
-          />
-
+        <form onSubmit={handleSubmit} noValidate className="space-y-3">
           <div className="mb-2">
             <label htmlFor="name" className="block text-gray-700">
               שם *
