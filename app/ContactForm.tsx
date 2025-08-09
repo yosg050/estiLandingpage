@@ -241,21 +241,17 @@ export default function ContactForm() {
     }
 
     setIsSubmitting(true);
-
     try {
+      const fd = new FormData();
+      fd.append("name", formData.name.trim());
+      fd.append("email", formData.email.trim());
+      fd.append("phone", formData.phone.trim());
+      fd.append("message", formData.message.trim());
+      fd.append("_subject", subject);
+
       const response = await fetch("https://formspree.io/f/manonkjq", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: formData.phone.trim(),
-          message: formData.message.trim(),
-          _subject: subject,
-        }),
+        body: fd, // בלי headers בכלל
       });
 
       if (response.ok) {
@@ -270,7 +266,7 @@ export default function ContactForm() {
       setIsSubmitting(false);
     }
   };
-
+  
   return (
     <div className="bg-gray-50 shadow-md relative">
       <div className="p-6">
