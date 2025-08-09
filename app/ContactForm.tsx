@@ -178,13 +178,12 @@
 //     </div>
 //   );
 // }
-
 "use client";
 
 import { useState, useMemo, FormEvent, ChangeEvent } from "react";
 import Popup from "./Popup";
 
-interface FormData {
+interface FormDataShape {
   name: string;
   email: string;
   phone: string;
@@ -192,7 +191,7 @@ interface FormData {
 }
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<FormDataShape>({
     name: "",
     email: "",
     phone: "",
@@ -224,6 +223,7 @@ export default function ContactForm() {
     e.preventDefault();
     if (isSubmitting) return;
 
+    // ולידציה בסיסית
     if (
       !formData.name.trim() ||
       !formData.email.trim() ||
@@ -242,6 +242,7 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
     try {
+      // FormData כדי להימנע מ־CORS preflight (לא מגדירים Content-Type ידנית)
       const fd = new FormData();
       fd.append("name", formData.name.trim());
       fd.append("email", formData.email.trim());
@@ -249,16 +250,32 @@ export default function ContactForm() {
       fd.append("message", formData.message.trim());
       fd.append("_subject", subject);
 
+      // שדה honeypot להפחתת ספאם (אופציונלי; קיים גם בטופס עצמו)
+      fd.append("_gotcha", "");
+
       const response = await fetch("https://formspree.io/f/manonkjq", {
         method: "POST",
-        body: fd, // בלי headers בכלל
+        body: fd,
+        // לבקש JSON מ־Formspree כדי לדעת אם ok=true/false
+        headers: { Accept: "application/json" },
       });
 
-      if (response.ok) {
+      let data: any = null;
+      try {
+        data = await response.json();
+      } catch {
+        // אם חזר HTML/ריק – נתפוס כאן
+      }
+
+      if (response.ok && data?.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
         showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
       } else {
-        showAlert("שגיאה בשליחת הטופס. אנא נסה שוב.");
+        const msg =
+          data?.errors?.map((e: any) => e.message).join(" • ") ||
+          data?.message ||
+          `שגיאה בשליחת הטופס (${response.status})`;
+        showAlert(msg);
       }
     } catch {
       showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
@@ -266,7 +283,7 @@ export default function ContactForm() {
       setIsSubmitting(false);
     }
   };
-  
+
   return (
     <div className="bg-gray-50 shadow-md relative">
       <div className="p-6">
@@ -274,7 +291,7 @@ export default function ContactForm() {
           השאירו פרטים ואחזור אליכם בהקדם
         </h3>
 
-        {/* מאפשר fallback אם JS לא רץ */}
+        {/* מאפשר fallback אם JS לא רץ (למשל NoScript/חסימות) */}
         <form
           onSubmit={handleSubmit}
           action="https://formspree.io/f/manonkjq"
@@ -282,11 +299,20 @@ export default function ContactForm() {
           noValidate
           className="space-y-3"
         >
+          {/* שדות עזר ל־Formspree */}
           <input type="hidden" name="_subject" value={subject} />
           <input
             type="hidden"
             name="_next"
             value="https://estioffice.co.il/success"
+          />
+          {/* honeypot נגד ספאם (Formspree מזהה את _gotcha) */}
+          <input
+            type="text"
+            name="_gotcha"
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
           />
 
           <div className="mb-2">
