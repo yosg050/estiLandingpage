@@ -30,3 +30,6 @@ lighthouserc.json
 lhci-reports/
 
 netlify/functions/node_modules/
+
+# Local Netlify folder
+.netlify

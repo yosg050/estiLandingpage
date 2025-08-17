@@ -5,19 +5,12 @@ import {Alef, Rubik } from "next/font/google";
 import Script from "next/script";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 
-// const rubik = Rubik({
-//   subsets: ["hebrew", "latin"],
-//   weight: ["400", "500", "700"],
-//   display: "swap",
-//   preload: true,
-// });
-
 const rubik = Alef({
   subsets: ["hebrew", "latin"],
   weight: ["400", "700"],
   display: "swap",
 });
-export const metadata: Metadata = {
+export const viewport: Metadata = {
   title: "שירותי משרד מקצועיים לרופאים ומרפאות | מזכירות רפואית מרחוק",
   description:
     "שירותי מזכירות רפואית וניהול משרד מרחוק לרופאים ומרפאות בהתאמה אישית: ניהול יומן, מענה לפניות, גבייה וסדר תפעולי – בלי להעסיק מזכירה ",

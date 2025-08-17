@@ -97,18 +97,16 @@ export default function LandingPage() {
       >
         <div className="container mx-auto px-6 py-2 flex justify-between items-center relative">
           {isScrolled && (
-            <div className="h-20 w-44 relative m-0 p-0">
-              {" "}
-              {/* 80px גובה, 176px רוחב */}
-              <a href="/" className="block m-0 p-0">
-                <Image
-                  src="/logoText.webp"
-                  alt="Small Logo"
-                  fill
-                  className="object-contain m-0 p-0"
-                  priority
-                />
-              </a>
+            <div
+              style={{ position: "relative", height: "80px", width: "176px" }}
+            >
+              <Image
+                src="/logoText.webp"
+                alt="Small Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           )}
           <div
