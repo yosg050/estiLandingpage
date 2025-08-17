@@ -179,10 +179,6 @@
 //   );
 // }
 
-
-
-
-
 "use client";
 
 import { useState, useMemo, FormEvent, ChangeEvent } from "react";
@@ -261,6 +257,7 @@ export default function ContactForm() {
       });
 
       const data = await res.json().catch(() => null);
+      console.log("contact response:", res.status, data); //testing
 
       if (res.ok && data?.ok) {
         setFormData({ name: "", email: "", phone: "", message: "" });
