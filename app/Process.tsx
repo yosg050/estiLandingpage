@@ -150,7 +150,7 @@ export default function Process() {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <p className="text-lg text-gray-700 mb-6">מוכנים להתחיל? בואו נדבר</p>
+          <p className="text-lg text-gray-700 mb-6">מוכנים להתחיל לעבוד? בואו נדבר</p>
           <button
             onClick={() => {
               const element = document.getElementById("contact");
