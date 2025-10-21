@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { IoClose } from "react-icons/io5"; // או MdClose מ-react-icons/md
+import { IoClose } from "react-icons/io5";
 
 export default function CalBookingButton({
   calUsername = "esti-office",
@@ -59,25 +59,25 @@ export default function CalBookingButton({
 
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-2 md:p-4"
           onClick={handleClose}
         >
           <div
-            className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] relative flex flex-col overflow-hidden shadow-2xl"
+            className="bg-white rounded-lg w-full max-w-4xl h-[95vh] md:max-h-[90vh] relative flex flex-col overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={handleClose}
-              className="absolute top-4 left-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+              className="absolute top-2 left-2 md:top-4 md:left-4 z-[100] bg-white rounded-full p-1.5 md:p-2 shadow-lg hover:bg-gray-100 transition-colors"
               aria-label="סגור"
             >
-              <IoClose className="h-6 w-6" />
+              <IoClose className="h-5 w-5 md:h-6 md:w-6" />
             </button>
 
             <div className="flex-1 overflow-auto">
               <iframe
                 src={`https://cal.com/${calUsername}/${eventSlug}?embed=true`}
-                className="w-full min-h-[600px] h-full rounded-lg"
+                className="w-full h-full min-h-[500px] md:min-h-[600px] rounded-lg"
                 frameBorder="0"
                 allow="camera; microphone; autoplay; display-capture"
               />

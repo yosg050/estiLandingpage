@@ -59,7 +59,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden rounded-xl border border-gray-100"
+              className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden rounded-xl border border-gray-100 group"
             >
               {/* פס עליון צבעוני דק */}
               <div className="flex h-1.5">
@@ -70,7 +70,7 @@ export default function Services() {
 
               {/* גוף הכרטיס */}
               <div className="p-6">
-                <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
+                <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-center mb-3 text-gray-800">

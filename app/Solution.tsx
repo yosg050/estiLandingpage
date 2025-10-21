@@ -40,8 +40,8 @@ export default function Solution() {
           </div>
 
           {/* טקסט */}
-          <div className="relative z-10">
-            <h3 className="text-xl md:text-2xl font-bold mb-3">
+          <div className="relative z-10 text-center">
+            <h3 className="text-xl md:text-2xl font-bold mb-3 ">
               נעים להכיר – אני אסתי גלר
             </h3>
 
