@@ -3,9 +3,9 @@
 import type React from "react";
 
 import { useState, useEffect, useRef } from "react";
-import { ArrowUp, Phone, Mail, Menu, X } from "lucide-react";
+import { Phone, Mail, Menu, X } from "lucide-react";
 import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaWhatsapp, FaLinkedinIn, FaFacebookF } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
 import Services from "./Services";
 import HeroSection from "./HeroContent";
@@ -289,18 +289,13 @@ export default function LandingPage() {
             יצירת קשר
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8">
-            {/* Contact Information */}
-            <div className="flex flex-col justify-center text-center md:text-right md:mr-8">
-              <p className="text-xl font-semibold mb-8 mx-auto md:mr-8 max-w-md md:max-w-none">
-                תנו לי לטפל בבירוקרטיה – כדי שאתם תוכלו לטפל באנשים. <br />
-                שירותי ניהול משרד למרפאות – מקצועי, אנושי ומדויק.
-              </p>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8 ">
+            <div className="flex flex-col items-center w-full">
+              {/* עוטף פנימי שמיישר את כל האייקונים מימין ומרכז את הכל בדף */}
               <div className="space-y-6">
                 <a
                   href="tel:97253309144"
-                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-brand-primary transition-colors"
+                  className="flex flex-col md:flex-row items-center md:items-center text-lg hover:text-brand-primary transition-colors"
                   onClick={() => trackEvent("phone_click")}
                 >
                   <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
@@ -313,7 +308,7 @@ export default function LandingPage() {
                   href="https://wa.me/972533309144"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-brand-primary transition-colors"
+                  className="flex flex-col md:flex-row items-center md:items-center text-lg hover:text-brand-primary transition-colors"
                   onClick={() => trackEvent("whatsapp_click")}
                 >
                   <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
@@ -324,7 +319,7 @@ export default function LandingPage() {
 
                 <a
                   href="mailto:estigeller1@gmail.com"
-                  className="flex flex-col md:flex-row items-center md:items-start text-lg hover:text-brand-primary transition-colors"
+                  className="flex flex-col md:flex-row items-center md:items-center text-lg hover:text-brand-primary transition-colors"
                   onClick={() => trackEvent("email_click")}
                 >
                   <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
@@ -332,7 +327,34 @@ export default function LandingPage() {
                   </div>
                   <span className="block md:inline">estigeller1@gmail.com</span>
                 </a>
-              <CalBookingButton calUsername="esti-office" eventSlug="30min" />
+
+                <a
+                  href="https://www.linkedin.com/in/estigeller"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col md:flex-row items-center md:items-center text-lg hover:text-brand-primary transition-colors"
+                  onClick={() => trackEvent("linkedin_click")}
+                >
+                  <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
+                    <FaLinkedinIn className="h-6 w-6 text-white" />
+                  </div>
+                  <span className="block md:inline">LinkedIn</span>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/estioffice"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col md:flex-row items-center md:items-center text-lg hover:text-brand-primary transition-colors"
+                  onClick={() => trackEvent("facebook_click")}
+                >
+                  <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0">
+                    <FaFacebookF className="h-6 w-6 text-white" />
+                  </div>
+                  <span className="block md:inline">Facebook</span>
+                </a>
+
+                <CalBookingButton calUsername="esti-office" eventSlug="30min" />
               </div>
             </div>
 

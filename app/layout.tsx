@@ -164,7 +164,7 @@ export default function RootLayout({
               telephone: "+972533309144",
               email: "estigeller1@gmail.com",
               sameAs: [
-                "https://www.facebook.com/gelleresti",
+                "https://www.facebook.com/estioffice",
                 "https://www.linkedin.com/in/estigeller",
               ],
               openingHoursSpecification: [

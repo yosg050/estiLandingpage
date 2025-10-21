@@ -1,63 +1,95 @@
+import Image from "next/image";
 import { FaStethoscope } from "react-icons/fa";
+import imege from "../public/esti-profile.jpg";
 
 export default function Solution() {
   return (
-    <div className="relative z-10 max-w-3xl mx-auto px-4 text-[1.05rem] md:text-[1.125rem] leading-relaxed">
-      {/* Background Icon */}
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-1 text-black">
-        מי אני?{" "}
+    <section
+      dir="rtl"
+      className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-10 text-right"
+    >
+      {/* כותרת */}
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black">
+        מי אני?
       </h2>
 
-      <div className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none">
-        <FaStethoscope className="text-brand-lightTeal opacity-50 w-[200px] h-[200px] md:w-[400px] md:h-[400px]" />
-      </div>
-      {/* Foreground Content */}
-      <div className="relative z-10 ">
-        <h2 className="text-lg md:text-2xl font-bold mb-4">
-          בדיוק בשביל זה השירות שלי קיים
-        </h2>
+      {/* עטיפה רספונסיבית */}
+      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">
+        {/* תמונה */}
+        <div className="order-1 md:order-2 w-full md:w-[35%] flex justify-center md:justify-end">
+          <div className="w-full max-w-[360px] md:max-w-[420px]">
+            <Image
+              src={imege}
+              alt="אסתי גלר - ניהול משרד מרחוק לרופאים ומטפלים"
+              width={800}
+              height={1000}
+              className="rounded-2xl shadow-lg object-cover w-full h-auto"
+              priority
+            />
+          </div>
+        </div>
 
-        <span className="block ">
-          עם ניסיון של מעל עשור שצברתי בניהול ואדמניסטרציה בעולם הרפואה והקהילה
-          אני מציעה שירות ניהול משרד מרחוק
-        </span>
-        <span className="block mt-2">
-          השירות שלי מעניק פתרון כולל לניהול מרפאה – מרחוק, בלי להעסיק מזכירה.
-          כך משתחררים מהעומס וחוזרים להתמקד במה שחשוב באמת: המטופלים.
-        </span>
+        {/* טקסט + אייקון רקע */}
+        <div className="relative order-2 md:order-1 w-full md:w-[65%] text-[1.05rem] md:text-[1.125rem] leading-relaxed">
+          {/* אייקון רקע - ממורכז מתחת לטקסט בלבד */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none"
+          >
+            <FaStethoscope className="text-brand-lightTeal/30 w-[220px] h-[220px] md:w-[350px] md:h-[350px]" />
+          </div>
 
-        <ul className="list-none  mr-6 space-y-1 text-brand-textMain mt-2">
-          <li>
-            <span className="text-green-400">✔</span> ניהול יומן ותיאום תורים
-          </li>
-          <li>
-            <span className="text-green-400">✔</span> מענה לפניות והודעות חדשות
-          </li>
-          <li>
-            <span className="text-green-400">✔</span> גבייה שוטפת ומעקב אחר
-            תשלומים
-          </li>
-          <li>
-            <span className="text-green-400">✔</span> ניהול טפסים, סיכומים
-            ודוחות
-          </li>
-          <li>
-            <span className="text-green-400">✔</span> עבודה עם מערכות CRM וכלים
-            תפעוליים
-          </li>
-          <li>
-            <span className="text-green-400">✔</span> שירות מותאם אישית, גמיש
-            ודיסקרטי
-          </li>
-          <li>
-            <span className="text-green-400">✔</span> חיסכון בזמן וצימצום
-            עלויות
-          </li>
-        </ul>
-        <span className="block mt-2 font-semibold">
-          אני כאן כדי שתוכל לטפל בראש שקט – מרפאה תמשיך להתנהל כמו שצריך.
-        </span>
+          {/* טקסט */}
+          <div className="relative z-10">
+            <h3 className="text-xl md:text-2xl font-bold mb-3">
+              נעים להכיר – אני אסתי גלר
+            </h3>
+
+            <p className="mt-2">
+              מעל עשור שאני חיה את העולם המנהלי־רפואי: ליוויתי רופאים, מטפלים
+              ומרפאות פרטיות מבפנים, בשגרה ובזמני עומס. ראיתי איך עומס
+              אדמיניסטרטיבי שואב זמן ואנרגיה - דווקא כשמה שחשוב באמת הוא
+              המטופלים.
+            </p>
+
+            <p className="mt-2">
+              מתוך ההבנה הזו הקמתי את <strong>Esti Office</strong> - ניהול משרד
+              מרחוק לרופאים ומטפלים. אני מביאה שילוב של סדר תפעולי, רגישות
+              אנושית והיכרות עמוקה עם מערכות רפואיות ודיגיטליות - כדי להעניק לך{" "}
+              <strong>שקט ניהולי</strong> וביטחון שהכול מתנהל כמו שצריך.
+            </p>
+
+            <p className="mt-2">
+              אצלי זה אישי: זמינות, דיוק, והובלת התהליך מקצה לקצה - כך שאת/ה
+              יכול/ה להתמקד בטיפול, בידיעה שיש מי שמחזיק את הקצוות.
+            </p>
+
+            {/* דגשים קצרים */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm md:text-base">
+              <div className="bg-white border border-gray-200 md:border-gray-300 rounded-xl shadow-md hover:shadow-lg transition p-4">
+                <strong className="block text-brand-darkTeal mb-1">
+                  שקט ניהולי
+                </strong>
+                <div className="text-gray-700">פחות רעש, יותר שליטה.</div>
+              </div>
+
+              <div className="bg-white border border-gray-200 md:border-gray-300 rounded-xl shadow-md hover:shadow-lg transition p-4">
+                <strong className="block text-brand-darkTeal mb-1">
+                  דיוק ויעילות
+                </strong>
+                <div className="text-gray-700">תהליכים שעובדים בשבילך.</div>
+              </div>
+
+              <div className="bg-white border border-gray-200 md:border-gray-300 rounded-xl shadow-md hover:shadow-lg transition p-4">
+                <strong className="block text-brand-darkTeal mb-1">
+                  יחס אנושי
+                </strong>
+                <div className="text-gray-700">שירות דיסקרטי וזמין.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
