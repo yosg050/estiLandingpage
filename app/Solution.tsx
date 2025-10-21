@@ -84,7 +84,7 @@ export default function Solution() {
                 <strong className="block text-brand-darkTeal mb-1">
                   יחס אנושי
                 </strong>
-                <div className="text-gray-700">שירות דיסקרטי וזמין.</div>
+                <div className="text-gray-700">שמירה מלאה על סודיות </div>
               </div>
             </div>
           </div>
