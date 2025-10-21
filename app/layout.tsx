@@ -5,7 +5,13 @@ import {Alef, Rubik } from "next/font/google";
 import Script from "next/script";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 
-const rubik = Alef({
+const rubik = Rubik({
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+const alef = Alef({
   subsets: ["hebrew", "latin"],
   weight: ["400", "700"],
   display: "swap",

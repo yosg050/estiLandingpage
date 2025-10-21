@@ -5,7 +5,7 @@ export default function Solution() {
     <div className="relative z-10 max-w-3xl mx-auto px-4 text-[1.05rem] md:text-[1.125rem] leading-relaxed">
       {/* Background Icon */}
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-1 text-black">
-        מה אני מציעה
+        מי אני?{" "}
       </h2>
 
       <div className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none">
@@ -50,7 +50,8 @@ export default function Solution() {
             ודיסקרטי
           </li>
           <li>
-            <span className="text-green-400">✔</span> חיסכון בזמן וצימצום עלויות
+            <span className="text-green-400">✔</span> חיסכון בזמן וצימצום
+            עלויות
           </li>
         </ul>
         <span className="block mt-2 font-semibold">

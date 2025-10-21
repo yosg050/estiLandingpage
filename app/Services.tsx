@@ -47,36 +47,36 @@ export default function Services() {
   return (
     <section
       id="services"
-      className=" scroll-mt-4 min-h-screen py-20 px-4 bg-gray-50 md:mr-8 md:ml-8 flex items-center"
+      className="scroll-mt-4 min-h-screen py-20 px-4 bg-gray-50 md:mr-8 md:ml-8 flex items-center"
       dir="rtl"
     >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
-           מה כולל השירות?
+          מה כולל השירות?
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-gray-100 shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+              className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden rounded-xl border border-gray-100"
             >
-              {/* פס עליון צבעוני */}
-              <div className="flex h-2">
+              {/* פס עליון צבעוני דק */}
+              <div className="flex h-1.5">
                 <div className="w-1/3 bg-brand-primary"></div>
-                <div className="w-1/3  bg-brand-softGreen"></div>
+                <div className="w-1/3 bg-brand-softGreen"></div>
                 <div className="w-1/3 bg-brand-lightTeal"></div>
               </div>
 
               {/* גוף הכרטיס */}
-              <div className="p-4">
-                <div className="w-16 h-16  bg-brand-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+              <div className="p-6">
+                <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-center mb-2">
+                <h3 className="text-xl font-semibold text-center mb-3 text-gray-800">
                   {service.title}
                 </h3>
-                <p className="text-gray-700 text-center">
+                <p className="text-gray-600 text-center leading-relaxed">
                   {service.description}
                 </p>
               </div>
