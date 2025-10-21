@@ -91,9 +91,11 @@ export default function LandingPage() {
       <div className="container mx-auto">
         <Process />
       </div>
+      <div className="container mx-auto ">
+        {/* Contact Section */}
 
-      {/* Contact Section */}
-      <ContactSection trackEvent={trackEvent} />
+        <ContactSection trackEvent={trackEvent} />
+      </div>
 
       {/* Floating WhatsApp Button */}
       <a

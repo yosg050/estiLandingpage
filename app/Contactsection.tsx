@@ -14,18 +14,18 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
   return (
     <section
       id="contact"
-      className="scroll-mt-10 min-h-screen py-10 px-4 bg-white flex items-center"
+      className="scroll-mt-10 min-h-screen py-14 px-4 bg-white flex items-center"
       dir="rtl"
     >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
           יצירת קשר
         </h2>
-        <p className="text-xl font-semibold mb-3 mx-auto md:mr-8 max-w-md md:max-w-none text-center">
+        <p className="text-xl font-semibold mb-2 mx-auto md:mr-8 max-w-md md:max-w-none text-center">
           תנו לי לטפל בבירוקרטיה – כדי שאתם תוכלו לטפל באנשים. <br />
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8">
-          <div className="flex flex-col items-center w-full  justify-center">
+          <div className="flex flex-col items-center w-full justify-center">
             {/* עוטף פנימי שמיישר את כל האייקונים מימין ומרכז את הכל בדף */}
             <div className="space-y-6">
               <a
@@ -109,7 +109,7 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
           </div>
 
           {/* Form component will need similar responsive adjustments */}
-          <div className="mx-auto w-full max-w-md md:max-w-none  justify-center mt-8">
+          <div className="mx-auto w-full max-w-md md:max-w-none">
             <ContactForm />
           </div>
         </div>
