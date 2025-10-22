@@ -95,6 +95,7 @@ export default function LandingPage() {
         {/* Contact Section */}
 
         <ContactSection trackEvent={trackEvent} />
+        
       </div>
 
       {/* Floating WhatsApp Button */}
