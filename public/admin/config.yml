@@ -6,9 +6,6 @@ backend:
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-media_library:
-  name: file-system
-
 collections:
   - name: "site_texts"
     label: "טקסטים באתר"
