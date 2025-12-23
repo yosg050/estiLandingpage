@@ -1,0 +1,14 @@
+backend:
+  name: git-gateway
+  branch: main
+
+collections:
+  - name: "content"
+    label: "תוכן"
+    files:
+      - file: "content/siteTexts.json"
+        label: "טקסטים"
+        name: "siteTexts"
+        fields:
+          - { label: "כותרת ראשית", name: "heroTitle", widget: "string" }
+          - { label: "פסקה ראשית", name: "heroText", widget: "text" }

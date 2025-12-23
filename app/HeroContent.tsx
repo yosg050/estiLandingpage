@@ -20,16 +20,16 @@ const HeroContent = () => (
     </h1>
 
     <div className="text-base md:text-xl leading-relaxed space-y-5 text-brand-lightGray">
-      <p>היומן מתמלא, המטופלים מתקשרים, והגבייה לא נגמרת - והכול נופל עליכם</p>
+      <p>היומן מתמלא, המטופלים מתקשרים, הגבייה לא נגמרת - הכול נופל עליכם</p>{" "}
       <p>
         עם ניהול משרד רפואי מדויק, שיחות נענות בזמן, תורים מתואמים וגבייה
         שמסודרת כמו שצריך,
       </p>
-      <p>המרפאה שלכם מתנהלת חלק - ואתם חוזרים להתמקד בטיפול.</p>
+      <p>המרפאה שלכם מתנהלת חלק ואתם חוזרים להתמקד בטיפול.</p>
     </div>
 
     <h2 className="text-lg md:text-2xl font-semibold text-brand-lightGray mt-6">
-      ניהול משרד ומזכירות רפואית לרופאים ומרפאות, כדי שהכול יעבוד בלעדיכם,
+      ניהול משרד ומזכירות רפואית לרופאים ומרפאות, כדי שהכול יעבוד בלעדיכם
       ובשקט.{" "}
     </h2>
   </div>
@@ -54,9 +54,9 @@ const HeroSection = () => {
         className="relative z-10 flex flex-col items-center justify-center 
                    min-h-screen px-4 md:px-6 gap-8"
       >
-          <HeroContent />
-          <CalBookingButton calUsername="esti-office" eventSlug="30min" />
-          {/* הכפתור */}
+        <HeroContent />
+        <CalBookingButton calUsername="esti-office" eventSlug="30min" />
+        {/* הכפתור */}
       </div>
     </section>
   );
