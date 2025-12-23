@@ -1,15 +1,22 @@
 backend:
   name: github
-  repo: USERNAME/REPO_NAME
+  repo: yosg050/estiLandingpage
   branch: main
 
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+media_library:
+  name: file-system
+
 collections:
-  - name: "content"
-    label: "תוכן"
+  - name: "site_texts"
+    label: "טקסטים באתר"
     files:
       - file: "content/siteTexts.json"
-        label: "טקסטים"
-        name: "siteTexts"
+        label: "דף הבית"
+        name: "home"
         fields:
           - { label: "כותרת ראשית", name: "heroTitle", widget: "string" }
-          - { label: "פסקה ראשית", name: "heroText", widget: "text" }
+          - { label: "שורת משנה", name: "heroSubtitle", widget: "text" }
+          - { label: "פסקה", name: "heroParagraph", widget: "text" }
