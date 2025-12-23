@@ -1,11 +1,7 @@
-site_url: https://estioffice.co.il
-display_url: https://estioffice.co.il
-
 backend:
   name: github
   repo: yosg050/estiLandingpage
   branch: main
-  client_id: Ov23li1PGceKQ0Vzvuim
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
