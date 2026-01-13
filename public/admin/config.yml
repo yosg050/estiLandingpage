@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: yosg050/estiLandingpage
+  name: git-gateway
   branch: main
 
 media_folder: "public/uploads"

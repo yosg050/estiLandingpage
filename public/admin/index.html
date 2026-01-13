@@ -8,7 +8,18 @@
 
 <body>
   <div id="nc-root"></div>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Initialize Netlify Identity (opens login modal if not logged)
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.init();
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
