@@ -1,46 +1,52 @@
 import { IoCalendarOutline } from "react-icons/io5";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import { HiOutlinePresentationChartLine } from "react-icons/hi";
-import { BsPeople } from "react-icons/bs";
 import { MdOutlineAttachMoney } from "react-icons/md";
-import { SlSpeech } from "react-icons/sl";
+import { HiOutlineDocumentReport } from "react-icons/hi";
+import { MdOutlinePrivacyTip } from "react-icons/md";
+import { HiOutlineCog6Tooth } from "react-icons/hi2";
+import { MdOutlineAutoMode } from "react-icons/md";
+
 
 export default function Services() {
   const services = [
+    //1
     {
-      title: "ניהול יומן ותיאום תורים",
+      title: "ניהול יומן ותיאום פגישות",
       description:
-        "פתיחת יומנים, תיאום תורים עם מטופלים, שליחת תזכורות וביטולים.",
+        "ניהול יומנים, תיאום פגישות עם לקוחות ומטופלים, שליחת תזכורות, טיפול בביטולים ושינויים.",
       icon: <IoCalendarOutline className="h-8 w-8 text-white" />,
     },
+    //2
     {
-      title: "עדכון תיקים והפקת דוחות",
-      description:
-        "הזנת מידע רפואי, תיעוד מפגשים, מעקב טיפולי והפקת דוחות שוטפים לניהול המרפאה",
-      icon: <HiOutlinePresentationChartLine className="h-8 w-8 text-white" />,
+      title: "תיעוד, מעקב והפקת דוחות",
+      description: "הזנת מידע ותיעוד פגישות, מעקב שוטף והפקת דוחות ניהוליים.",
+      icon: <HiOutlineDocumentReport className="h-8 w-8 text-white" />,
     },
+    //3
     {
-      title: "שמירה על חיסיון רפואי",
-      description: "טיפול בלקוחות בצורה דיסקרטית ושמירה על הפרטיות שלהם.",
-      icon: <IoDocumentTextOutline className="h-8 w-8 text-white" />,
-    },
-    {
-      title: "ניהול מערכות של המרפאה",
+      title: "דיסקרטיות וחיסיון מלא",
       description:
-        "עבודה שוטפת עם תוכנות ייעודיות לקליניקות כולל הקמה, תחזוקה ואופטימיזציה.",
-      icon: <BsPeople className="h-8 w-8 text-white" />,
+        "טיפול בלקוחות ומטופלים בצורה דיסקרטית ושמירה מלאה על פרטיותם.",
+      icon: <MdOutlinePrivacyTip className="h-8 w-8 text-white" />,
     },
+    //4
     {
-      title: "שירותי גביה",
+      title: "ניהול מערכות וכלים דיגיטליים",
       description:
-        "גבייה ממטופלים, שליחת תזכורות, טיפול בהוראות קבע שהסתיימו וטיפול בכל הנדרש מול הנהלת חשבונות.",
+        "עבודה שוטפת עם תוכנות ניהול ייעודיות, כולל הקמה, תחזוקה ואופטימיזציה.",
+      icon: <HiOutlineCog6Tooth className="h-8 w-8 text-white" />,
+    },
+    //5
+    {
+      title: "גבייה וסדר פיננסי",
+      description:
+        "גבייה מלקוחות, שליחת תזכורות תשלום, טיפול בהוראות קבע, ניהול ספקים ועבודה שוטפת מול הנהלת החשבונות.",
       icon: <MdOutlineAttachMoney className="h-8 w-8 text-white" />,
     },
     {
-      title: "קשר שוטף עם ספקים",
+      title: "אוטומציות וטכנולוגיה עדכנית",
       description:
-        "ניהול שיח שוטף עם ספקי שירות, מענה אישי שמייצג אותך בצורה מקצועית ואכפתית.",
-      icon: <SlSpeech className="h-8 w-8 text-white" />,
+        "הטמעת כלים טכנולוגיים חכמים: תזכורות אוטומטיות בוואטסאפ, טפסים דיגיטליים, מערכות זימון עצמי ואוטומציות שחוסכות שעות זמן.",
+      icon: <MdOutlineAutoMode className="h-8 w-8 text-white" />,
     },
   ];
 

@@ -22,7 +22,7 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
           יצירת קשר
         </h2>
         <p className="text-xl font-semibold mb-2 mx-auto md:mr-8 max-w-md md:max-w-none text-center">
-          תנו לי לטפל בבירוקרטיה – כדי שאתם תוכלו לטפל באנשים. <br />
+          תנו לי לטפל בבירוקרטיה — כדי שאתם תוכלו לטפל במה שחשוב לכם באמת <br />
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8">
           <div className="flex flex-col items-center w-full justify-center">

@@ -41,7 +41,7 @@ export const viewport: Metadata = {
 
   openGraph: {
     title: "אסתי גלר - שירותי משרד לרופאים ומרפאות",
-    description: "אתם מתמקדים במטופלים - אני דואגת לכל השאר",
+    description: "אתם מתמקדים בלקוחות - אני דואגת לכל השאר",
     url: "https://estioffice.co.il",
     siteName: "אסתי גלר - שירותי משרד",
     images: [

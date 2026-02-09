@@ -5,7 +5,7 @@ export default function Process() {
     {
       number: 1,
       title: "שיחת היכרות",
-      description: "שיחה קצרה שבה נכיר את המרפאה ונבין את הצרכים שלך.",
+      description: "שיחה קצרה שבה נכיר את העסק שלכם ונבין את הצרכים שלכם.",
       icon: <Phone className="h-8 w-8 text-white" />,
     },
     {
@@ -150,7 +150,9 @@ export default function Process() {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <p className="text-lg text-gray-700 mb-6">מוכנים להתחיל לעבוד? בואו נדבר</p>
+          <p className="text-lg text-gray-700 mb-6">
+            מוכנים להתחיל לעבוד? בואו נדבר
+          </p>
           <button
             onClick={() => {
               const element = document.getElementById("contact");
