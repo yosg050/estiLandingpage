@@ -149,53 +149,177 @@ export default function RootLayout({
         />
         <Script
           type="application/ld+json"
-          id="organization-schema"
+          id="structured-data"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "AdministrativeAssistant",
-              "@id": "https://estioffice.co.il/#organization",
-              name: "אסתי גלר - שירותי משרד",
-              url: "https://estioffice.co.il",
-              founder: { "@type": "Person", name: "אסתי גלר" },
-              logo: "https://estioffice.co.il/favicon.svg",
-              description:
-                "שירותי Back Office וניהול משרד מרחוק לרופאים וקליניקות.",
-              telephone: "+972533309144",
-              email: "estigeller1@gmail.com",
-              sameAs: [
-                "https://www.facebook.com/estioffice",
-                "https://www.linkedin.com/in/estigeller",
-              ],
-              openingHoursSpecification: [
+              "@graph": [
                 {
-                  "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Sunday",
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
+                  "@type": "Organization",
+                  "@id": "https://estioffice.co.il/#organization",
+                  name: "Esti Office",
+                  alternateName: "אסתי גלר - שירותי משרד",
+                  url: "https://estioffice.co.il",
+                  logo: "https://estioffice.co.il/favicon.svg",
+                  description:
+                    "שירותי Back Office וניהול משרד מרחוק לבעלי מקצוע בתחומי הטיפול, הבריאות והשירות האישי.",
+                  telephone: "+972533309144",
+                  email: "estigeller1@gmail.com",
+                  founder: {
+                    "@id": "https://estioffice.co.il/#person",
+                  },
+                  sameAs: [
+                    "https://www.facebook.com/estioffice",
+                    "https://www.linkedin.com/in/estigeller",
                   ],
-                  opens: "08:00",
-                  closes: "17:00",
+                  knowsLanguage: "he",
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://estioffice.co.il/#localbusiness",
+                  name: "Esti Office - ניהול משרד מרחוק",
+                  image: "https://estioffice.co.il/og-image.webp",
+                  url: "https://estioffice.co.il",
+                  telephone: "+972533309144",
+                  email: "estigeller1@gmail.com",
+                  priceRange: "₪₪",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressCountry: "IL",
+                    addressLocality: "Israel",
+                  },
+                  openingHoursSpecification: [
+                    {
+                      "@type": "OpeningHoursSpecification",
+                      dayOfWeek: [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                      ],
+                      opens: "08:00",
+                      closes: "17:00",
+                    },
+                  ],
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  parentOrganization: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://estioffice.co.il/#person",
+                  name: "אסתי גלר",
+                  alternateName: "Esti Geller",
+                  url: "https://estioffice.co.il",
+                  image: "https://estioffice.co.il/esti-profile.jpg",
+                  jobTitle: "מנהלת משרד מרחוק",
+                  description:
+                    "מעל עשור של ניסיון בליווי בעלי מקצוע בתחומי הטיפול, הבריאות והשירות האישי. מקימת Esti Office.",
+                  telephone: "+972533309144",
+                  email: "estigeller1@gmail.com",
+                  worksFor: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                  sameAs: [
+                    "https://www.linkedin.com/in/estigeller",
+                  ],
+                },
+                {
+                  "@type": "Service",
+                  "@id": "https://estioffice.co.il/#service-diary",
+                  name: "ניהול יומן ותיאום פגישות",
+                  description:
+                    "ניהול יומנים, תיאום פגישות עם לקוחות ומטופלים, שליחת תזכורות, טיפול בביטולים ושינויים.",
+                  provider: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  serviceType: "ניהול יומן",
+                },
+                {
+                  "@type": "Service",
+                  "@id": "https://estioffice.co.il/#service-reports",
+                  name: "תיעוד, מעקב והפקת דוחות",
+                  description:
+                    "הזנת מידע ותיעוד פגישות, מעקב שוטף והפקת דוחות ניהוליים.",
+                  provider: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  serviceType: "תיעוד והפקת דוחות",
+                },
+                {
+                  "@type": "Service",
+                  "@id": "https://estioffice.co.il/#service-privacy",
+                  name: "דיסקרטיות וחיסיון מלא",
+                  description:
+                    "טיפול בלקוחות ומטופלים בצורה דיסקרטית ושמירה מלאה על פרטיותם.",
+                  provider: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  serviceType: "שמירת פרטיות",
+                },
+                {
+                  "@type": "Service",
+                  "@id": "https://estioffice.co.il/#service-digital",
+                  name: "ניהול מערכות וכלים דיגיטליים",
+                  description:
+                    "עבודה שוטפת עם תוכנות ניהול ייעודיות, כולל הקמה, תחזוקה ואופטימיזציה.",
+                  provider: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  serviceType: "ניהול מערכות דיגיטליות",
+                },
+                {
+                  "@type": "Service",
+                  "@id": "https://estioffice.co.il/#service-billing",
+                  name: "גבייה וסדר פיננסי",
+                  description:
+                    "גבייה מלקוחות, שליחת תזכורות תשלום, טיפול בהוראות קבע, ניהול ספקים ועבודה שוטפת מול הנהלת החשבונות.",
+                  provider: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  serviceType: "גבייה וניהול פיננסי",
+                },
+                {
+                  "@type": "Service",
+                  "@id": "https://estioffice.co.il/#service-automation",
+                  name: "אוטומציות וטכנולוגיה עדכנית",
+                  description:
+                    "הטמעת כלים טכנולוגיים חכמים: תזכורות אוטומטיות בוואטסאפ, טפסים דיגיטליים, מערכות זימון עצמי ואוטומציות שחוסכות זמן.",
+                  provider: {
+                    "@id": "https://estioffice.co.il/#organization",
+                  },
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  serviceType: "אוטומציה וטכנולוגיה",
                 },
               ],
-              priceRange: "₪₪",
-
-              knowsLanguage: ["he"],
-              serviceType:
-                "Virtual back office management for clinics and professionals",
-              makesOffer: {
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Service",
-                  name: "שירותי ניהול משרד וירטואליים למרפאות ורופאים",
-                  description:
-                    "שירות מקיף הכולל: ניהול יומן ותיאום תורים, גבייה, עדכון תיקים, ניהול CRM וקשר עם מטופלים.",
-                  provider: { "@id": "https://estioffice.co.il/#organization" },
-                },
-              },
             }),
           }}
         />
