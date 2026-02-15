@@ -1,4 +1,5 @@
 import { Phone, Settings, Rocket } from "lucide-react";
+import Link from "next/link";
 
 export default function Process() {
   const steps = [
@@ -11,13 +12,13 @@ export default function Process() {
     {
       number: 2,
       title: "התאמת תהליכי עבודה",
-      description: "נבנה עבורך תהליכי עבודה המותאמים אישית לצרכים שהגדרנו.",
+      description: "נבנה עבורכם תהליכי עבודה מותאמים אישית לצרכים שהגדרנו.",
       icon: <Settings className="h-8 w-8 text-white" />,
     },
     {
       number: 3,
       title: "התחלת עבודה מיידית",
-      description: "מתחילים בעבודה באופן מיידי, ללא עיכובים.",
+      description: "מתחילים לעבוד מיד, בלי עיכובים.",
       icon: <Rocket className="h-8 w-8 text-white" />,
     },
   ];
@@ -153,21 +154,16 @@ export default function Process() {
           <p className="text-lg text-gray-700 mb-6">
             מוכנים להתחיל לעבוד? בואו נדבר
           </p>
-          <button
-            onClick={() => {
-              const element = document.getElementById("contact");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-            className="relative group px-8 py-4 rounded-full font-semibold text-white text-base md:text-lg transition-all duration-300 ease-in-out overflow-hidden cursor-pointer"
+          <Link
+            href="/contact"
+            className="relative inline-block group px-8 py-4 rounded-full font-semibold text-white text-base md:text-lg transition-all duration-300 ease-in-out overflow-hidden cursor-pointer"
             dir="rtl"
           >
             <span className="absolute inset-0 bg-brand-primary transition-all duration-300"></span>
             <span className="absolute inset-0 bg-brand-lightTeal scale-0 group-hover:scale-100 transition-all duration-300 ease-out"></span>
             <span className="absolute inset-0 shadow-lg group-hover:shadow-xl transition-shadow duration-300"></span>
             <span className="relative z-10">צרו קשר עכשיו</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

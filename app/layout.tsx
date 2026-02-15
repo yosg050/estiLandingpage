@@ -1,9 +1,12 @@
 import type React from "react";
 import "./globals.css";
-import type { Metadata } from "next";
-import {Alef, Rubik } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Rubik } from "next/font/google";
 import Script from "next/script";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
+import Navigation from "@/components/Navigation";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import Footer from "@/components/Footer";
 
 const rubik = Rubik({
   subsets: ["hebrew", "latin"],
@@ -11,12 +14,14 @@ const rubik = Rubik({
   display: "swap",
 });
 
-const alef = Alef({
-  subsets: ["hebrew", "latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
-export const viewport: Metadata = {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1a1a" },
+  ],
+};
+
+export const metadata: Metadata = {
   title: "שירותי משרד מקצועיים לרופאים ומרפאות | מזכירות רפואית מרחוק",
   description:
     "שירותי מזכירות רפואית וניהול משרד מרחוק לרופאים ומרפאות בהתאמה אישית: ניהול יומן, מענה לפניות, גבייה וסדר תפעולי – בלי להעסיק מזכירה ",
@@ -77,11 +82,6 @@ export const viewport: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1a1a" },
-  ],
-
   robots: {
     index: true,
     follow: true,
@@ -101,7 +101,7 @@ export const viewport: Metadata = {
   manifest: "/manifest.json",
 
   verification: {
-    google: "RQALfrohxvOxirfJI6NE3O3mUf2ZfaWRAVVmCLc57oY",
+    google: "U_mO3ozacc4NsxVJbZCtPusNrmWRRH2puwRVXrXMyWA",
   },
 };
 
@@ -114,11 +114,9 @@ export default function RootLayout({
     <html lang="he">
       <head>
         <meta name="author" content="אסתי גלר" />
-      </head>
-      <body className={rubik.className}>
-        {/* Google Analytics */}
-        {/* <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-CL4R4PB25H"
+        {/* Google Analytics — in <head> for Search Console verification */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6EBV9FJT3N"
           strategy="afterInteractive"
         />
         <Script
@@ -129,24 +127,12 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){window.dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-CL4R4PB25H');
+              gtag('config', 'G-6EBV9FJT3N');
             `,
           }}
-        /> */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-6EBV9FJT3N"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-6EBV9FJT3N');
-        `,
-          }}
         />
+      </head>
+      <body className={rubik.className}>
         <Script
           type="application/ld+json"
           id="structured-data"
@@ -336,7 +322,7 @@ export default function RootLayout({
                   name: "איך אפשר לייעל את התפעול השוטף של מרפאה",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "באמצעות מיקור חוץ של משימות ניהול משרד (back office) – תיאום תורים, גבייה ומענה לפניות – אפשר לחסוך זמן יקר ולהתמקד רק בטיפול.",
+                    text: "באמצעות מיקור חוץ של ניהול המשרד - תיאום תורים, גבייה ומענה לפניות – אפשר לחסוך זמן יקר ולהתמקד רק בטיפול.",
                   },
                 },
                 {
@@ -344,7 +330,7 @@ export default function RootLayout({
                   name: "האם שירות ניהול משרד מרחוק עדיף על מזכירה במרפאה?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "כן, השירות חוסך בעלויות, גמיש יותר, אינו מצריך מיקום פיזי, ונעשה על ידי אדם מיומן ומנוסה בתחום הקליניקות.",
+                    text: "כן, השירות חוסך בעלויות, גמיש יותר, אינו מצריך מיקום פיזי, ונעשה על ידי מזכירה מיומנת ומנוסה.",
                   },
                 },
                 {
@@ -376,7 +362,10 @@ export default function RootLayout({
           }}
         />
 
+        <Navigation />
         {children}
+        <Footer />
+        <WhatsAppButton />
         <AccessibilityWidget />
       </body>
     </html>

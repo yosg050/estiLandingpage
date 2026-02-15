@@ -1,5 +1,5 @@
 "use client";
-import CalBookingButton from "@/components/Calbookingbutton";
+import CalBookingButton from "@/components/CalBookingButton";
 import Image from "next/image";
 
 const HeroContent = () => (
@@ -20,7 +20,7 @@ const HeroContent = () => (
     </h1>
 
     <div className="text-base md:text-xl leading-relaxed space-y-5 text-brand-lightGray">
-      <p>היומן מתמלא, הטלפונים לא מפסיקים, הגבייה לא נגמרת - הכול נופל עליכם</p>{" "}
+      <p>היומן מתמלא, הטלפונים לא מפסיקים, הגבייה לא נסגרת - הכול נופל עליכם</p>{" "}
       <p>
         עם ניהול משרד מדויק, שיחות שנענות בזמן, פגישות מתואמות וגבייה שמסודרת
         כמו שצריך{" "}
@@ -29,7 +29,7 @@ const HeroContent = () => (
     </div>
 
     <h2 className="text-lg md:text-2xl font-semibold text-brand-lightGray mt-6">
-      ניהול משרד מרחוק לבעלי מקצועות בתחום הטיפול, הבריאות והשירות האישי,{" "}
+      ניהול משרד מרחוק לבעלי מקצוע בתחום הטיפול, הבריאות והשירות האישי
     </h2>
   </div>
 );

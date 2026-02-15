@@ -25,6 +25,14 @@ Esti Office הוקם על ידי אסתי גלר, עם למעלה מעשור נ�
 2. התאמת תהליכי עבודה — בניית תהליכי עבודה מותאמים אישית.
 3. התחלת עבודה מיידית — ללא עיכובים.
 
+## דפי האתר
+
+- **דף הבית:** https://estioffice.co.il/
+- **מה כולל השירות:** https://estioffice.co.il/services
+- **מי אני — אסתי גלר:** https://estioffice.co.il/about
+- **איך זה עובד — תהליך עבודה ותמחור:** https://estioffice.co.il/how-it-works
+- **יצירת קשר:** https://estioffice.co.il/contact
+
 ## יצירת קשר
 
 - **טלפון:** 053-3309144

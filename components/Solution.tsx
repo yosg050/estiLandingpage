@@ -55,14 +55,14 @@ export default function Solution() {
               מתוך ההבנה הזו הקמתי את <strong>Esti Office</strong> - ניהול משרד
               מרחוק לבעלי מקצוע שמתמחים בנתינת שירות אישי. לרופאים ורופאות
                יועצים ומטפלים רגשיים, קוסמטיקאיות, מטפלים/ות ברפואה משלימה
-              — אני מביאה שילוב של סדר תפעולי, רגישות אנושית והיכרות עמוקה עם
-              מערכות ניהול וכלים דיגיטליים — כדי להעניק לכם{" "}
+              - אני מביאה שילוב של סדר תפעולי, רגישות אנושית והיכרות עמוקה עם
+              מערכות ניהול וכלים דיגיטליים - כדי להעניק לכם{" "}
               <strong>שקט ניהולי</strong> וביטחון שהכול מתנהל כמו שצריך
             </p>
 
             <p className="mt-2">
-              אצלי זה אישי: זמינות, דיוק, והובלת התהליך מקצה לקצה - כך שאת/ה
-              יכול/ה להתמקד בטיפול, בידיעה שיש מי שמחזיק את הקצוות.
+              אצלי זה אישי: זמינות, דיוק, והובלת התהליך מקצה לקצה - כך שאתם
+              יכולים להתמקד בטיפול, בידיעה שיש מי שמחזיק את הקצוות.
             </p>
 
             {/* דגשים קצרים */}
@@ -78,14 +78,14 @@ export default function Solution() {
                 <strong className="block text-brand-darkTeal mb-1">
                   דיוק ויעילות
                 </strong>
-                <div className="text-gray-700">תהליכים שעובדים בשבילך.</div>
+                <div className="text-gray-700">תהליכים שעובדים בשבילכם.</div>
               </div>
 
               <div className="bg-white border border-gray-200 md:border-gray-300 rounded-xl shadow-md hover:shadow-lg transition p-4">
                 <strong className="block text-brand-darkTeal mb-1">
                   יחס אנושי
                 </strong>
-                <div className="text-gray-700">שמירה מלאה על סודיות </div>
+                <div className="text-gray-700">ליווי אישי, קשוב וצמוד.</div>
               </div>
             </div>
           </div>

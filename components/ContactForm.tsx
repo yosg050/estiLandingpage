@@ -48,13 +48,13 @@
         !formData.phone.trim() ||
         !formData.message.trim()
       ) {
-        showAlert("אנא מלא את כל השדות הנדרשים");
+        showAlert("אנא מלאו את כל השדות");
         return;
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
-        showAlert("אנא הכנס כתובת אימייל תקינה");
+        showAlert("אנא הזינו כתובת אימייל תקינה");
         return;
       }
 
@@ -77,13 +77,13 @@
 
         if (res.ok && data?.ok) {
           setFormData({ name: "", email: "", phone: "", message: "" });
-          showAlert("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
+          showAlert("ההודעה נשלחה בהצלחה! נחזור אליכם בהקדם.");
         } else {
           const msg = data?.error || `שגיאה בשליחת הטופס (${res.status})`;
           showAlert(msg);
         }
       } catch {
-        showAlert("שגיאת רשת. אנא בדוק את החיבור ונסה שוב.");
+        showAlert("שגיאת רשת. אנא בדקו את החיבור ונסו שוב.");
       } finally {
         setIsSubmitting(false);
       }

@@ -2,15 +2,11 @@
 
 import type React from "react";
 import { Phone, Mail } from "lucide-react";
-import { FaWhatsapp, FaLinkedinIn, FaFacebookF } from "react-icons/fa6";
+import { FaWhatsapp, FaLinkedinIn } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
-import CalBookingButton from "@/components/Calbookingbutton";
+import CalBookingButton from "@/components/CalBookingButton";
 
-interface ContactSectionProps {
-  trackEvent: (eventName: string) => void;
-}
-
-export default function ContactSection({ trackEvent }: ContactSectionProps) {
+export default function ContactSection() {
   return (
     <section
       id="contact"
@@ -21,9 +17,11 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
           יצירת קשר
         </h2>
-        <p className="text-xl font-semibold mb-2 mx-auto md:mr-8 max-w-md md:max-w-none text-center">
-          תנו לי לטפל בבירוקרטיה — כדי שאתם תוכלו לטפל במה שחשוב לכם באמת <br />
+        <p className="text-xl font-semibold mb-6 mx-auto md:mr-8 max-w-md md:max-w-none text-center">
+          תנו לי לטפל בבירוקרטיה - כדי שאתם תוכלו לטפל במה שחשוב לכם באמת
         </p>
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:mr-8 md:ml-8">
           <div className="flex flex-col items-center w-full justify-center">
             {/* עוטף פנימי שמיישר את כל האייקונים מימין ומרכז את הכל בדף */}
@@ -31,7 +29,7 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
               <a
                 href="tel:97253309144"
                 className="flex flex-col md:flex-row items-center md:items-center text-lg transition-colors group"
-                onClick={() => trackEvent("phone_click")}
+
               >
                 <div className="relative w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0 overflow-hidden">
                   <span className="absolute inset-0 bg-brand-primary rounded-full transition-all duration-300"></span>
@@ -47,7 +45,7 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col md:flex-row items-center md:items-center text-lg transition-colors group"
-                onClick={() => trackEvent("whatsapp_click")}
+
               >
                 <div className="relative w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0 overflow-hidden">
                   <span className="absolute inset-0 bg-brand-primary rounded-full transition-all duration-300"></span>
@@ -61,7 +59,7 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
               <a
                 href="mailto:estigeller1@gmail.com"
                 className="flex flex-col md:flex-row items-center md:items-center text-lg transition-colors group"
-                onClick={() => trackEvent("email_click")}
+
               >
                 <div className="relative w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0 overflow-hidden">
                   <span className="absolute inset-0 bg-brand-primary rounded-full transition-all duration-300"></span>
@@ -77,7 +75,7 @@ export default function ContactSection({ trackEvent }: ContactSectionProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col md:flex-row items-center md:items-center text-lg transition-colors group"
-                onClick={() => trackEvent("linkedin_click")}
+
               >
                 <div className="relative w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0 overflow-hidden">
                   <span className="absolute inset-0 bg-brand-primary rounded-full transition-all duration-300"></span>
