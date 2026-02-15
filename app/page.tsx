@@ -27,17 +27,17 @@ const painPoints = [
     icon: <PhoneOff className="h-6 w-6 text-brand-primary" />,
     title: "לקוחות מתקשרים - ואין מי שיענה",
     description:
-      "באמצע טיפול אי אפשר לענות לטלפון. מטופלים חדשים שלא מקבלים מענה - פונים למישהו אחר.",
+      "באמצע טיפול אי אפשר לענות לטלפון ואתם מאבדים לקוחות שלא מקבלים מענה.",
   },
   {
     icon: <Wallet className="h-6 w-6 text-brand-primary" />,
     title: "הגבייה לא מסודרת",
     description:
-      "מטופלים חייבים כסף, אתם לא זוכרים למי שלחתם תזכורת ולמי לא. כל חודש נשאר כסף שלא נגבה.",
+      "לקוחות חייבים כסף, אתם לא זוכרים למי שלחתם תזכורת ולמי לא.",
   },
   {
     icon: <CalendarX className="h-6 w-6 text-brand-primary" />,
-    title: "היומן מתנהל על הברך",
+    title: "היומן מתנהל בערך",
     description:
       "ביטולים שלא מתעדכנים, חלונות ריקים שאף אחד לא ממלא, תזכורות שלא נשלחות.",
   },
@@ -45,7 +45,7 @@ const painPoints = [
     icon: <FileText className="h-6 w-6 text-brand-primary" />,
     title: "כל הערב שקועים בניירת",
     description:
-      "תיעוד פגישות, דוחות, חשבוניות - העבודה הניהולית לא נגמרת גם אחרי שהמטופל האחרון יצא.",
+      "תיעוד פגישות, דוחות, חשבוניות - העבודה שלא נגמרת גם אחרי שהמטופל האחרון יצא.",
   },
 ];
 
@@ -141,7 +141,7 @@ export default function HomePage() {
       <section className="py-12 px-4 bg-gray-50" dir="rtl">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-            מה נכנס לחבילה?
+           מה נכלל בשירות?
           </h2>
 
           <div className="flex flex-col md:flex-row items-stretch gap-4 mb-8">
