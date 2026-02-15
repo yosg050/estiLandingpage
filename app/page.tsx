@@ -43,7 +43,7 @@ const painPoints = [
   },
   {
     icon: <FileText className="h-6 w-6 text-brand-primary" />,
-    title: "כל הערב שקועים בניירת",
+    title: "כל הזמן שקועים בניירת",
     description:
       "תיעוד פגישות, דוחות, חשבוניות - העבודה שלא נגמרת גם אחרי שהמטופל האחרון יצא.",
   },
