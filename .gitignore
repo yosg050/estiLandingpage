@@ -34,3 +34,6 @@ netlify/functions/node_modules/
 # Local Netlify folder
 .netlify
 CLAUDE.md
+
+# Windows reserved device names
+nul

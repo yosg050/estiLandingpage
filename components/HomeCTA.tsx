@@ -8,14 +8,12 @@ import { FaWhatsapp } from "react-icons/fa6";
 interface FormData {
   name: string;
   phone: string;
-  preferredTime: string;
 }
 
 export default function HomeCTA() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
-    preferredTime: "",
   });
 
   const [popupText, setPopupText] = useState("");
@@ -28,7 +26,7 @@ export default function HomeCTA() {
   };
 
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: ChangeEvent<HTMLInputElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -52,9 +50,7 @@ export default function HomeCTA() {
           name: formData.name.trim(),
           phone: formData.phone.trim(),
           email: "",
-          message: formData.preferredTime
-            ? `שעה מועדפת לחזרה: ${formData.preferredTime}`
-            : "פנייה מדף הבית",
+          message: "פנייה מדף הבית",
           subject: `פנייה חדשה מהאתר – ${formData.name.trim()}`,
         }),
       });
@@ -62,7 +58,7 @@ export default function HomeCTA() {
       const data = await res.json().catch(() => null);
 
       if (res.ok && data?.ok) {
-        setFormData({ name: "", phone: "", preferredTime: "" });
+        setFormData({ name: "", phone: "" });
         showAlert("הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם.");
       } else {
         showAlert(data?.error || `שגיאה בשליחה (${res.status})`);
@@ -128,35 +124,12 @@ export default function HomeCTA() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="home-time" className="block text-gray-700 mb-1">
-                  שעה מועדפת לחזרה
-                </label>
-                <select
-                  id="home-time"
-                  name="preferredTime"
-                  value={formData.preferredTime}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border rounded-xl bg-white"
-                  disabled={isSubmitting}
-                >
-                  <option value="">לא משנה</option>
-                  <option value="בוקר (8:00-12:00)">בוקר (8:00-12:00)</option>
-                  <option value="צהריים (12:00-15:00)">
-                    צהריים (12:00-15:00)
-                  </option>
-                  <option value="אחר הצהריים (15:00-17:00)">
-                    אחר הצהריים (15:00-17:00)
-                  </option>
-                </select>
-              </div>
-
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-brand-primary text-white px-6 py-3 rounded-2xl font-medium hover:bg-brand-lightTeal transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "שולח..." : "שלחו פרטים"}
+                {isSubmitting ? "שולח..." : "שלח"}
               </button>
             </form>
           </div>
@@ -187,16 +160,15 @@ export default function HomeCTA() {
               </a>
             </div>
 
-            <p className="text-gray-400 text-sm text-center md:text-right">
-              <a
-                href="/contact"
+          </div>
+        </div>
+                <p className="text-gray-400 text-sm text-center mt-12">   
+         <a     href="/contact"
                 className="text-brand-primary underline underline-offset-4"
               >
                 כל הדרכים ליצירת קשר
               </a>
             </p>
-          </div>
-        </div>
       </div>
 
       <Popup

@@ -32,12 +32,12 @@ export default function Solution() {
         {/* טקסט + אייקון רקע */}
         <div className="relative order-2 md:order-1 w-full md:w-[65%] text-[1.05rem] md:text-[1.125rem] leading-relaxed">
           {/* אייקון רקע - ממורכז מתחת לטקסט בלבד */}
-          <div
+          {/* <div
             aria-hidden="true"
             className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none"
           >
             <FaStethoscope className="text-brand-lightTeal/30 w-[220px] h-[220px] md:w-[350px] md:h-[350px]" />
-          </div>
+          </div> */}
 
           {/* טקסט */}
           <div className="relative z-10 text-center">
