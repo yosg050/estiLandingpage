@@ -58,12 +58,12 @@ export const handler: Handler = async (event) => {
   const phone = String(payload.phone || "").trim();
   const message = String(payload.message || "").trim();
 
-  // ולידציה בסיסית
-  if (!name || !email || !phone || !message) {
+  // ולידציה בסיסית – email אופציונלי (HomeCTA שולח בלי email)
+  if (!name || !phone || !message) {
     return json(400, { ok: false, error: "Missing required fields" });
   }
   const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRx.test(email)) {
+  if (email && !emailRx.test(email)) {
     return json(400, { ok: false, error: "Invalid email" });
   }
 
@@ -79,7 +79,7 @@ ${message}`;
     const { data, error } = await resend.emails.send({
       from: FROM,
       to: TO,
-      reply_to: email,
+      ...(email ? { reply_to: email } : {}),
       subject,
       text,
     });
