@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/services", label: "מה כולל השירות" },
   { href: "/about", label: "מי אני?" },
   { href: "/how-it-works", label: "איך זה עובד?" },
+  { href: "/blog", label: "מאמרים" },
   { href: "/contact", label: "יצירת קשר" },
 ];
 
@@ -34,7 +35,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation Links */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-white font-semibold mb-4">ניווט</h3>
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (

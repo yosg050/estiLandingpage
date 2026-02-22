@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ContactSection from "@/components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "יצירת קשר | אסתי גלר - ניהול משרד מרחוק",
+  title: "יצירת קשר | שיחת ייעוץ חינם | Esti Office",
   description:
-    "צרו קשר עם אסתי גלר לשיחת היכרות ללא התחייבות. טלפון, וואטסאפ, מייל או טופס - נשמח לשמוע מכם.",
+    "רוצים לשמוע איך אפשר לייעל את הניהול שלכם? שיחת היכרות בחינם – טלפון, WhatsApp, מייל או קביעת פגישה.",
   alternates: {
     canonical: "https://estioffice.co.il/contact",
   },

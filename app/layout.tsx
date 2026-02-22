@@ -22,46 +22,50 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "שירותי משרד מקצועיים לרופאים ומרפאות | מזכירות רפואית מרחוק",
+  title: "ניהול משרד מרחוק ושירותי back office | Esti Office",
   description:
-    "שירותי מזכירות רפואית וניהול משרד מרחוק לרופאים ומרפאות בהתאמה אישית: ניהול יומן, מענה לפניות, גבייה וסדר תפעולי – בלי להעסיק מזכירה ",
+    "שירותי ניהול משרד, מזכירות, גבייה ואדמיניסטרציה מרחוק – לרופאים, מטפלים, יועצים וכל בעל עסק שנותן שירות אישי. בלי להעסיק מזכירה, בלי עלויות מעביד.",
 
   keywords: [
-    "שירותי משרד לרופאים",
-    "ניהול מרפאות מרחוק",
+    "ניהול משרד מרחוק",
     "שירותי back office",
-    "אסתי גלר",
-    "ניהול יומנים רפואיים",
+    "עוזרת אישית מרחוק",
+    "מיקור חוץ אדמיניסטרטיבי",
+    "ייעול עסק",
+    "ניהול תפעולי",
     "גבייה מלקוחות",
-    "הפקת דוחות",
-    "ניהול מערכות קליניקה ו-CRM",
-    "מזכירה רפואית מרחוק",
-    "ניהול מרפאה אונליין",
-    "שירותי Back Office רפואי",
-    "מזכירה רפואית מרחוק מנהלת יומן תורים",
+    "שירותי מזכירות",
+    "ניהול קליניקה",
+    "ניהול מרפאה",
+    "תיאום תורים",
+    "שירות לקוחות מרחוק",
+    "מזכירה מרחוק",
+    "מזכירה וירטואלית",
+    "ייעול מרפאה",
+    "אסתי גלר",
   ],
 
   creator: "אסתי גלר",
   publisher: "אסתי גלר - שירותי משרד",
 
   openGraph: {
-    title: "אסתי גלר - שירותי משרד לרופאים ומרפאות",
-    description: "אתם מתמקדים בלקוחות - אני דואגת לכל השאר",
+    title: "Esti Office | ניהול משרד מרחוק לבעלי עסקים בתחומי הטיפול והשירות",
+    description:
+      "שירותי ניהול משרד, מזכירות, גבייה ואדמיניסטרציה מרחוק – לרופאים, מטפלים, יועצים וכל בעל עסק שנותן שירות אישי.",
     url: "https://estioffice.co.il",
-    siteName: "אסתי גלר - שירותי משרד",
+    siteName: "Esti Office - ניהול משרד מרחוק",
     images: [
       {
-        // חשוב: יש ליצור תמונה זו ולהעלות אותה לתיקיית public
         url: "https://estioffice.co.il/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "אסתי גלר - שירותי משרד לרופאים ומרפאות",
+        alt: "Esti Office - ניהול משרד מרחוק ושירותי back office",
       },
       {
         url: "https://estioffice.co.il/og-square-image.webp",
         width: 600,
         height: 600,
-        alt: "לוגו - אסתי גלר שירותי משרד",
+        alt: "לוגו Esti Office - ניהול משרד מרחוק",
       },
     ],
     locale: "he_IL",
@@ -70,9 +74,10 @@ export const metadata: Metadata = {
 
   // הגדרות Twitter Card
   twitter: {
-    card: "summary_large_image", // סוג הכרטיס עם תמונה גדולה
-    title: "אסתי גלר | שירותי משרד לרופאים ומרפאות",
-    description: "תתמקדו בטיפול - אני דואגת לכל השאר.",
+    card: "summary_large_image",
+    title: "Esti Office | ניהול משרד מרחוק ושירותי back office",
+    description:
+      "שירותי ניהול משרד, מזכירות, גבייה ואדמיניסטרציה מרחוק – לרופאים, מטפלים, יועצים וכל בעל עסק שנותן שירות אישי.",
     images: ["https://estioffice.co.il/og-image.webp"],
   },
 
@@ -114,7 +119,7 @@ export default function RootLayout({
     <html lang="he">
       <head>
         <meta name="author" content="אסתי גלר" />
-        {/* Google Analytics — in <head> for Search Console verification */}
+        {/* Google Analytics - in <head> for Search Console verification */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6EBV9FJT3N"
           strategy="afterInteractive"
@@ -141,19 +146,37 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Organization",
+                  "@type": ["Organization", "ProfessionalService"],
                   "@id": "https://estioffice.co.il/#organization",
                   name: "Esti Office",
-                  alternateName: "אסתי גלר - שירותי משרד",
+                  alternateName: "אסתי אופיס",
                   url: "https://estioffice.co.il",
                   logo: "https://estioffice.co.il/favicon.svg",
                   description:
-                    "שירותי Back Office וניהול משרד מרחוק לבעלי מקצוע בתחומי הטיפול, הבריאות והשירות האישי.",
+                    "שירותי ניהול משרד מרחוק ומזכירות במיקור חוץ לבעלי מקצוע בתחומי הטיפול, הבריאות והשירות האישי",
                   telephone: "+972533309144",
                   email: "estigeller1@gmail.com",
                   founder: {
                     "@id": "https://estioffice.co.il/#person",
                   },
+                  areaServed: {
+                    "@type": "Country",
+                    name: "Israel",
+                  },
+                  serviceType: [
+                    "ניהול משרד מרחוק",
+                    "מזכירות במיקור חוץ",
+                    "שירותי back office",
+                    "גבייה מלקוחות",
+                    "ניהול יומן ותיאום פגישות",
+                  ],
+                  knowsAbout: [
+                    "ניהול מרפאות",
+                    "ניהול קליניקות",
+                    "מזכירות רפואית",
+                    "ייעול עסקי",
+                    "אוטומציות עסקיות",
+                  ],
                   sameAs: [
                     "https://www.facebook.com/estioffice",
                     "https://www.linkedin.com/in/estigeller",
@@ -211,9 +234,7 @@ export default function RootLayout({
                   worksFor: {
                     "@id": "https://estioffice.co.il/#organization",
                   },
-                  sameAs: [
-                    "https://www.linkedin.com/in/estigeller",
-                  ],
+                  sameAs: ["https://www.linkedin.com/in/estigeller"],
                 },
                 {
                   "@type": "Service",
@@ -319,18 +340,26 @@ export default function RootLayout({
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "איך אפשר לייעל את התפעול השוטף של מרפאה",
+                  name: "מה ההבדל בין ניהול משרד מרחוק למזכירה שכירה?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "באמצעות מיקור חוץ של ניהול המשרד - תיאום תורים, גבייה ומענה לפניות – אפשר לחסוך זמן יקר ולהתמקד רק בטיפול.",
+                    text: "ניהול משרד מרחוק חוסך בעלויות מעביד, מציע גמישות מלאה, ונעשה על ידי מנהלת משרד מנוסה שמכירה את התחום שלכם. בניגוד למזכירה שכירה, אין צורך במשרד פיזי, אין ימי מחלה או חופשה, והשירות מותאם אישית להיקף שאתם צריכים.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "האם שירות ניהול משרד מרחוק עדיף על מזכירה במרפאה?",
+                  name: "איך אפשר לייעל את התפעול השוטף של מרפאה או קליניקה?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "כן, השירות חוסך בעלויות, גמיש יותר, אינו מצריך מיקום פיזי, ונעשה על ידי מזכירה מיומנת ומנוסה.",
+                    text: "באמצעות מיקור חוץ של ניהול המשרד – תיאום תורים, גבייה, מענה לפניות ואוטומציות – אפשר לחסוך שעות של עבודה ניהולית ולהתמקד בטיפול במטופלים.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "האם השירות מתאים גם לעסקים שלא בתחום הרפואי?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "כן. השירות מתאים לכל בעל מקצוע שנותן שירות אישי – מטפלים, יועצים, קוסמטיקאיות, דיאטניות ועוד. כל מי שרוצה להתפנות מהנטל הניהולי ולהתמקד בעבודה המקצועית.",
                   },
                 },
                 {
@@ -338,23 +367,31 @@ export default function RootLayout({
                   name: "האם אפשר לשלב את השירות עם המערכות הקיימות שלי?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: " בוודאי. אני מתאימה את עצמי לכל מערכת בה אתה משתמש – בין אם זה CRM, מערכת תורים או ניהול מסמכים.",
+                    text: "בוודאי. אני מתאימה את עצמי לכל מערכת שאתם עובדים איתה – בין אם זה CRM, מערכת תורים, תוכנת ניהול קליניקה או כל כלי דיגיטלי אחר.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "איך אפשר להבטיח מעקב שוטף אחרי פניות ותשלומים?",
+                  name: "כמה עולה ניהול משרד במיקור חוץ?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "השירות כולל תיעוד מלא של כל פנייה, גבייה שוטפת, שליחת חשבוניות, והפקת דוחות חודשיים לפי הצורך.",
+                    text: "התמחור מותאם אישית לפי היקף השירותים. אפשר להתחיל עם שירות אחד (כמו ניהול יומן או גבייה) ולהרחיב בהדרגה. שיחת ההיכרות בחינם וללא התחייבות.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "איך התמחור עובד",
+                  name: "מה היתרונות של מיקור חוץ ניהולי לעסק קטן?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "אנחנו בונים בייחד חבילה מותאמת אישית לצרכים שלך ושל המרפאה שלך",
+                    text: "חיסכון בעלויות מעביד, גמישות מלאה בהיקף השירות, מקצועיות מוכחת, שירות מותאם אישית, וללא התחייבות לטווח ארוך. אתם משלמים רק על מה שאתם צריכים.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "איך שירות ניהול מרחוק עובד ביום-יום?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "אני זמינה בימי עבודה לניהול יומן, מענה לפניות, גבייה, תיעוד והפקת דוחות. התקשורת מתנהלת בטלפון, וואטסאפ ומייל. תקבלו דוחות חודשיים ועדכונים שוטפים.",
                   },
                 },
               ],

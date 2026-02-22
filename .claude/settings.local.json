@@ -7,7 +7,8 @@
       "Bash(pnpm build:*)",
       "Bash(git add:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nchore: regenerate pnpm-lock.yaml to fix Netlify build\n\nLockfile was out of sync with package.json specifiers, causing\nfrozen-lockfile install to fail on Netlify CI.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(pnpm add:*)"
     ]
   }
 }

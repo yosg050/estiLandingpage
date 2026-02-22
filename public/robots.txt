@@ -18,12 +18,36 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+# anthropic-ai
+User-agent: anthropic-ai
+Allow: /
+
 # Applebot-Extended
 User-agent: Applebot-Extended
 Allow: /
 
 # PerplexityBot
 User-agent: PerplexityBot
+Allow: /
+
+# cohere-ai
+User-agent: cohere-ai
+Allow: /
+
+# FacebookBot
+User-agent: FacebookBot
+Allow: /
+
+# Bytespider
+User-agent: Bytespider
+Allow: /
+
+# CCBot
+User-agent: CCBot
+Allow: /
+
+# Amazonbot
+User-agent: Amazonbot
 Allow: /
 
 # Host

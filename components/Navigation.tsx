@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/services", label: "מה כולל השירות" },
   { href: "/about", label: "מי אני?" },
   { href: "/how-it-works", label: "איך זה עובד?" },
+  { href: "/blog", label: "מאמרים" },
   { href: "/contact", label: "יצירת קשר" },
 ];
 

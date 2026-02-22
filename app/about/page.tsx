@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Solution from "@/components/Solution";
 
 export const metadata: Metadata = {
-  title: "מי אני? | אסתי גלר - ניהול משרד מרחוק",
+  title: "אסתי גלר | מעל עשור ניסיון בניהול משרד מרחוק | Esti Office",
   description:
-    "מעל עשור של ניסיון בליווי בעלי מקצוע בתחומי הטיפול, הבריאות והשירות האישי. הכירו את אסתי גלר ואת Esti Office.",
+    "אסתי גלר מספקת ניהול משרד מרחוק לבעלי מקצוע בתחומי הטיפול, הבריאות והשירות האישי. שילוב של סדר תפעולי, רגישות אנושית וכלים דיגיטליים.",
   alternates: {
     canonical: "https://estioffice.co.il/about",
   },
