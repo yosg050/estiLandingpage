@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               מוכנים להפסיק לרוץ אחרי הניירת?
             </h2>
             <p className="text-brand-textMuted mb-6">
-              אז בואו נדבר ונתחיל להתניע את העסק שלכם
+              בואו נדבר ונתחיל להתניע את העסק שלכם
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
