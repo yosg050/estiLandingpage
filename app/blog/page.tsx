@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/posts";
 import CalBookingButton from "@/components/CalBookingButton";
 
 export const metadata: Metadata = {
-  title: "בלוג | טיפים לניהול קליניקה | Esti Office",
+  title: "מאמרים | טיפים לניהול קליניקה | Esti Office",
   description:
     "מאמרים וטיפים בנושא ניהול משרד רפואי, ייעול תהליכי עבודה, גבייה, ניהול יומן ועוד. תוכן מקצועי למטפלים עצמאיים.",
   alternates: {
@@ -19,12 +19,12 @@ export default async function BlogPage() {
     <main className="min-h-screen bg-white pt-24" dir="rtl">
       <div className="max-w-4xl mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-brand-textMain mb-4 text-center">
-          בלוג
+          מאמרים
         </h1>
-        <p className="text-brand-textMuted text-lg text-center mb-12 max-w-2xl mx-auto">
+        {/* <p className="text-brand-textMuted text-lg text-center mb-12 max-w-2xl mx-auto">
           מאמרים, טיפים ותובנות בנושא ניהול משרד רפואי - כדי שתוכלו להתמקד
           בטיפול ולא בניירת
-        </p>
+        </p> */}
 
         {posts.length === 0 ? (
           <p className="text-center text-brand-textMuted text-lg">

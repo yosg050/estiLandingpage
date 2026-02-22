@@ -29,7 +29,7 @@
 - [אודות](https://estioffice.co.il/about): אסתי גלר – רקע, ניסיון, ערכי ליבה
 - [תהליך ותמחור](https://estioffice.co.il/how-it-works): 3 שלבים (היכרות, התאמה, עבודה), מדיניות תמחור
 - [יצירת קשר](https://estioffice.co.il/contact): טלפון, WhatsApp, אימייל, קביעת פגישה
-- [בלוג](https://estioffice.co.il/blog): מאמרים על ניהול משרד מרחוק וייעול עסקי
+- [מאמרים](https://estioffice.co.il/blog): מאמרים על ניהול משרד מרחוק וייעול עסקי
 
 ## שאלות שהשירות עונה עליהן
 

@@ -222,7 +222,7 @@ Esti Office הוקם על ידי אסתי גלר (Esti Geller), עם למעלה 
 - [מי אני - אסתי גלר](https://estioffice.co.il/about)
 - [איך זה עובד - תהליך עבודה ותמחור](https://estioffice.co.il/how-it-works)
 - [יצירת קשר](https://estioffice.co.il/contact)
-- [בלוג](https://estioffice.co.il/blog)
+- [מאמרים](https://estioffice.co.il/blog)
 
 ---
 

@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "בלוג",
+        name: "מאמרים",
         item: "https://estioffice.co.il/blog",
       },
       {
@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               href="/blog"
               className="hover:text-brand-primary transition-colors"
             >
-              בלוג
+              מאמרים
             </Link>
             <span className="mx-2">/</span>
             <span className="text-brand-textMain">{post.title}</span>
