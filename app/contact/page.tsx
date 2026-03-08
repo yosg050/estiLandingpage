@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ContactSection from "@/components/ContactSection";
 
 export const metadata: Metadata = {
-  title: "יצירת קשר | שיחת ייעוץ חינם | Esti Office",
+  title: "צור קשר | מזכירה וירטואלית לרופאים ומטפלים | Esti Office",
   description:
-    "רוצים לשמוע איך אפשר לייעל את הניהול שלכם? שיחת היכרות בחינם – טלפון, WhatsApp, מייל או קביעת פגישה.",
+    "רוצים מזכירה וירטואלית לעסק שלכם? שיחת היכרות בחינם וללא התחייבות – טלפון, WhatsApp או קביעת פגישה אונליין.",
   alternates: {
     canonical: "https://estioffice.co.il/contact",
   },

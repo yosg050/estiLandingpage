@@ -2,6 +2,9 @@
 User-agent: *
 Allow: /
 
+Disallow: /api/
+Disallow: /_next/static/media/
+
 # GPTBot
 User-agent: GPTBot
 Allow: /

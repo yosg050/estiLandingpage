@@ -4,9 +4,9 @@ import { getAllPosts } from "@/lib/posts";
 import CalBookingButton from "@/components/CalBookingButton";
 
 export const metadata: Metadata = {
-  title: "מאמרים | טיפים לניהול קליניקה | Esti Office",
+  title: "מאמרים | ייעול עסק ומזכירה וירטואלית | Esti Office",
   description:
-    "מאמרים וטיפים בנושא ניהול משרד רפואי, ייעול תהליכי עבודה, גבייה, ניהול יומן ועוד. תוכן מקצועי למטפלים עצמאיים.",
+    "מאמרים וטיפים לרופאים, פסיכולוגים ומטפלים: ייעול עסק, ביטולי תורים, גבייה ממטופלים, מזכירה וירטואלית וניהול יומן.",
   alternates: {
     canonical: "https://estioffice.co.il/blog",
   },
