@@ -121,7 +121,7 @@ export default function RootLayout({
         <meta name="author" content="אסתי גלר" />
         {/* Google Analytics - in <head> for Search Console verification */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6EBV9FJT3N"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8VVDWHXYCZ"
           strategy="afterInteractive"
         />
         <Script
@@ -132,7 +132,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){window.dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-6EBV9FJT3N');
+              gtag('config', 'G-8VVDWHXYCZ');
             `,
           }}
         />
