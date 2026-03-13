@@ -21,10 +21,6 @@ export default async function BlogPage() {
         <h1 className="text-4xl font-bold text-brand-textMain mb-4 text-center">
           מאמרים
         </h1>
-        {/* <p className="text-brand-textMuted text-lg text-center mb-12 max-w-2xl mx-auto">
-          מאמרים, טיפים ותובנות בנושא ניהול משרד רפואי - כדי שתוכלו להתמקד
-          בטיפול ולא בניירת
-        </p> */}
 
         {posts.length === 0 ? (
           <p className="text-center text-brand-textMuted text-lg">
@@ -38,17 +34,17 @@ export default async function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="group block bg-brand-background rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-brand-lightGray"
               >
-                {/* <time className="text-sm text-brand-textMuted">
-                  {new Date(post.date).toLocaleDateString("he-IL", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time> */}
-                {/* <span className="text-sm text-brand-textMuted mx-2">·</span> */}
-                <span className="text-sm text-brand-textMuted">
-                  {post.readingTime}
-                </span>
+                <div className="flex items-center gap-2 text-sm text-brand-textMuted">
+                  <time dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString("he-IL", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span>·</span>
+                  <span>{post.readingTime}</span>
+                </div>
 
                 <h2 className="text-xl font-bold text-brand-textMain mt-3 mb-3 group-hover:text-brand-primary transition-colors">
                   {post.title}
@@ -83,26 +79,6 @@ export default async function BlogPage() {
               צרו קשר
             </Link>
           </div>
-          {/* <div className="mt-8 flex justify-center gap-6 text-sm text-brand-textMuted">
-            <Link
-              href="/services"
-              className="hover:text-brand-primary transition-colors"
-            >
-              השירותים שלנו
-            </Link>
-            <Link
-              href="/how-it-works"
-              className="hover:text-brand-primary transition-colors"
-            >
-              איך זה עובד?
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-brand-primary transition-colors"
-            >
-              מי אני?
-            </Link>
-          </div> */}
         </section>
       </div>
     </main>

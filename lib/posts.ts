@@ -11,8 +11,10 @@ export interface BlogPost {
   content: string;
   contentHtml: string;
   date: string;
+  dateModified?: string;
   readingTime: string;
   author: string;
+  keywords?: string[];
 }
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
@@ -44,8 +46,10 @@ export async function getPostBySlug(
     content: content.trim(),
     contentHtml,
     date: data.date,
+    dateModified: data.dateModified || undefined,
     readingTime: data.readingTime,
     author: data.author,
+    keywords: data.keywords || undefined,
   };
 }
 

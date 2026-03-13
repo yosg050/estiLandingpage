@@ -21,11 +21,39 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return {};
 
+  const postUrl = `https://estioffice.co.il/blog/${post.slug}`;
+
   return {
     title: `${post.title} | Esti Office`,
     description: post.excerpt,
+    keywords: post.keywords,
     alternates: {
-      canonical: `https://estioffice.co.il/blog/${post.slug}`,
+      canonical: postUrl,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: postUrl,
+      siteName: "Esti Office - ניהול משרד מרחוק",
+      type: "article",
+      publishedTime: post.date,
+      modifiedTime: post.dateModified || post.date,
+      authors: ["אסתי גלר"],
+      locale: "he_IL",
+      images: [
+        {
+          url: "https://estioffice.co.il/og-image.webp",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: ["https://estioffice.co.il/og-image.webp"],
     },
   };
 }
@@ -46,6 +74,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
+    dateModified: post.dateModified || post.date,
+    image: "https://estioffice.co.il/og-image.webp",
     author: {
       "@type": "Person",
       name: "אסתי גלר",
@@ -55,6 +85,10 @@ export default async function BlogPostPage({ params }: PageProps) {
       "@type": "Organization",
       name: "Esti Office",
       url: "https://estioffice.co.il",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://estioffice.co.il/logoText.webp",
+      },
     },
     mainEntityOfPage: `https://estioffice.co.il/blog/${post.slug}`,
   };
@@ -125,16 +159,16 @@ export default async function BlogPostPage({ params }: PageProps) {
               {post.title}
             </h1>
             <div className="flex items-center gap-4 text-brand-textMuted text-sm">
-              {/* <span>{post.author}</span> */}
-              {/* <span>·</span> */}
-              {/* <time dateTime={post.date}>
+              <span>{post.author}</span>
+              <span>·</span>
+              <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("he-IL", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
-              </time> */}
-              {/* <span>·</span> */}
+              </time>
+              <span>·</span>
               <span>{post.readingTime}</span>
             </div>
           </header>
