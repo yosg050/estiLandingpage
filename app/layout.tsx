@@ -7,6 +7,7 @@ import AccessibilityWidget from "@/components/AccessibilityWidget";
 import Navigation from "@/components/Navigation";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
+import FacebookPixel from "@/components/FacebookPixel";
 
 const rubik = Rubik({
   subsets: ["hebrew", "latin"],
@@ -404,6 +405,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <AccessibilityWidget />
+        <FacebookPixel />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
   import { useState, useMemo, FormEvent, ChangeEvent } from "react";
   import Popup from "./Popup";
+  import { trackFormSubmit } from "@/lib/analytics";
 
   interface FormDataShape {
     name: string;
@@ -78,6 +79,7 @@
         if (res.ok && data?.ok) {
           setFormData({ name: "", email: "", phone: "", message: "" });
           showAlert("ההודעה נשלחה בהצלחה! נחזור אליכם בהקדם.");
+          trackFormSubmit("contact");
         } else {
           const msg = data?.error || `שגיאה בשליחת הטופס (${res.status})`;
           showAlert(msg);

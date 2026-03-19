@@ -39,7 +39,7 @@ const nextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://app.cal.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://*.cal.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://app.cal.com https://cal.com https://region1.google-analytics.com; frame-src https://app.cal.com https://cal.com;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://app.cal.com https://cal.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://app.cal.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://*.cal.com https://www.facebook.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://app.cal.com https://cal.com https://region1.google-analytics.com https://www.facebook.com https://*.facebook.com; frame-src https://app.cal.com https://cal.com;",
           },
         ],
       },

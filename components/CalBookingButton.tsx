@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
+import { trackCalBookingClick } from "@/lib/analytics";
 
 export default function CalBookingButton({
   calUsername = "esti-office",
@@ -16,7 +17,10 @@ export default function CalBookingButton({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => setIsOpen(true);
+  const handleClick = () => {
+    trackCalBookingClick("cal_booking_button");
+    setIsOpen(true);
+  };
   const handleClose = () => setIsOpen(false);
 
   useEffect(() => {

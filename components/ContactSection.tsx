@@ -5,6 +5,7 @@ import { Phone, Mail } from "lucide-react";
 import { FaWhatsapp, FaLinkedinIn } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
 import CalBookingButton from "@/components/CalBookingButton";
+import { trackWhatsAppClick, trackPhoneClick } from "@/lib/analytics";
 
 export default function ContactSection() {
   return (
@@ -28,8 +29,8 @@ export default function ContactSection() {
             <div className="space-y-6">
               <a
                 href="tel:97253309144"
+                onClick={() => trackPhoneClick()}
                 className="flex flex-col md:flex-row items-center md:items-center text-lg transition-colors group"
-
               >
                 <div className="relative w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0 overflow-hidden">
                   <span className="absolute inset-0 bg-brand-primary rounded-full transition-all duration-300"></span>
@@ -44,8 +45,8 @@ export default function ContactSection() {
                 href="https://wa.me/972533309144"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("contact_page")}
                 className="flex flex-col md:flex-row items-center md:items-center text-lg transition-colors group"
-
               >
                 <div className="relative w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-0 md:mr-8 md:ml-4 md:mx-0 overflow-hidden">
                   <span className="absolute inset-0 bg-brand-primary rounded-full transition-all duration-300"></span>

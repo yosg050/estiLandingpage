@@ -4,6 +4,7 @@ import { useState, FormEvent, ChangeEvent } from "react";
 import CalBookingButton from "@/components/CalBookingButton";
 import Popup from "@/components/Popup";
 import { FaWhatsapp } from "react-icons/fa6";
+import { trackFormSubmit, trackWhatsAppClick } from "@/lib/analytics";
 
 interface FormData {
   name: string;
@@ -60,6 +61,7 @@ export default function HomeCTA() {
       if (res.ok && data?.ok) {
         setFormData({ name: "", phone: "" });
         showAlert("הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם.");
+        trackFormSubmit("home");
       } else {
         showAlert(data?.error || `שגיאה בשליחה (${res.status})`);
       }
@@ -153,6 +155,7 @@ export default function HomeCTA() {
                 href="https://wa.me/972533309144"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("home_cta")}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white rounded-full font-medium hover:bg-green-600 transition-colors"
               >
                 <FaWhatsapp className="h-5 w-5" />
