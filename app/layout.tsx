@@ -120,6 +120,7 @@ export default function RootLayout({
     <html lang="he">
       <head>
         <meta name="author" content="אסתי גלר" />
+        <meta name="facebook-domain-verification" content="h05yyxp6zz3wfay3594kbllpel34om" />
         {/* Google Analytics - in <head> for Search Console verification */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8VVDWHXYCZ"
