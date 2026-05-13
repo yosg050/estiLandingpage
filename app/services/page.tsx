@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Services from "@/components/Services";
+import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
   title: "שירותי מזכירה וירטואלית לרופאים ומטפלים | גבייה, יומן, תורים | Esti Office",
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white pt-24">
+      {/* Facebook Pixel + GA4 ViewContent for the services page */}
+      <PageViewTracker type="service" identifier="services_page" />
       <Services />
     </main>
   );

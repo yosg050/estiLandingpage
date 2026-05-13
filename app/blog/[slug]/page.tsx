@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Script from "next/script";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import PageViewTracker from "@/components/PageViewTracker";
 
 
 interface PageProps {
@@ -130,6 +131,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+
+      {/* Facebook Pixel + GA4 ViewContent for this blog post */}
+      <PageViewTracker type="blog" identifier={post.slug} />
 
       <main className="min-h-screen bg-white pt-24 max-w-5xl mx-auto" dir="rtl">
         {" "}
