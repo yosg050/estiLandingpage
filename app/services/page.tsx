@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://estioffice.co.il/services",
   },
+  openGraph: {
+    title: "שירותי מזכירה וירטואלית לרופאים ומטפלים | Esti Office",
+    description: "מזכירה וירטואלית לרופאים ומטפלים: ניהול יומן ותיאום תורים, גבייה ממטופלים, תזכורות אוטומטיות בוואטסאפ ומערכות CRM. שירות מודולרי לבעלי מקצוע עצמאיים.",
+    url: "https://estioffice.co.il/services",
+    siteName: "Esti Office - ניהול משרד מרחוק",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "שירותי מזכירה וירטואלית - Esti Office" }],
+  },
 };
 
 const breadcrumb = {

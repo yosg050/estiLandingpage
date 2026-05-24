@@ -17,6 +17,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://estioffice.co.il/how-it-works",
   },
+  openGraph: {
+    title: "כמה עולה מזכירה וירטואלית? | תמחור ותהליך התחלה | Esti Office",
+    description: "כמה עולה מזכירה וירטואלית לרופא או מטפל עצמאי? תהליך פשוט: שיחת היכרות בחינם, התאמת תהליכי עבודה לעסק שלכם, עבודה מידית ללא התחייבות.",
+    url: "https://estioffice.co.il/how-it-works",
+    siteName: "Esti Office - ניהול משרד מרחוק",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "תהליך ותמחור - Esti Office" }],
+  },
 };
 
 const steps = [

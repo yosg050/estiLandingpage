@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://estioffice.co.il/contact",
   },
+  openGraph: {
+    title: "צור קשר | מזכירה וירטואלית לרופאים ומטפלים | Esti Office",
+    description: "רוצים מזכירה וירטואלית לעסק שלכם? שיחת היכרות בחינם וללא התחייבות – טלפון, WhatsApp או קביעת פגישה אונליין.",
+    url: "https://estioffice.co.il/contact",
+    siteName: "Esti Office - ניהול משרד מרחוק",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "יצירת קשר - Esti Office" }],
+  },
 };
 
 const breadcrumb = {

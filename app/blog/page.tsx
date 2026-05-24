@@ -11,6 +11,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://estioffice.co.il/blog",
   },
+  openGraph: {
+    title: "מאמרים | ייעול עסק ומזכירה וירטואלית | Esti Office",
+    description: "מאמרים וטיפים לרופאים, פסיכולוגים ומטפלים: ייעול עסק, ביטולי תורים, גבייה ממטופלים, מזכירה וירטואלית וניהול יומן.",
+    url: "https://estioffice.co.il/blog",
+    siteName: "Esti Office - ניהול משרד מרחוק",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "מאמרים - Esti Office" }],
+  },
 };
 
 const breadcrumb = {

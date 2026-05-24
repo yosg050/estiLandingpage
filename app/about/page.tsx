@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://estioffice.co.il/about",
   },
+  openGraph: {
+    title: "אסתי גלר | מזכירה וירטואלית לרופאים ומטפלים עצמאיים | Esti Office",
+    description: "אסתי גלר – מזכירה וירטואלית ומנהלת משרד מרחוק לרופאים, פסיכולוגים ומטפלים עצמאיים. מעל עשור שנים ניסיון, ניהול יומן וגבייה ממטופלים.",
+    url: "https://estioffice.co.il/about",
+    siteName: "Esti Office - ניהול משרד מרחוק",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "אסתי גלר - מנהלת משרד מרחוק" }],
+  },
 };
 
 const breadcrumb = {
