@@ -17,7 +17,9 @@
       "Bash(Select-String -Pattern \"next-sitemap\" -SimpleMatch)",
       "Bash(Select-Object -First 3)",
       "Bash(echo \"exit: $?\")",
-      "Bash(awk 'NR>=68 && NR<=120 {printf \"%d: %s\\\\n\", NR, $0}' app/how-it-works/page.tsx)"
+      "Bash(awk 'NR>=68 && NR<=120 {printf \"%d: %s\\\\n\", NR, $0}' app/how-it-works/page.tsx)",
+      "Bash(echo \"exit=$? \\(empty = none found, good\\)\")",
+      "Bash(git checkout *)"
     ]
   }
 }
