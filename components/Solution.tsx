@@ -9,9 +9,9 @@ export default function Solution() {
       className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-10 text-right"
     >
       {/* כותרת */}
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black">
-        מי אני?
-      </h2>
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black">
+        אסתי גלר - מזכירה וירטואלית ומנהלת משרד מרחוק{" "}
+      </h1>
 
       {/* עטיפה רספונסיבית */}
       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">
@@ -54,10 +54,10 @@ export default function Solution() {
             <p className="mt-2">
               מתוך ההבנה הזו הקמתי את <strong>Esti Office</strong> - ניהול משרד
               מרחוק לבעלי מקצוע שמתמחים בנתינת שירות אישי. לרופאים ורופאות
-               יועצים ומטפלים רגשיים, קוסמטיקאיות, מטפלים/ות ברפואה משלימה
-              - אני מביאה שילוב של סדר תפעולי, רגישות אנושית והיכרות עמוקה עם
-              מערכות ניהול וכלים דיגיטליים - כדי להעניק לכם{" "}
-              <strong>שקט ניהולי</strong> וביטחון שהכול מתנהל כמו שצריך
+              יועצים ומטפלים רגשיים, קוסמטיקאיות, מטפלים/ות ברפואה משלימה - אני
+              מביאה שילוב של סדר תפעולי, רגישות אנושית והיכרות עמוקה עם מערכות
+              ניהול וכלים דיגיטליים - כדי להעניק לכם <strong>שקט ניהולי</strong>{" "}
+              וביטחון שהכול מתנהל כמו שצריך
             </p>
 
             <p className="mt-2">
