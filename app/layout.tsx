@@ -8,7 +8,6 @@ import Navigation from "@/components/Navigation";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import FacebookPixel from "@/components/FacebookPixel";
-import { faqs } from "@/data/faqs";
 
 const rubik = Rubik({
   subsets: ["hebrew", "latin"],
@@ -336,22 +335,6 @@ export default function RootLayout({
             }),
           }}
         />
-        <Script
-          type="application/ld+json"
-          id="faq-schema"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqs.map((faq) => ({
-                "@type": "Question",
-                name: faq.question,
-                acceptedAnswer: { "@type": "Answer", text: faq.answer },
-              })),
-            }),
-          }}
-        />
-
         <Navigation />
         {children}
         <Footer />

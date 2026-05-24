@@ -3,6 +3,8 @@ export interface FaqItem {
   answer: string;
 }
 
+// Single source of truth for FAQ content.
+// Consumed by the visible accordion AND the FAQPage JSON-LD so the two never diverge.
 export const faqs: FaqItem[] = [
   {
     question: "מה ההבדל בין ניהול משרד מרחוק למזכירה שכירה?",

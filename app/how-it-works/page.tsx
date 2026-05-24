@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { faqs } from "@/data/faqs";
 
 export const metadata: Metadata = {
   title: "כמה עולה מזכירה וירטואלית? | תמחור ותהליך התחלה | Esti Office",
@@ -68,44 +69,6 @@ const steps = [
   },
 ];
 
-const faqItems = [
-  {
-    question: "איך אפשר לייעל את התפעול השוטף של מרפאה?",
-    answer:
-      "באמצעות מיקור חוץ של ניהול המשרד תיאום תורים, גבייה ומענה לפניות – אפשר לחסוך זמן יקר ולהתמקד רק בטיפול.",
-  },
-  {
-    question: "האם שירות ניהול משרד מרחוק עדיף על מזכירה במרפאה?",
-    answer:
-      "כן, השירות חוסך בעלויות, גמיש יותר, אינו מצריך מיקום פיזי, ונעשה על ידי מזכירה מיומנת ומנוסה בתחום.",
-  },
-  {
-    question: "האם אפשר לשלב את השירות עם המערכות הקיימות שלי?",
-    answer:
-      "בוודאי. אני מתאימה את עצמי לכל מערכת שאתם עובדים איתה - בין אם זה CRM, מערכת תורים או ניהול מסמכים.",
-  },
-  {
-    question: "איך אפשר להבטיח מעקב שוטף אחרי פניות ותשלומים?",
-    answer:
-      "השירות כולל תיעוד מלא של כל פנייה, גבייה שוטפת, שליחת חשבוניות, והפקת דוחות חודשיים לפי הצורך.",
-  },
-  {
-    question: "איך התמחור עובד?",
-    answer:
-      "אנחנו בונים ביחד חבילה מותאמת אישית לצרכים שלכם ושל העסק שלכם. התמחור מבוסס על היקף השירותים שנבחרים - ללא עלויות נסתרות.",
-  },
-  {
-    question: "האם שיחת ההיכרות בחינם?",
-    answer:
-      "כן. שיחת ההיכרות היא ללא עלות וללא התחייבות. המטרה שלה היא להבין אם ואיך אפשר לעזור.",
-  },
-  {
-    question: "האם אפשר להתחיל עם שירות אחד ולהרחיב אחר כך?",
-    answer:
-      "בהחלט. הרבה לקוחות מתחילים עם ניהול יומן או גבייה בלבד, ומרחיבים את השירותים עם הזמן לפי הצורך.",
-  }
-];
-
 const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -115,10 +78,21 @@ const breadcrumb = {
   ],
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
 export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-white pt-24" dir="rtl">
       <Script id="breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Hero */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center max-w-3xl">
@@ -218,7 +192,7 @@ export default function HowItWorksPage() {
           </p>
 
           <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item, i) => (
+            {faqs.map((item, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
                 <AccordionTrigger className="text-right text-base font-semibold hover:no-underline">
                   {item.question}

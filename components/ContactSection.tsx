@@ -28,7 +28,7 @@ export default function ContactSection() {
             {/* עוטף פנימי שמיישר את כל האייקונים מימין ומרכז את הכל בדף */}
             <div className="space-y-6">
               <a
-                href="tel:97253309144"
+                href="tel:972533309144"
                 onClick={() => trackPhoneClick()}
                 className="flex flex-col md:flex-row items-center md:items-center text-lg transition-colors group"
               >
