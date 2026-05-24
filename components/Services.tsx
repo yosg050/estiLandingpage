@@ -65,9 +65,9 @@ export default function Services() {
     >
       <div className="container mx-auto max-w-6xl">
         {/* Intro */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          מה כולל השירות?
-        </h2>
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          מה כולל שירות המזכירה הווירטואלית?
+        </h1>
         <p className="text-gray-600 text-lg text-center mb-12 max-w-3xl mx-auto leading-relaxed">
           השירות בנוי בצורה מודולרית - אתם בוחרים בדיוק את מה שאתם צריכים.
           כל חבילה מותאמת אישית לצרכים של העסק שלכם, בלי שירותים מיותרים

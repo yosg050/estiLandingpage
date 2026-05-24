@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { faqs } from "@/data/faqs";
 import { IoCalendarOutline } from "react-icons/io5";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { BsLightning } from "react-icons/bs";
@@ -67,33 +68,6 @@ const processSteps = [
     title: "התחלת עבודה מיידית",
     description: "מתחילים לעבוד באופן מיידי, ללא עיכובים",
     num: 3,
-  },
-];
-
-const faqItems = [
-  {
-    question: "איך אפשר לייעל את התפעול השוטף של מרפאה?",
-    answer:
-      "באמצעות מיקור חוץ של ניהול המשרד - תיאום תורים, גבייה ומענה לפניות – אפשר לחסוך זמן יקר ולהתמקד רק בטיפול.",
-  },
-  {
-    question: "האם שירות ניהול משרד מרחוק עדיף על מזכירה במרפאה?",
-    answer:
-      "כן, השירות חוסך בעלויות, גמיש יותר, אינו מצריך מיקום פיזי, ונעשה על ידי מזכירה מיומנת ומנוסה בתחום.",
-  },
-  {
-    question: "האם אפשר לשלב את השירות עם המערכות הקיימות שלי?",
-    answer:
-      "בוודאי. אני מתאימה את עצמי לכל מערכת שאתם עובדים איתה - בין אם זה CRM, מערכת תורים או ניהול מסמכים.",
-  },
-  {
-    question: "איך אפשר להבטיח מעקב שוטף אחרי פניות ותשלומים?",
-    answer:
-      "השירות כולל תיעוד מלא של כל פנייה, גבייה שוטפת, שליחת חשבוניות, והפקת דוחות חודשיים לפי הצורך.",
-  },
-  {
-    question: "איך התמחור עובד?",
-    answer: "אנחנו בונים ביחד חבילה מותאמת אישית לצרכים שלכם ושל העסק שלכם.",
   },
 ];
 
@@ -265,7 +239,7 @@ export default function HomePage() {
           </p>
 
           <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item, i) => (
+            {faqs.slice(0, 5).map((item, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
                 <AccordionTrigger className="text-right text-base font-semibold hover:no-underline">
                   {item.question}
