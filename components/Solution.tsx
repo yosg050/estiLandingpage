@@ -9,9 +9,9 @@ export default function Solution() {
       className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-10 text-right"
     >
       {/* כותרת */}
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black">
         מי אני?
-      </h2>
+      </h1>
 
       {/* עטיפה רספונסיבית */}
       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">

@@ -15,9 +15,9 @@ export default function ContactSection() {
       dir="rtl"
     >
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-2">
           יצירת קשר
-        </h2>
+        </h1>
         <p className="text-xl font-semibold mb-6 mx-auto md:mr-8 max-w-md md:max-w-none text-center">
           תנו לי לטפל בבירוקרטיה - כדי שאתם תוכלו לטפל במה שחשוב לכם באמת
         </p>
