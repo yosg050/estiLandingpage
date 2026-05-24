@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import ContactSection from "@/components/ContactSection";
 
 export const metadata: Metadata = {
@@ -10,9 +11,19 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://estioffice.co.il" },
+    { "@type": "ListItem", position: 2, name: "יצירת קשר", item: "https://estioffice.co.il/contact" },
+  ],
+};
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white pt-24">
+      <Script id="breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <div className="container mx-auto">
         <ContactSection />
       </div>

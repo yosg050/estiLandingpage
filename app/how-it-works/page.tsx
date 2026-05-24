@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
 import { Phone, Settings, Rocket } from "lucide-react";
 import CalBookingButton from "@/components/CalBookingButton";
@@ -96,9 +97,19 @@ const faqItems = [
   }
 ];
 
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://estioffice.co.il" },
+    { "@type": "ListItem", position: 2, name: "תהליך ותמחור", item: "https://estioffice.co.il/how-it-works" },
+  ],
+};
+
 export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-white pt-24" dir="rtl">
+      <Script id="breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       {/* Hero */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center max-w-3xl">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import CalBookingButton from "@/components/CalBookingButton";
@@ -12,11 +13,21 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "בית", item: "https://estioffice.co.il" },
+    { "@type": "ListItem", position: 2, name: "מאמרים", item: "https://estioffice.co.il/blog" },
+  ],
+};
+
 export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
     <main className="min-h-screen bg-white pt-24" dir="rtl">
+      <Script id="breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <div className="max-w-4xl mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-brand-textMain mb-4 text-center">
           מאמרים
