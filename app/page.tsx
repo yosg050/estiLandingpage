@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import HeroSection from "@/components/HeroContent";
 import CalBookingButton from "@/components/CalBookingButton";
 import HomeCTA from "@/components/HomeCTA";
@@ -70,11 +71,20 @@ const processSteps = [
     num: 3,
   },
 ];
-
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white">
+      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* 1. Hero Section */}
       <HeroSection />
 
