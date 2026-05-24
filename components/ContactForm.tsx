@@ -45,7 +45,6 @@
       // ולידציה בסיסית
       if (
         !formData.name.trim() ||
-        !formData.email.trim() ||
         !formData.phone.trim() ||
         !formData.message.trim()
       ) {
@@ -54,7 +53,7 @@
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
+      if (formData.email.trim() && !emailRegex.test(formData.email)) {
         showAlert("אנא הזינו כתובת אימייל תקינה");
         return;
       }
@@ -118,7 +117,7 @@
 
             <div className="mb-2">
               <label htmlFor="email" className="block text-gray-700">
-                מייל *
+                מייל (אופציונלי)
               </label>
               <input
                 type="email"

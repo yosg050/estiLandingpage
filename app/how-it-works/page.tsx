@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
 import Script from "next/script";
 import { Phone, Settings, Rocket } from "lucide-react";
@@ -17,6 +18,15 @@ export const metadata: Metadata = {
     "כמה עולה מזכירה וירטואלית לרופא או מטפל עצמאי? תהליך פשוט: שיחת היכרות בחינם, התאמת תהליכי עבודה לעסק שלכם, עבודה מידית ללא התחייבות.",
   alternates: {
     canonical: "https://estioffice.co.il/how-it-works",
+  },
+  openGraph: {
+    title: "כמה עולה מזכירה וירטואלית? | תמחור ותהליך התחלה | Esti Office",
+    description: "כמה עולה מזכירה וירטואלית לרופא או מטפל עצמאי? תהליך פשוט: שיחת היכרות בחינם, התאמת תהליכי עבודה לעסק שלכם, עבודה מידית ללא התחייבות.",
+    url: "https://estioffice.co.il/how-it-works",
+    siteName: "Esti Office - ניהול משרד מרחוק",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "תהליך ותמחור - Esti Office" }],
   },
 };
 
@@ -60,27 +70,47 @@ const steps = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
+const faqItems = [
+  {
+    question: "איך אפשר לייעל את התפעול השוטף של מרפאה?",
+    answer:
+      "באמצעות מיקור חוץ של ניהול המשרד תיאום תורים, גבייה ומענה לפניות – אפשר לחסוך זמן יקר ולהתמקד רק בטיפול.",
+  },
+  {
+    question: "האם שירות ניהול משרד מרחוק עדיף על מזכירה במרפאה?",
+    answer:
+      "כן, השירות חוסך בעלויות, גמיש יותר, אינו מצריך מיקום פיזי, ונעשה על ידי מזכירה מיומנת ומנוסה בתחום.",
+  },
+  {
+    question: "האם אפשר לשלב את השירות עם המערכות הקיימות שלי?",
+    answer:
+      "בוודאי. אני מתאימה את עצמי לכל מערכת שאתם עובדים איתה - בין אם זה CRM, מערכת תורים או ניהול מסמכים.",
+  },
+  {
+    question: "איך אפשר להבטיח מעקב שוטף אחרי פניות ותשלומים?",
+    answer:
+      "השירות כולל תיעוד מלא של כל פנייה, גבייה שוטפת, שליחת חשבוניות, והפקת דוחות חודשיים לפי הצורך.",
+  },
+  {
+    question: "איך התמחור עובד?",
+    answer:
+      "אנחנו בונים ביחד חבילה מותאמת אישית לצרכים שלכם ושל העסק שלכם. התמחור מבוסס על היקף השירותים שנבחרים - ללא עלויות נסתרות.",
+  },
+  {
+    question: "האם שיחת ההיכרות בחינם?",
+    answer:
+      "כן. שיחת ההיכרות היא ללא עלות וללא התחייבות. המטרה שלה היא להבין אם ואיך אפשר לעזור.",
+  },
+  {
+    question: "האם אפשר להתחיל עם שירות אחד ולהרחיב אחר כך?",
+    answer:
+      "בהחלט. הרבה לקוחות מתחילים עם ניהול יומן או גבייה בלבד, ומרחיבים את השירותים עם הזמן לפי הצורך.",
+  }
+];
 
 export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-white pt-24" dir="rtl">
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       {/* Hero */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center max-w-3xl">
