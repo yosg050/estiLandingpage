@@ -203,7 +203,7 @@ Each blog post should include:
 
 ## After Creating a New Page
 
-1. Add URL to `next-sitemap.config.js` additionalPaths
+1. Add URL to the `staticPages` array in `app/sitemap.ts` (blog posts are auto-included)
 2. Add link in `Navigation.tsx` (if top-level page)
 3. Add link in `Footer.tsx`
 4. Add internal links FROM existing pages TO the new page

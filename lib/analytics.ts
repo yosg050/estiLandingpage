@@ -1,4 +1,4 @@
-// Unified analytics tracking — GA4 + Facebook Pixel
+// Unified analytics tracking - GA4 + Facebook Pixel
 // Import this in any Client Component that needs to track events
 
 import { fbEvent, fbCustomEvent } from "./fbpixel";
@@ -21,7 +21,7 @@ function gaEvent(action: string, params?: Record<string, unknown>) {
 }
 
 // ──────────────────────────────────────────────────
-// High-level tracking functions — call these from components
+// High-level tracking functions - call these from components
 // ──────────────────────────────────────────────────
 
 /** Form submitted successfully (HomeCTA or ContactForm) */
@@ -32,7 +32,7 @@ export function trackFormSubmit(formLocation: "home" | "contact") {
     event_label: formLocation,
     value: 1,
   });
-  // FB Pixel — standard Lead event
+  // FB Pixel - standard Lead event
   fbEvent("Lead", {
     content_name: formLocation === "home" ? "home_cta_form" : "contact_page_form",
   });
@@ -45,7 +45,7 @@ export function trackCalBookingClick(location: string) {
     event_category: "cta",
     event_label: location,
   });
-  // FB Pixel — standard Schedule event
+  // FB Pixel - standard Schedule event
   fbEvent("Schedule", {
     content_name: "cal_booking",
     content_category: location,
@@ -59,7 +59,7 @@ export function trackWhatsAppClick(location: string) {
     event_category: "cta",
     event_label: location,
   });
-  // FB Pixel — standard Contact event
+  // FB Pixel - standard Contact event
   fbEvent("Contact", {
     content_name: "whatsapp",
     content_category: location,
