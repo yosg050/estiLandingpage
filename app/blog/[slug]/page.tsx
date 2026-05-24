@@ -79,8 +79,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     image: "https://estioffice.co.il/og-image.webp",
     author: {
       "@type": "Person",
-      name: "אסתי גלר",
-      url: "https://estioffice.co.il/about",
+      "@id": "https://estioffice.co.il/#person",
     },
     publisher: {
       "@type": "Organization",
