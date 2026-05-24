@@ -13,7 +13,9 @@
       "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\('scripts:',JSON.stringify\\(p.scripts,null,2\\)\\); console.log\\('next-related:', Object.keys\\({...p.dependencies,...p.devDependencies}\\).filter\\(d=>/netlify|next|sitemap|remark|gray-matter/.test\\(d\\)\\).map\\(d=>d+':'+\\({...p.dependencies,...p.devDependencies}\\)[d]\\)\\)\")",
       "Bash(echo \"EXIT: $?\")",
       "Bash(node -e \"require\\('./package.json'\\); console.log\\('package.json valid JSON'\\)\")",
-      "Bash(node -e \"const p=require\\('@radix-ui/react-accordion/package.json'\\); console.log\\('radix-accordion version:', p.version\\)\")"
+      "Bash(node -e \"const p=require\\('@radix-ui/react-accordion/package.json'\\); console.log\\('radix-accordion version:', p.version\\)\")",
+      "Bash(Select-String -Pattern \"next-sitemap\" -SimpleMatch)",
+      "Bash(Select-Object -First 3)"
     ]
   }
 }
