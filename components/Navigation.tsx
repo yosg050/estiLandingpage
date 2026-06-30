@@ -75,7 +75,7 @@ export default function Navigation() {
               >
                 <Image
                   src="/logoText.webp"
-                  alt="אסתי גלר - שירותי מזכירות רפואית וניהול משרד מרחוק"
+                  alt="אסתי גלר - שירותי משרד מרחוק ומזכירה וירטואלית"
                   fill
                   className="object-contain"
                   priority

@@ -5,15 +5,15 @@ import { getAllPosts } from "@/lib/posts";
 import CalBookingButton from "@/components/CalBookingButton";
 
 export const metadata: Metadata = {
-  title: "מאמרים | ייעול עסק ומזכירה וירטואלית | Esti Office",
+  title: "מאמרים | שירותי משרד מרחוק ומזכירה וירטואלית | Esti Office",
   description:
-    "מאמרים וטיפים לרופאים, פסיכולוגים ומטפלים: ייעול עסק, ביטולי תורים, גבייה ממטופלים, מזכירה וירטואלית וניהול יומן.",
+    "מאמרים וטיפים לבעלי מקצוע בתחום הטיפול: שירותי משרד מרחוק, ייעול עסק, ביטולי תורים, גבייה, מזכירה וירטואלית וניהול יומן.",
   alternates: {
     canonical: "https://estioffice.co.il/blog",
   },
   openGraph: {
-    title: "מאמרים | ייעול עסק ומזכירה וירטואלית | Esti Office",
-    description: "מאמרים וטיפים לרופאים, פסיכולוגים ומטפלים: ייעול עסק, ביטולי תורים, גבייה ממטופלים, מזכירה וירטואלית וניהול יומן.",
+    title: "מאמרים | שירותי משרד מרחוק ומזכירה וירטואלית | Esti Office",
+    description: "מאמרים וטיפים לבעלי מקצוע בתחום הטיפול: שירותי משרד מרחוק, ייעול עסק, ביטולי תורים, גבייה, מזכירה וירטואלית וניהול יומן.",
     url: "https://estioffice.co.il/blog",
     siteName: "Esti Office - ניהול משרד מרחוק",
     locale: "he_IL",

@@ -4,7 +4,9 @@
 
 Esti Office (estioffice.co.il) is a remote office management service for healthcare professionals in Israel. The site is built on Next.js 15 + React 19 + Tailwind CSS, deployed on Netlify.
 
-**CRITICAL STATUS (Feb 2026):** Site is NOT indexed in Google (site:estioffice.co.il returns 0 results). All SEO work depends on fixing this first.
+**CRITICAL STATUS (Jun 2026):** Site IS indexed (GSC baseline: 27 clicks / 194 impressions / avg position 8.95 over 3 months). Ranks **#1** for the niche term "מזכירה וירטואלית לרופאים", but general high-demand terms ("שירותי משרד מרחוק", "מזכירה וירטואלית") are stuck on pages 4–8. Strategy is hybrid niche-first: protect the #1 niche asset while pushing the general anchors to page 1.
+
+**TERMINOLOGY GUARDRAIL:** Do NOT use medical-*service* terms in machine-read fields (JSON-LD, meta keywords, llms.txt, FAQ schema): avoid "מזכירה רפואית", "מזכירות רפואית", "ניהול מרפאות/קליניקות" as a service. These cause the site to be classified as a medical service. The audience (רופאים, מטפלים, מטופלים) stays — it is safe and is the source of the #1 ranking. Never use "קליניקה" (not native Hebrew) — use "מרפאה" or "עסק".
 
 ## Target Market
 
@@ -25,21 +27,23 @@ Esti Office (estioffice.co.il) is a remote office management service for healthc
 
 ## Keyword Strategy
 
-### Primary Keywords (service pages)
+### Anchor Keywords (locked)
 
-- ניהול משרד רפואי מרחוק → /services (hub) + /services/diary
-- מזכירה רפואית מרחוק → /services/diary
-- שירותי גבייה רפואית → /services/billing
-- ניהול מערכות CRM למרפאה → /services/systems
-- אוטומציות למרפאה פרטית → /services/automation
+- שירותי משרד מרחוק → / (homepage primary anchor)
+- מיקור חוץ מזכירות / מזכירה וירטואלית → /services
+- מזכירה וירטואלית → / + /services (secondary)
+- מנהלת משרד מרחוק → /about
+- עלות שירותי משרד / כמה עולה מזכירה וירטואלית → /how-it-works
+- מזכירה וירטואלית לרופאים (niche, ranks #1 — preserve exact match) → / + /about
 
 ### Long-tail Keywords (blog posts)
 
-- מזכירה במרפאה vs ניהול משרד מרחוק → comparison article
-- 5 סימנים שצריכים עזרה בניהול המשרד → awareness article
-- כמה עולה מזכירה רפואית → cost comparison article
-- איך אוטומציות חוסכות שעות עבודה במרפאה → educational article
-- גבייה ממטופלים מדריך → how-to article
+- עלות שירותי משרד → cost article (already getting impressions)
+- שירותי מזכירות לפי שעה → secretary-by-hour article
+- שירותי משרד לעסקים קטנים → small-business article
+- מזכירה דיגיטלית → consider (already ranks ~28)
+
+**Dropped (do NOT target):** "מזכירה מהבית" / "מזכירה לעבודה מהבית" — SERP is almost entirely job boards (employment intent, not demand). Use "מזכירה במיקור חוץ" instead.
 
 ## URL Structure
 

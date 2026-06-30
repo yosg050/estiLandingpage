@@ -2,22 +2,23 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Services from "@/components/Services";
 import PageViewTracker from "@/components/PageViewTracker";
+import { faqs } from "@/data/faqs";
 
 export const metadata: Metadata = {
-  title: "שירותי מזכירה וירטואלית לרופאים ומטפלים | גבייה, יומן, תורים | Esti Office",
+  title: "שירותי משרד ומזכירות במיקור חוץ | יומן, גבייה, תורים | Esti Office",
   description:
-    "מזכירה וירטואלית לרופאים ומטפלים: ניהול יומן ותיאום תורים, גבייה ממטופלים, תזכורות אוטומטיות בוואטסאפ ומערכות CRM. שירות מודולרי לבעלי מקצוע עצמאיים.",
+    "שירותי משרד ומזכירות במיקור חוץ לבעלי מקצוע עצמאיים: ניהול יומן ותיאום תורים, גבייה, תזכורות אוטומטיות בוואטסאפ ומערכות CRM. שירות מודולרי, ללא עלויות מעביד.",
   alternates: {
     canonical: "https://estioffice.co.il/services",
   },
   openGraph: {
-    title: "שירותי מזכירה וירטואלית לרופאים ומטפלים | Esti Office",
-    description: "מזכירה וירטואלית לרופאים ומטפלים: ניהול יומן ותיאום תורים, גבייה ממטופלים, תזכורות אוטומטיות בוואטסאפ ומערכות CRM. שירות מודולרי לבעלי מקצוע עצמאיים.",
+    title: "שירותי משרד ומזכירות במיקור חוץ | Esti Office",
+    description: "שירותי משרד ומזכירות במיקור חוץ לבעלי מקצוע עצמאיים: ניהול יומן ותיאום תורים, גבייה, תזכורות אוטומטיות בוואטסאפ ומערכות CRM. שירות מודולרי, ללא עלויות מעביד.",
     url: "https://estioffice.co.il/services",
     siteName: "Esti Office - ניהול משרד מרחוק",
     locale: "he_IL",
     type: "website",
-    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "שירותי מזכירה וירטואלית - Esti Office" }],
+    images: [{ url: "https://estioffice.co.il/og-image.webp", width: 1200, height: 630, alt: "שירותי משרד ומזכירות במיקור חוץ - Esti Office" }],
   },
 };
 
@@ -30,10 +31,21 @@ const breadcrumb = {
   ],
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white pt-24">
       <Script id="breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* Facebook Pixel + GA4 ViewContent for the services page */}
       <PageViewTracker type="service" identifier="services_page" />
       <Services />

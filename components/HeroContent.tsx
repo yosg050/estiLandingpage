@@ -29,7 +29,8 @@ const HeroContent = () => (
     </div>
 
     <h2 className="text-lg md:text-2xl font-semibold text-brand-lightGray mt-6">
-      ניהול משרד מרחוק לבעלי מקצוע בתחום הטיפול, הבריאות והשירות האישי
+      שירותי משרד מרחוק ומזכירה וירטואלית לבעלי מקצוע בתחום הטיפול, הבריאות
+      והשירות האישי
     </h2>
   </div>
 );
