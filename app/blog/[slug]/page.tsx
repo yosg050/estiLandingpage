@@ -4,6 +4,12 @@ import Link from "next/link";
 import Script from "next/script";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import PageViewTracker from "@/components/PageViewTracker";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 
 interface PageProps {
@@ -77,9 +83,19 @@ export default async function BlogPostPage({ params }: PageProps) {
     datePublished: post.date,
     dateModified: post.dateModified || post.date,
     image: "https://estioffice.co.il/og-image.webp",
+    inLanguage: "he-IL",
+    ...(post.keywords?.length
+      ? { keywords: post.keywords.join(", ") }
+      : {}),
+    ...(post.articleSection
+      ? { articleSection: post.articleSection }
+      : {}),
+    wordCount: post.wordCount,
     author: {
       "@type": "Person",
       "@id": "https://estioffice.co.il/#person",
+      name: "אסתי גלר",
+      url: "https://estioffice.co.il/about",
     },
     publisher: {
       "@type": "Organization",
@@ -91,7 +107,24 @@ export default async function BlogPostPage({ params }: PageProps) {
       },
     },
     mainEntityOfPage: `https://estioffice.co.il/blog/${post.slug}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#post-answer", "h1"],
+    },
   };
+
+  const faqSchema =
+    post.faqs && post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }
+      : null;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -130,6 +163,13 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <Script
+          id="faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* Facebook Pixel + GA4 ViewContent for this blog post */}
       <PageViewTracker type="blog" identifier={post.slug} />
@@ -176,11 +216,42 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </header>
 
+          {/* Direct answer (inverted pyramid) - speakable target for AI engines */}
+          {post.answer && (
+            <p
+              id="post-answer"
+              className="text-lg md:text-xl leading-relaxed text-brand-textMain bg-brand-background border-r-4 border-brand-primary rounded-l-xl p-5 mb-10 font-medium"
+            >
+              {post.answer}
+            </p>
+          )}
+
           {/* Content */}
           <div
             className="prose prose-lg max-w-none text-brand-textMain leading-relaxed prose-p:text-justify prose-li:text-justify prose-headings:text-right prose-headings:text-brand-textMain prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:font-bold prose-h3:mt-8 prose-h3:mb-3 prose-blockquote:border-r-4 prose-blockquote:border-l-0 prose-blockquote:border-brand-primary prose-blockquote:pr-4 prose-blockquote:pl-0 prose-blockquote:text-brand-textMuted prose-blockquote:italic prose-a:text-brand-primary prose-a:font-medium hover:prose-a:underline prose-strong:text-brand-textMain"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
+
+          {/* FAQ - powers the FAQPage schema above */}
+          {post.faqs && post.faqs.length > 0 && (
+            <section className="mt-16">
+              <h2 className="text-2xl font-bold text-brand-textMain mb-6">
+                שאלות נפוצות
+              </h2>
+              <Accordion type="single" collapsible className="w-full">
+                {post.faqs.map((item, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`}>
+                    <AccordionTrigger className="text-right text-base font-semibold hover:no-underline">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-brand-textMuted text-right leading-relaxed">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </section>
+          )}
 
           {/* CTA */}
           <section className="mt-16 bg-brand-background rounded-2xl p-8 text-center">

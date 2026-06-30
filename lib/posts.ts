@@ -4,6 +4,11 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
+export interface PostFaq {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -15,6 +20,14 @@ export interface BlogPost {
   readingTime: string;
   author: string;
   keywords?: string[];
+  /** 40-60 word direct answer rendered at the top (inverted pyramid / AEO + speakable). */
+  answer?: string;
+  /** Q&A pairs powering the visible accordion AND the FAQPage JSON-LD. */
+  faqs?: PostFaq[];
+  /** Logical section/category, surfaced in the Article schema (articleSection). */
+  articleSection?: string;
+  /** Word count of the markdown body, surfaced in the Article schema (wordCount). */
+  wordCount: number;
 }
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
@@ -38,6 +51,7 @@ export async function getPostBySlug(
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
   const contentHtml = await markdownToHtml(content);
+  const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
 
   return {
     slug,
@@ -50,6 +64,10 @@ export async function getPostBySlug(
     readingTime: data.readingTime,
     author: data.author,
     keywords: data.keywords || undefined,
+    answer: data.answer || undefined,
+    faqs: data.faqs || undefined,
+    articleSection: data.articleSection || undefined,
+    wordCount,
   };
 }
 

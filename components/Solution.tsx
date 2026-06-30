@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaStethoscope } from "react-icons/fa";
 import imege from "../public/esti-profile.jpg";
 
@@ -90,6 +91,59 @@ export default function Solution() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Brand Hub - factual block, synced with llms.txt for AEO citation */}
+      <div className="mt-14 bg-white border border-gray-200 rounded-2xl shadow-md p-8 md:p-10">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-black">
+          Esti Office — עובדות על השירות
+        </h2>
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-[1.05rem] max-w-3xl mx-auto">
+          <div className="flex justify-between gap-4 border-b border-gray-100 pb-2">
+            <dt className="font-semibold text-brand-darkTeal">מייסדת</dt>
+            <dd className="text-gray-700">אסתי גלר (Esti Geller)</dd>
+          </div>
+          <div className="flex justify-between gap-4 border-b border-gray-100 pb-2">
+            <dt className="font-semibold text-brand-darkTeal">ניסיון</dt>
+            <dd className="text-gray-700">מעל עשור בליווי בעלי מקצוע</dd>
+          </div>
+          <div className="flex justify-between gap-4 border-b border-gray-100 pb-2">
+            <dt className="font-semibold text-brand-darkTeal">אזור שירות</dt>
+            <dd className="text-gray-700">ישראל (שירות מרחוק)</dd>
+          </div>
+          <div className="flex justify-between gap-4 border-b border-gray-100 pb-2">
+            <dt className="font-semibold text-brand-darkTeal">שעות פעילות</dt>
+            <dd className="text-gray-700">ראשון–חמישי, 08:00–17:00</dd>
+          </div>
+          <div className="flex justify-between gap-4 border-b border-gray-100 pb-2">
+            <dt className="font-semibold text-brand-darkTeal">מודל עבודה</dt>
+            <dd className="text-gray-700">מודולרי, ללא התחייבות, ללא עלויות מעביד</dd>
+          </div>
+          <div className="flex justify-between gap-4 border-b border-gray-100 pb-2">
+            <dt className="font-semibold text-brand-darkTeal">שפת השירות</dt>
+            <dd className="text-gray-700">עברית</dd>
+          </div>
+        </dl>
+
+        <p className="mt-6 text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+          השירות כולל ניהול יומן ותיאום תורים, גבייה וסדר פיננסי, תיעוד והפקת
+          דוחות, ניהול מערכות וכלים דיגיטליים, אוטומציות, ושמירה על דיסקרטיות
+          וחיסיון. רוצים את הפירוט המלא? קראו על{" "}
+          <Link
+            href="/services"
+            className="text-brand-primary font-medium hover:underline"
+          >
+            שירותי משרד מרחוק ומזכירה וירטואלית במיקור חוץ
+          </Link>{" "}
+          או על{" "}
+          <Link
+            href="/how-it-works"
+            className="text-brand-primary font-medium hover:underline"
+          >
+            תהליך ההתחלה והתמחור
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );
