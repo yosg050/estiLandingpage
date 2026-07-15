@@ -174,9 +174,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Facebook Pixel + GA4 ViewContent for this blog post */}
       <PageViewTracker type="blog" identifier={post.slug} />
 
-      <main className="min-h-screen bg-white pt-24 max-w-5xl mx-auto" dir="rtl">
+      <main className="min-h-screen bg-brand-lightGray/40 pt-32 pb-6" dir="rtl">
         {" "}
-        <article className="container mx-auto px-6 py-12 max-w-3xl">
+        <article className="bg-white rounded-2xl shadow-sm mx-auto px-6 md:px-10 py-12 max-w-4xl">
           {/* Breadcrumbs */}
           <nav className="text-sm text-brand-textMuted mb-8">
             <Link
@@ -201,19 +201,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <h1 className="text-3xl md:text-4xl font-bold text-brand-textMain mb-4 leading-tight">
               {post.title}
             </h1>
-            <div className="flex items-center gap-4 text-brand-textMuted text-sm">
-              <span>{post.author}</span>
-              <span>·</span>
-              <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString("he-IL", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              <span>·</span>
-              <span>{post.readingTime}</span>
-            </div>
+          
           </header>
 
           {/* Direct answer (inverted pyramid) - speakable target for AI engines */}

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
+import remarkGfm from "remark-gfm";
 import html from "remark-html";
 
 export interface PostFaq {
@@ -17,7 +18,6 @@ export interface BlogPost {
   contentHtml: string;
   date: string;
   dateModified?: string;
-  readingTime: string;
   author: string;
   keywords?: string[];
   /** 40-60 word direct answer rendered at the top (inverted pyramid / AEO + speakable). */
@@ -38,7 +38,10 @@ function getPostFiles(): string[] {
 }
 
 async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark().use(html, { sanitize: false }).process(markdown);
+  const result = await remark()
+    .use(remarkGfm)
+    .use(html, { sanitize: false })
+    .process(markdown);
   return result.toString();
 }
 
@@ -61,7 +64,6 @@ export async function getPostBySlug(
     contentHtml,
     date: data.date,
     dateModified: data.dateModified || undefined,
-    readingTime: data.readingTime,
     author: data.author,
     keywords: data.keywords || undefined,
     answer: data.answer || undefined,
