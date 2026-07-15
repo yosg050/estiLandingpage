@@ -11,6 +11,13 @@ const nextConfig = {
         destination: "/how-it-works",
         permanent: true,
       },
+      {
+        // De-medicalize the URL: drop "clinic" from the slug. 301 preserves any
+        // accrued ranking signal and prevents a 404 on the old indexed URL.
+        source: "/blog/clinic-billing-management",
+        destination: "/blog/business-billing-management",
+        permanent: true,
+      },
     ];
   },
   async headers() {

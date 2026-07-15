@@ -12,15 +12,15 @@ import {
 import { faqs } from "@/data/faqs";
 
 export const metadata: Metadata = {
-  title: "כמה עולה מזכירה וירטואלית? | תמחור ותהליך התחלה | Esti Office",
+  title: "כמה עולה מזכירה וירטואלית ושירותי משרד? תמחור ותהליך | Esti Office",
   description:
-    "כמה עולה מזכירה וירטואלית לרופא או מטפל עצמאי? תהליך פשוט: שיחת היכרות בחינם, התאמת תהליכי עבודה לעסק שלכם, עבודה מידית ללא התחייבות.",
+    "כמה עולה מזכירה וירטואלית ושירותי משרד מרחוק לבעל מקצוע עצמאי? תהליך פשוט: שיחת היכרות בחינם, התאמת תהליכי עבודה לעסק שלכם, עבודה מידית ללא התחייבות.",
   alternates: {
     canonical: "https://estioffice.co.il/how-it-works",
   },
   openGraph: {
-    title: "כמה עולה מזכירה וירטואלית? | תמחור ותהליך התחלה | Esti Office",
-    description: "כמה עולה מזכירה וירטואלית לרופא או מטפל עצמאי? תהליך פשוט: שיחת היכרות בחינם, התאמת תהליכי עבודה לעסק שלכם, עבודה מידית ללא התחייבות.",
+    title: "כמה עולה מזכירה וירטואלית ושירותי משרד? תמחור ותהליך | Esti Office",
+    description: "כמה עולה מזכירה וירטואלית ושירותי משרד מרחוק לבעל מקצוע עצמאי? תהליך פשוט: שיחת היכרות בחינם, התאמת תהליכי עבודה לעסק שלכם, עבודה מידית ללא התחייבות.",
     url: "https://estioffice.co.il/how-it-works",
     siteName: "Esti Office - ניהול משרד מרחוק",
     locale: "he_IL",
@@ -88,11 +88,32 @@ const faqSchema = {
   })),
 };
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "איך מתחילים לעבוד עם שירותי משרד מרחוק ומזכירה וירטואלית",
+  description:
+    "תהליך ההתחלה של Esti Office בשלושה שלבים: שיחת היכרות, התאמת תהליכי עבודה והתחלת עבודה מיידית.",
+  inLanguage: "he-IL",
+  totalTime: "P14D",
+  step: steps.map((step) => ({
+    "@type": "HowToStep",
+    position: step.number,
+    name: step.title,
+    text: step.description,
+    itemListElement: step.details.map((detail) => ({
+      "@type": "HowToDirection",
+      text: detail,
+    })),
+  })),
+};
+
 export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-white pt-24" dir="rtl">
       <Script id="breadcrumb-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="howto-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       {/* Hero */}
       <section className="py-16 px-4">
         <div className="container mx-auto text-center max-w-3xl">

@@ -5,15 +5,15 @@ import { getAllPosts } from "@/lib/posts";
 import CalBookingButton from "@/components/CalBookingButton";
 
 export const metadata: Metadata = {
-  title: "מאמרים | ייעול עסק ומזכירה וירטואלית | Esti Office",
+  title: "מאמרים | שירותי משרד מרחוק ומזכירה וירטואלית | Esti Office",
   description:
-    "מאמרים וטיפים לרופאים, פסיכולוגים ומטפלים: ייעול עסק, ביטולי תורים, גבייה ממטופלים, מזכירה וירטואלית וניהול יומן.",
+    "מאמרים וטיפים לבעלי מקצוע בתחום הטיפול: שירותי משרד מרחוק, ייעול עסק, ביטולי תורים, גבייה, מזכירה וירטואלית וניהול יומן.",
   alternates: {
     canonical: "https://estioffice.co.il/blog",
   },
   openGraph: {
-    title: "מאמרים | ייעול עסק ומזכירה וירטואלית | Esti Office",
-    description: "מאמרים וטיפים לרופאים, פסיכולוגים ומטפלים: ייעול עסק, ביטולי תורים, גבייה ממטופלים, מזכירה וירטואלית וניהול יומן.",
+    title: "מאמרים | שירותי משרד מרחוק ומזכירה וירטואלית | Esti Office",
+    description: "מאמרים וטיפים לבעלי מקצוע בתחום הטיפול: שירותי משרד מרחוק, ייעול עסק, ביטולי תורים, גבייה, מזכירה וירטואלית וניהול יומן.",
     url: "https://estioffice.co.il/blog",
     siteName: "Esti Office - ניהול משרד מרחוק",
     locale: "he_IL",
@@ -54,17 +54,7 @@ export default async function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="group block bg-brand-background rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-brand-lightGray"
               >
-                <div className="flex items-center gap-2 text-sm text-brand-textMuted">
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString("he-IL", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
-                  <span>·</span>
-                  <span>{post.readingTime}</span>
-                </div>
+             
 
                 <h2 className="text-xl font-bold text-brand-textMain mt-3 mb-3 group-hover:text-brand-primary transition-colors">
                   {post.title}

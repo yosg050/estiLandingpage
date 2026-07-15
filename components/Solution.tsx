@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaStethoscope } from "react-icons/fa";
 import imege from "../public/esti-profile.jpg";
 
