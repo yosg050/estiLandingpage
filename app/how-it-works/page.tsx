@@ -35,7 +35,7 @@ const steps = [
     title: "שיחת היכרות",
     icon: <Phone className="h-8 w-8 text-white" />,
     description:
-      "שיחה קצרה של כ-30 דקות שבה נכיר את העסק שלכם ונבין את הצרכים.",
+      "שיחה קצרה שבה נכיר את העסק שלכם ונבין את הצרכים.",
     details: [
       "נבין איך העסק שלכם פועל היום",
       "נזהה את הנקודות שדורשות את הכי הרבה זמן ניהולי",
@@ -234,7 +234,7 @@ export default function HowItWorksPage() {
             מוכנים להתחיל?
           </h2>
           <p className="text-gray-600 text-lg mb-8">
-            שיחת היכרות של 30 דקות - בחינם וללא התחייבות
+            שיחת היכרות - בחינם וללא התחייבות
           </p>
           <CalBookingButton calUsername="esti-office" eventSlug="30min" />
         </div>

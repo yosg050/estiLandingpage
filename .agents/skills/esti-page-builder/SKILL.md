@@ -63,7 +63,7 @@ export default function PageName() {
         <div className="container mx-auto text-center max-w-2xl">
           <h2 className="text-3xl font-bold mb-4">רוצים להתחיל?</h2>
           <p className="text-gray-600 text-lg mb-8">
-            שיחת היכרות של 30 דקות - בחינם וללא התחייבות
+            שיחת היכרות - בחינם וללא התחייבות
           </p>
           <CalBookingButton calUsername="esti-office" eventSlug="30min" />
         </div>
