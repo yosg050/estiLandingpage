@@ -143,7 +143,7 @@ export default function HomeCTA() {
                 רוצים לקבוע פגישה מיידית?{" "}
               </h3>
               <p className="text-gray-600 mb-4">
-                לקביעת שיחת היכרות של 30 דקות - בלי התחייבות
+                לקביעת שיחת היכרות - בלי התחייבות
               </p>
               <CalBookingButton calUsername="esti-office" eventSlug="30min" />
             </div>
